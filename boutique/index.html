@@ -12,27 +12,31 @@
 <style>
 /* Mise en page : boutique en ligne. Bandeau de livraison, ouverture courte, filtres par catégorie, grille de produits, panier en tiroir, commande en deux étapes. Matières : laiton, céramique, cire. */
 :root {
-  --fond: #fafaf8;
+  --fond: #f6f7fc;
   --surface: #ffffff;
-  --sable: #ece6da;
-  --encre: #1e1e1c;
-  --doux: #6b6862;
-  --laiton: #9a7a2e;
-  --laiton-fort: #7a5f1f;
-  --trait: #e3ded4;
-  --ok: #2f7a4b;
+  --sable: #e8edfd;          /* bleu très pâle */
+  --encre: #121833;
+  --doux: #565d7a;
+  --laiton: #2147d9;         /* bleu outremer, vitraux de Chagall */
+  --laiton-fort: #1a37b0;
+  --rouge: #e3343f;
+  --jaune: #f6c42c;
+  --vert: #17a06e;
+  --violet: #6c3fc4;
+  --trait: #dfe3f2;
+  --ok: #17a06e;
   --titre: "Suez One", "Frank Ruhl Libre", Georgia, serif;
   --texte: "Alef", "Segoe UI", system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --fond: #141412; --surface: #1d1d1a; --sable: #26241f; --encre: #efece6; --doux: #aaa59b;
-    --laiton: #d4b062; --laiton-fort: #e6c67f; --trait: #2f2d28; --ok: #6fca8f; color-scheme: dark;
+    --fond: #0e1226; --surface: #161b36; --sable: #1d2550; --encre: #eef0fb; --doux: #a7aed0;
+    --laiton: #7f9cff; --laiton-fort: #a5baff; --trait: #2a3160; --ok: #4fd39c; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --fond: #141412; --surface: #1d1d1a; --sable: #26241f; --encre: #efece6; --doux: #aaa59b;
-  --laiton: #d4b062; --laiton-fort: #e6c67f; --trait: #2f2d28; --ok: #6fca8f; color-scheme: dark;
+  --fond: #0e1226; --surface: #161b36; --sable: #1d2550; --encre: #eef0fb; --doux: #a7aed0;
+  --laiton: #7f9cff; --laiton-fort: #a5baff; --trait: #2a3160; --ok: #4fd39c; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -45,44 +49,56 @@ button { font-family: var(--texte); }
 
 .demo-bandeau { background: var(--encre); color: var(--fond); font-size: 14px; text-align: center; }
 .demo-bandeau .env { padding-block: 6px; }
-.livraison-bandeau { background: var(--sable); font-size: 15px; text-align: center; }
+.livraison-bandeau { background: var(--jaune); color: #121833; font-size: 15px; font-weight: 700; text-align: center; }
 .livraison-bandeau .env { padding-block: 8px; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--fond); }
 header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 6; background: color-mix(in srgb, var(--fond) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--trait); }
 header .env { display: flex; align-items: center; gap: 18px; padding-block: 12px; }
 .marque { font-family: var(--titre); font-size: 26px; text-decoration: none; color: var(--encre); }
-.marque span { color: var(--laiton); }
+.marque span { color: var(--rouge); }
 .droite { margin-inline-start: auto; display: flex; align-items: center; gap: 12px; }
 .langues { display: flex; border: 1px solid var(--trait); border-radius: 999px; padding: 3px; }
 .langues button { border: 0; background: none; color: var(--doux); font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; cursor: pointer; min-width: 44px; }
 .langues button[aria-pressed="true"] { background: var(--encre); color: var(--fond); }
-.btn-panier { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--encre); background: var(--encre); color: var(--fond); border-radius: 999px; padding: 0 18px; min-height: 44px; font-weight: 700; font-size: 16px; cursor: pointer; }
-.btn-panier b { background: var(--laiton); color: #1e1e1c; border-radius: 999px; min-width: 24px; height: 24px; display: inline-grid; place-items: center; font-size: 14px; padding: 0 6px; }
+.btn-panier { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--laiton); background: var(--laiton); color: #fff; border-radius: 999px; padding: 0 18px; min-height: 44px; font-weight: 700; font-size: 16px; cursor: pointer; }
+.btn-panier b { background: var(--rouge); color: #fff; border-radius: 999px; min-width: 24px; height: 24px; display: inline-grid; place-items: center; font-size: 14px; padding: 0 6px; }
 
-.ouverture .env { padding-block: 48px 32px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: end; }
-.ouverture h1 { font-size: clamp(38px, 5.4vw, 64px); }
-.ouverture p { margin: 0; color: var(--doux); font-size: 19px; }
+.ouverture { position: relative; overflow: hidden; color: #fff; margin-bottom: 28px;
+  background:
+    radial-gradient(circle at 82% 30%, rgba(246,196,44,0.95) 0 7%, transparent 7.1%),
+    conic-gradient(from 200deg at 78% 60%, #e3343f 0 12%, #6c3fc4 0 26%, #17a06e 0 38%, #2147d9 0 62%, #f6c42c 0 70%, #1636b8 0 100%);
+}
+.ouverture::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+  background: repeating-linear-gradient(62deg, transparent 0 46px, rgba(10,14,40,0.55) 46px 49px), repeating-linear-gradient(-28deg, transparent 0 64px, rgba(10,14,40,0.55) 64px 67px); }
+.ouverture::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,24,80,0.92) 0 46%, rgba(18,24,80,0.35) 75%, transparent); pointer-events: none; }
+[dir="rtl"] .ouverture::after { background: linear-gradient(270deg, rgba(18,24,80,0.92) 0 46%, rgba(18,24,80,0.35) 75%, transparent); }
+.ouverture .env { position: relative; z-index: 1; padding-block: 72px 64px; display: grid; gap: 18px; max-width: 1160px; }
+.ouverture h1 { font-size: clamp(40px, 6vw, 72px); max-width: 11em; }
+.ouverture p { margin: 0; color: rgba(255,255,255,0.88); font-size: 19px; max-width: 30em; }
+.ouverture .cta { justify-self: start; display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; border-radius: 999px; background: var(--jaune); color: #121833; font-weight: 700; text-decoration: none; }
 
 .filtres { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 8px 24px; }
 .filtre { border: 1.5px solid var(--trait); background: var(--surface); color: var(--encre); border-radius: 999px; padding: 8px 16px; font-size: 16px; font-weight: 700; cursor: pointer; min-height: 42px; }
-.filtre[aria-pressed="true"] { background: var(--encre); color: var(--fond); border-color: var(--encre); }
+.filtre[aria-pressed="true"] { background: var(--laiton); color: #fff; border-color: var(--laiton); }
 
 .grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding-bottom: 72px; }
 .produit { background: var(--surface); border: 1px solid var(--trait); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
 .visuel { aspect-ratio: 4 / 3; display: grid; place-items: center; max-width: 100%; position: relative; }
 .visuel svg { width: 46%; height: auto; }
-.etiquette { position: absolute; top: 12px; inset-inline-start: 12px; background: var(--surface); color: var(--encre); border-radius: 999px; font-size: 13px; font-weight: 700; padding: 3px 10px; }
+.etiquette { position: absolute; top: 12px; inset-inline-start: 12px; background: #fff; color: #121833; border-radius: 999px; font-size: 13px; font-weight: 700; padding: 3px 10px; }
 .infos { padding: 18px; display: grid; gap: 6px; align-content: start; }
 .infos h3 { font-size: 22px; }
 .infos p { margin: 0; color: var(--doux); font-size: 16px; }
 .bas { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
 .prix { font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; }
-.ajouter { border: 1.5px solid var(--encre); background: transparent; color: var(--encre); border-radius: 999px; padding: 0 16px; min-height: 42px; font-weight: 700; font-size: 15px; cursor: pointer; }
+.ajouter { border: 1.5px solid var(--laiton); background: transparent; color: var(--laiton); border-radius: 999px; padding: 0 16px; min-height: 42px; font-weight: 700; font-size: 15px; cursor: pointer; }
+.ajouter:hover { background: var(--laiton); color: #fff; }
 .ajouter.fait { background: var(--ok); border-color: var(--ok); color: #fff; }
 
 .garanties { border-top: 1px solid var(--trait); }
 .garanties .env { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-block: 40px; }
-.garanties h3 { font-size: 19px; margin-bottom: 4px; }
+.garanties h3 { font-size: 19px; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+.garanties h3::before { content: ""; width: 12px; height: 12px; border-radius: 3px; transform: rotate(45deg); background: var(--c, var(--laiton)); flex: none; }
 .garanties p { margin: 0; color: var(--doux); font-size: 16px; }
 
 /* Tiroir du panier */
@@ -110,7 +126,7 @@ header .env { display: flex; align-items: center; gap: 18px; padding-block: 12px
 .totaux dt { color: var(--doux); }
 .totaux dd { margin: 0; text-align: end; }
 .totaux .total { font-weight: 700; font-size: 20px; color: var(--encre); }
-.commander { border: 0; background: var(--encre); color: var(--fond); border-radius: 999px; min-height: 52px; font-weight: 700; font-size: 17px; cursor: pointer; width: 100%; }
+.commander { border: 0; background: var(--laiton); color: #fff; border-radius: 999px; min-height: 52px; font-weight: 700; font-size: 17px; cursor: pointer; width: 100%; }
 .commander:disabled { opacity: 0.4; cursor: not-allowed; }
 .vide { text-align: center; color: var(--doux); padding: 40px 0; }
 .formulaire { display: grid; gap: 12px; }
@@ -161,18 +177,19 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
     <div class="env">
       <h1 data-t="o-titre">Judaïca contemporaine, façonnée à Jérusalem</h1>
       <p data-t="o-p">Hanoukiot en laiton, mezouzot en céramique, bougies de Chabbat coulées à la main. Chaque pièce est fabriquée dans notre atelier du quartier de Nahlaot.</p>
+      <a class="cta" href="#catalogue" data-t="o-cta">Voir la collection</a>
     </div>
   </div>
   <div class="env">
-    <div class="filtres" id="filtres" role="group" aria-label="Catégories"></div>
+    <div id="catalogue" style="scroll-margin-top: 90px"><div class="filtres" id="filtres" role="group" aria-label="Catégories"></div></div>
     <div class="grille" id="grille"></div>
   </div>
   <div class="garanties">
     <div class="env">
-      <div><h3 data-t="g1">Fait main</h3><p data-t="g1d">Dans notre atelier de Nahlaot, pièce par pièce.</p></div>
-      <div><h3 data-t="g2">Paiement sécurisé</h3><p data-t="g2d">Carte bancaire, Bit ou PayPal.</p></div>
-      <div><h3 data-t="g3">Israël et France</h3><p data-t="g3d">Livraison à domicile ou en point relais.</p></div>
-      <div><h3 data-t="g4">Emballage cadeau</h3><p data-t="g4d">Offert, avec un mot écrit à la main.</p></div>
+      <div style="--c: var(--jaune)"><h3 data-t="g1">Fait main</h3><p data-t="g1d">Dans notre atelier de Nahlaot, pièce par pièce.</p></div>
+      <div style="--c: var(--laiton)"><h3 data-t="g2">Paiement sécurisé</h3><p data-t="g2d">Carte bancaire, Bit ou PayPal.</p></div>
+      <div style="--c: var(--rouge)"><h3 data-t="g3">Israël et France</h3><p data-t="g3d">Livraison à domicile ou en point relais.</p></div>
+      <div style="--c: var(--vert)"><h3 data-t="g4">Emballage cadeau</h3><p data-t="g4d">Offert, avec un mot écrit à la main.</p></div>
     </div>
   </div>
 </main>
@@ -196,8 +213,8 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
     coupe: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><path d="M28 14h44c0 26-8 40-22 40S28 40 28 14z"/><path d="M50 54v24M34 88h32M38 80h24"/><path d="M30 26h40"/></svg>',
     sac: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><rect x="16" y="28" width="68" height="56" rx="6"/><path d="M16 46h68"/><path d="M42 62l8-10 8 10-8 10z"/></svg>'
   };
-  const FONDS = { hanoukia: "#e8dcc0", mezouza: "#d9e4e1", bougie: "#efe1d3", plateau: "#e2dfd8", coupe: "#e6dbc7", sac: "#dde1ea" };
-  const ENCRES = { hanoukia: "#6b521a", mezouza: "#2e5e57", bougie: "#7a4a2a", plateau: "#4a4740", coupe: "#6b521a", sac: "#33415c" };
+  const FONDS = { hanoukia: "#f6c42c", mezouza: "#2147d9", bougie: "#e3343f", plateau: "#17a06e", coupe: "#6c3fc4", sac: "#f07a32" };
+  const ENCRES = { hanoukia: "#1a1d4a", mezouza: "#ffffff", bougie: "#ffffff", plateau: "#ffffff", coupe: "#ffffff", sac: "#ffffff" };
   const PRODUITS = [
     { id: 1, cat: "lumiere", illu: "hanoukia", prix: 680, tag: "nouveau" },
     { id: 2, cat: "maison", illu: "mezouza", prix: 240 },
@@ -216,10 +233,10 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
       bandeau: "Livraison offerte en Israël dès 400 ₪ · Envoi en France sous 7 jours",
       marque: "Atelier <span>Or</span>", panier: "Panier",
       "o-titre": "Judaïca contemporaine, façonnée à Jérusalem",
-      "o-p": "Hanoukiot en laiton, mezouzot en céramique, bougies de Chabbat coulées à la main. Chaque pièce est fabriquée dans notre atelier du quartier de Nahlaot.",
+      "o-p": "Hanoukiot en laiton, mezouzot en céramique, bougies de Chabbat coulées à la main. Chaque pièce est fabriquée dans notre atelier du quartier de Nahlaot.", "o-cta": "Voir la collection",
       cats: { tout: "Tout", lumiere: "Hanoucca et lumière", chabbat: "Chabbat", maison: "Maison" },
       tags: { nouveau: "Nouveau", top: "Le plus vendu" },
-      noms: { 1: "Hanoukia « Collines »", 2: "Mezouza céramique turquoise", 3: "Bougies de Chabbat, la paire", 4: "Plateau à hallot en olivier", 5: "Coupe de Kiddouch martelée", 6: "Pochette à tallit brodée", 7: "Hanoukia de voyage", 8: "Mezouza enfant, émaillée", 9: "Coffret de 44 bougies de Hanoucca" },
+      noms: { 1: "Hanoukia « Collines »", 2: "Mezouza céramique bleu outremer", 3: "Bougies de Chabbat, la paire", 4: "Plateau à hallot en olivier", 5: "Coupe de Kiddouch martelée", 6: "Pochette à tallit brodée", 7: "Hanoukia de voyage", 8: "Mezouza enfant, émaillée", 9: "Coffret de 44 bougies de Hanoucca" },
       desc: { 1: "Laiton brossé, neuf branches en courbes douces. 32 cm.", 2: "Céramique émaillée à la main, fixation incluse. 15 cm.", 3: "Cire d'abeille coulée à la main, 4 heures de combustion.", 4: "Bois d'olivier de Galilée, huilé, gravure au choix.", 5: "Laiton martelé, intérieur argenté. 15 cl.", 6: "Lin naturel, broderie de fil d'or, prénom offert.", 7: "Compacte et pliable, pour les fêtes loin de chez soi.", 8: "Couleurs vives, idéale pour une chambre d'enfant.", 9: "Les huit soirs de Hanoucca, bougies colorées." },
       ajouter: "Ajouter", ajoute: "Ajouté ✓",
       vide: "Votre panier est vide.", sousTotal: "Sous-total", livraison: "Livraison", total: "Total", offerte: "offerte",
@@ -240,10 +257,10 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
       bandeau: "משלוח חינם בישראל מעל 400 ₪ · משלוח לצרפת תוך 7 ימים",
       marque: "אטלייה <span>אור</span>", panier: "סל קניות",
       "o-titre": "יודאיקה עכשווית, בעבודת יד בירושלים",
-      "o-p": "חנוכיות מפליז, מזוזות מקרמיקה, נרות שבת יצוקים ביד. כל פריט נוצר בסדנה שלנו בשכונת נחלאות.",
+      "o-p": "חנוכיות מפליז, מזוזות מקרמיקה, נרות שבת יצוקים ביד. כל פריט נוצר בסדנה שלנו בשכונת נחלאות.", "o-cta": "לקולקציה",
       cats: { tout: "הכול", lumiere: "חנוכה ואור", chabbat: "שבת", maison: "בית" },
       tags: { nouveau: "חדש", top: "הנמכר ביותר" },
-      noms: { 1: "חנוכיית „גבעות”", 2: "מזוזת קרמיקה טורקיז", 3: "זוג נרות שבת", 4: "מגש חלות מעץ זית", 5: "גביע קידוש מרוקע", 6: "תיק טלית רקום", 7: "חנוכיית נסיעות", 8: "מזוזת ילדים מאומלת", 9: "מארז 44 נרות חנוכה" },
+      noms: { 1: "חנוכיית „גבעות”", 2: "מזוזת קרמיקה כחולה", 3: "זוג נרות שבת", 4: "מגש חלות מעץ זית", 5: "גביע קידוש מרוקע", 6: "תיק טלית רקום", 7: "חנוכיית נסיעות", 8: "מזוזת ילדים מאומלת", 9: "מארז 44 נרות חנוכה" },
       desc: { 1: "פליז מוברש, תשעה קנים בקווים רכים. 32 ס\"מ.", 2: "קרמיקה מזוגגת ביד, כולל התקנה. 15 ס\"מ.", 3: "שעוות דבורים יצוקה ביד, 4 שעות בעירה.", 4: "עץ זית מהגליל, משומן, חריטה לבחירה.", 5: "פליז מרוקע, ציפוי כסף פנימי. 15 מ\"ל.", 6: "פשתן טבעי, רקמת חוט זהב, שם במתנה.", 7: "קומפקטית ומתקפלת, לחגים הרחק מהבית.", 8: "צבעים עזים, מושלמת לחדר ילדים.", 9: "שמונת לילות החנוכה, נרות צבעוניים." },
       ajouter: "הוספה", ajoute: "נוסף ✓",
       vide: "הסל ריק.", sousTotal: "סכום ביניים", livraison: "משלוח", total: "סה\"כ", offerte: "חינם",
