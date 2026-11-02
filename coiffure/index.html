@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Atelier Shira, salon de coiffure à Netanya (site de démonstration).">
+<title>Atelier Shira</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Assistant:wght@400;600;700&display=swap">
+<style>
+/* Mise en page : salon élégant et sobre. Ouverture typographique, carte des prestations comme un menu, réservation en trois choix, nuancier de couleurs, équipe, infos pratiques. */
+:root {
+  --fond: #fbf8f6;
+  --surface: #ffffff;
+  --encre: #2b1a22;          /* aubergine */
+  --doux: #75636b;
+  --rose: #f2dfe0;           /* rose poudré */
+  --accent: #9b3d5a;         /* framboise profonde */
+  --trait: #eadfdf;
+  --plein: #b8a8ae;
+  --titre: "Bellefair", "Frank Ruhl Libre", Georgia, serif;
+  --texte: "Assistant", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #1a1216; --surface: #23181e; --encre: #f3e9ec; --doux: #b9a6ae; --rose: #3a2530;
+    --accent: #e48aa6; --trait: #3a2a32; --plein: #6e5a63; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fond: #1a1216; --surface: #23181e; --encre: #f3e9ec; --doux: #b9a6ae; --rose: #3a2530;
+  --accent: #e48aa6; --trait: #3a2a32; --plein: #6e5a63; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--fond); color: var(--encre); font: 18px/1.6 var(--texte); }
+h1, h2, h3 { font-family: var(--titre); font-weight: 400; line-height: 1.1; margin: 0; text-wrap: balance; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.env { max-width: 1100px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.petit { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+[dir="rtl"] .petit { letter-spacing: 0; font-size: 15px; }
+
+.demo-bandeau { background: var(--encre); color: var(--fond); font-size: 14px; text-align: center; }
+.demo-bandeau .env { padding-block: 7px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--fond); }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--fond) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--trait); }
+header .env { display: flex; align-items: center; gap: 24px; padding-block: 14px; }
+.nom { font-family: var(--titre); font-size: 26px; text-decoration: none; color: var(--encre); letter-spacing: 0.02em; }
+header nav { margin-inline-start: auto; display: flex; gap: 22px; }
+header nav a { color: var(--doux); text-decoration: none; font-weight: 600; font-size: 16px; }
+.langues { display: flex; border: 1px solid var(--trait); border-radius: 999px; padding: 3px; }
+.langues button { border: 0; background: none; color: var(--doux); font: 700 14px var(--texte); padding: 6px 12px; border-radius: 999px; cursor: pointer; min-width: 44px; }
+.langues button[aria-pressed="true"] { background: var(--encre); color: var(--fond); }
+
+.bouton { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 1.5px solid var(--encre); font: 700 17px var(--texte); text-decoration: none; cursor: pointer; background: var(--encre); color: var(--fond); }
+.bouton.leger { background: transparent; color: var(--encre); }
+.bouton:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Ouverture */
+.ouverture .env { padding-block: 72px 64px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; }
+.ouverture h1 { font-size: clamp(48px, 8vw, 104px); letter-spacing: -0.01em; }
+.ouverture h1 span { display: block; color: var(--accent); font-style: italic; }
+[dir="rtl"] .ouverture h1 span { font-style: normal; }
+.ouverture p { color: var(--doux); font-size: 20px; margin: 0 0 24px; }
+.ouverture .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.infos-rapides { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; border-inline-start: 1px solid var(--trait); padding-inline-start: 24px; }
+.infos-rapides li { display: grid; }
+.infos-rapides b { font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--doux); font-weight: 700; }
+[dir="rtl"] .infos-rapides b { letter-spacing: 0; font-size: 14px; }
+
+section { padding-block: 80px; }
+section.rose { background: var(--rose); }
+.tete { display: grid; gap: 10px; margin-bottom: 40px; max-width: 40em; }
+.tete h2 { font-size: clamp(36px, 4.6vw, 56px); }
+.tete p { margin: 0; color: var(--doux); }
+
+/* Carte des prestations */
+.carte { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 64px; }
+.categorie h3 { font-size: 30px; margin-bottom: 8px; }
+.prestation { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding-block: 12px; border-bottom: 1px dotted var(--plein); }
+.prestation .pnom { font-weight: 600; }
+.prestation .prix { font-variant-numeric: tabular-nums; font-weight: 700; }
+.prestation .duree { grid-column: 1 / -1; color: var(--doux); font-size: 15px; }
+.categorie { margin-bottom: 32px; }
+
+/* Réservation */
+.reserve { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.etape { background: var(--surface); border-radius: 20px; padding: 22px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.etape h3 { font-size: 26px; display: flex; gap: 10px; align-items: baseline; }
+.etape h3 small { font-family: var(--texte); font-size: 14px; color: var(--accent); font-weight: 700; }
+.options { display: grid; gap: 8px; }
+.option { display: flex; justify-content: space-between; gap: 10px; align-items: center; border: 1.5px solid var(--trait); border-radius: 14px; padding: 10px 14px; cursor: pointer; background: none; font: 600 16px var(--texte); color: var(--encre); text-align: start; width: 100%; min-height: 48px; }
+.option small { color: var(--doux); font-weight: 400; white-space: nowrap; }
+.option[aria-pressed="true"] { border-color: var(--accent); background: var(--rose); }
+.jours { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.jour { border: 1.5px solid var(--trait); border-radius: 14px; padding: 8px 4px; background: none; cursor: pointer; display: grid; justify-items: center; color: var(--encre); font: 600 14px var(--texte); min-height: 64px; }
+.jour b { font-size: 22px; font-family: var(--titre); font-weight: 400; }
+.jour[aria-pressed="true"] { border-color: var(--accent); background: var(--rose); }
+.jour:disabled { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+.creneaux { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.creneau { border: 1.5px solid var(--trait); border-radius: 12px; padding: 10px 4px; background: none; cursor: pointer; font: 700 16px var(--texte); color: var(--encre); font-variant-numeric: tabular-nums; min-height: 46px; }
+.creneau[aria-pressed="true"] { background: var(--encre); color: var(--fond); border-color: var(--encre); }
+.creneau:disabled { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+.vide-etape { color: var(--doux); font-size: 16px; margin: 0; }
+.recap { margin-top: 20px; background: var(--surface); border-radius: 20px; padding: 22px; display: grid; grid-template-columns: 1fr auto; gap: 16px 24px; align-items: center; }
+.recap-texte { margin: 0; font-size: 18px; }
+.recap-champs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; grid-column: 1 / -1; }
+.recap-champs label { display: grid; gap: 4px; font-weight: 600; font-size: 15px; }
+.recap-champs input { font: 17px var(--texte); color: var(--encre); background: var(--fond); border: 1.5px solid var(--trait); border-radius: 12px; padding: 10px 14px; min-height: 48px; width: 100%; }
+.message-wa { grid-column: 1 / -1; background: var(--fond); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; white-space: pre-line; border: 1px dashed var(--plein); }
+.message-wa b { display: block; margin-bottom: 6px; font-size: 13px; color: var(--doux); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* Nuancier */
+.nuancier { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.teinte { display: grid; gap: 8px; }
+.meche { aspect-ratio: 3 / 4; border-radius: 999px 999px 18px 18px; box-shadow: inset 0 -30px 40px -20px rgba(0,0,0,0.25); max-width: 100%; }
+.teinte b { font-variant-numeric: tabular-nums; font-size: 20px; font-family: var(--titre); font-weight: 400; }
+.teinte span { color: var(--doux); font-size: 15px; line-height: 1.3; }
+
+/* Équipe */
+.equipe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.personne { display: grid; gap: 10px; align-content: start; }
+.monogramme { width: 84px; height: 84px; border-radius: 50%; display: grid; place-items: center; font-family: var(--titre); font-size: 34px; background: var(--rose); color: var(--accent); }
+.personne h3 { font-size: 28px; }
+.personne p { margin: 0; color: var(--doux); }
+
+.pratique { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.pratique h3 { font-size: 26px; margin-bottom: 10px; }
+.pratique p, .pratique dl { margin: 0; color: var(--doux); }
+.pratique dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; font-variant-numeric: tabular-nums; }
+.pratique dd { margin: 0; text-align: end; color: var(--encre); }
+
+footer { border-top: 1px solid var(--trait); }
+footer .env { padding-block: 28px; color: var(--doux); font-size: 15px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+@media (max-width: 900px) {
+  header nav { display: none; }
+  .langues { margin-inline-start: auto; }
+  .ouverture .env, .carte, .reserve, .pratique { grid-template-columns: 1fr; }
+  .infos-rapides { border-inline-start: 0; padding-inline-start: 0; border-top: 1px solid var(--trait); padding-top: 20px; }
+  .nuancier { grid-template-columns: repeat(3, 1fr); }
+  .equipe { grid-template-columns: 1fr; }
+  section { padding-block: 56px; }
+}
+@media (max-width: 520px) {
+  .recap { grid-template-columns: 1fr; }
+  .recap-champs { grid-template-columns: 1fr; }
+  .bouton { width: 100%; }
+  .ouverture .env { padding-block: 44px; }
+}
+</style>
+</head>
+<body>
+<div class="demo-bandeau"><div class="env" data-t="demo">Site de démonstration : ce salon est fictif.</div></div>
+<header>
+  <div class="env">
+    <a class="nom" href="#haut" data-t="nom">Atelier Shira</a>
+    <nav aria-label="Menu">
+      <a href="#prestations" data-t="n1">Prestations</a>
+      <a href="#rendez-vous" data-t="n2">Rendez-vous</a>
+      <a href="#couleurs" data-t="n3">Couleurs</a>
+      <a href="#infos" data-t="n4">Infos pratiques</a>
+    </nav>
+    <div class="langues" role="group" aria-label="Langue">
+      <button type="button" id="btn-fr" data-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" id="btn-he" data-lang="he" aria-pressed="false" lang="he">עב</button>
+    </div>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="ouverture">
+    <div class="env">
+      <div>
+        <div class="petit" data-t="o-sur">Coiffure et couleur · Netanya</div>
+        <h1><span data-t="o-h1a">Votre couleur,</span> <span data-t="o-h1b">notre métier.</span></h1>
+      </div>
+      <div>
+        <p data-t="o-p">Coupe, couleur, balayage et coiffures de mariée, par une équipe formée à Paris. Réservez en ligne en trente secondes.</p>
+        <div class="actions"><a class="bouton" href="#rendez-vous" data-t="o-cta">Prendre rendez-vous</a><a class="bouton leger" href="#prestations" data-t="o-cta2">Voir les tarifs</a></div>
+      </div>
+    </div>
+    <div class="env">
+      <ul class="infos-rapides" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); border: 0; padding: 0 0 48px;">
+        <li><b data-t="ir1">Adresse</b><span data-t="ir1v">24 rue Herzl, Netanya</span></li>
+        <li><b data-t="ir2">Aujourd'hui</b><span id="aujourdhui">—</span></li>
+        <li><b data-t="ir3">On parle</b><span data-t="ir3v">français, hébreu, anglais</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="rose" id="prestations">
+    <div class="env">
+      <div class="tete"><div class="petit" data-t="p-sur">Prestations</div><h2 data-t="p-titre">La carte du salon</h2><p data-t="p-p">Prix indicatifs pour cheveux mi-longs. Un diagnostic gratuit est fait avant chaque couleur.</p></div>
+      <div class="carte" id="carte"></div>
+    </div>
+  </section>
+
+  <section id="rendez-vous">
+    <div class="env">
+      <div class="tete"><div class="petit" data-t="r-sur">Rendez-vous</div><h2 data-t="r-titre">Réservez en trois choix</h2><p data-t="r-p">Choisissez la prestation, le jour et l'heure : votre demande part sur WhatsApp et le salon la confirme dans l'heure.</p></div>
+      <div class="reserve">
+        <div class="etape"><h3><small>1</small> <span data-t="r1">Prestation</span></h3><div class="options" id="choix-prestation"></div></div>
+        <div class="etape"><h3><small>2</small> <span data-t="r2">Jour</span></h3><div class="jours" id="choix-jour"></div></div>
+        <div class="etape"><h3><small>3</small> <span data-t="r3">Heure</span></h3><div id="zone-creneaux"></div></div>
+      </div>
+      <div class="recap">
+        <p class="recap-texte" id="recap-texte" aria-live="polite"></p>
+        <a class="bouton" id="envoyer-wa" href="#" target="_blank" rel="noopener" aria-disabled="true" data-t="r-envoyer">Envoyer sur WhatsApp</a>
+        <div class="recap-champs">
+          <label for="r-nom"><span data-t="r-nom">Votre prénom</span><input id="r-nom" autocomplete="given-name"></label>
+          <label for="r-tel"><span data-t="r-tel">Téléphone</span><input id="r-tel" type="tel" autocomplete="tel" dir="ltr"></label>
+        </div>
+        <div class="message-wa" id="apercu-message" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rose" id="couleurs">
+    <div class="env">
+      <div class="tete"><div class="petit" data-t="c-sur">Nuancier</div><h2 data-t="c-titre">Quelques teintes du moment</h2><p data-t="c-p">Le premier chiffre donne la hauteur de ton, de 1 (noir) à 10 (blond très très clair) ; après le point, le reflet.</p></div>
+      <div class="nuancier" id="nuancier"></div>
+    </div>
+  </section>
+
+  <section id="equipe">
+    <div class="env">
+      <div class="tete"><div class="petit" data-t="e-sur">L'équipe</div><h2 data-t="e-titre">Trois coiffeuses, trois spécialités</h2></div>
+      <div class="equipe">
+        <div class="personne"><div class="monogramme">S</div><h3 data-t="e1">Shira</h3><p data-t="e1d">Fondatrice. Coloriste, spécialiste du balayage et des blonds lumineux.</p></div>
+        <div class="personne"><div class="monogramme">N</div><h3 data-t="e2">Noa</h3><p data-t="e2d">Coupes courtes et coupes hommes, travail aux ciseaux.</p></div>
+        <div class="personne"><div class="monogramme">M</div><h3 data-t="e3">Myriam</h3><p data-t="e3d">Chignons et coiffures de mariée, essai offert pour la mariée.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rose" id="infos">
+    <div class="env pratique">
+      <div><h3 data-t="i1">Adresse</h3><p data-t="i1d">24 rue Herzl, Netanya. Parking public rue Smilansky, à deux minutes.</p><p style="margin-top: 12px"><a href="https://waze.com/ul?q=Herzl%20Netanya" target="_blank" rel="noopener">Waze</a> · <a href="https://www.google.com/maps/search/?api=1&query=Herzl+Netanya" target="_blank" rel="noopener">Google Maps</a></p></div>
+      <div><h3 data-t="i2">Horaires</h3><dl id="horaires"></dl></div>
+      <div><h3 data-t="i3">Contact</h3><p><span data-t="i3d">Téléphone et WhatsApp :</span> <span dir="ltr">09-555-0147</span></p><p data-t="i3e" style="margin-top: 12px">Mariées : réservez l'essai au moins un mois avant le mariage.</p></div>
+    </div>
+  </section>
+</main>
+<footer><div class="env"><span data-t="nom">Atelier Shira</span><span data-t="pied">Site de démonstration : le salon, l'équipe et les prix sont fictifs.</span></div></footer>
+
+<script>
+(function () {
+  const NUMERO_WA = "972500000000"; // numéro fictif de la démo
+  const PRESTATIONS = [
+    { id: "cf", cat: 0, prix: 180, duree: 45 }, { id: "ch", cat: 0, prix: 90, duree: 30 }, { id: "ce", cat: 0, prix: 70, duree: 30 }, { id: "br", cat: 0, prix: 120, duree: 40 },
+    { id: "co", cat: 1, prix: 280, duree: 90 }, { id: "ba", cat: 1, prix: 550, duree: 150 }, { id: "ra", cat: 1, prix: 240, duree: 75 }, { id: "so", cat: 1, prix: 150, duree: 30 },
+    { id: "ma", cat: 2, prix: 900, duree: 120 }, { id: "es", cat: 2, prix: 350, duree: 60 }
+  ];
+  const RESERVABLES = ["cf", "ch", "co", "ba", "es"];
+  // Ouverture par jour (0 = dimanche) en minutes ; vendredi matin seulement, samedi fermé.
+  const HORAIRES = [[540, 1140], [540, 1140], [540, 1260], [540, 1140], [540, 1260], [480, 780], null];
+  const TEINTES = [
+    { code: "4.0", c: "#3b2a22" }, { code: "5.4", c: "#6b3a22" }, { code: "6.43", c: "#8a4f26" },
+    { code: "7.3", c: "#9f7742" }, { code: "8.1", c: "#a99a86" }, { code: "9.03", c: "#d8bf92" }
+  ];
+  const T = {
+    fr: {
+      demo: "Site de démonstration : ce salon est fictif.", nom: "Atelier Shira",
+      n1: "Prestations", n2: "Rendez-vous", n3: "Couleurs", n4: "Infos pratiques",
+      "o-sur": "Coiffure et couleur · Netanya", "o-h1a": "Votre couleur,", "o-h1b": "notre métier.",
+      "o-p": "Coupe, couleur, balayage et coiffures de mariée, par une équipe formée à Paris. Réservez en ligne en trente secondes.",
+      "o-cta": "Prendre rendez-vous", "o-cta2": "Voir les tarifs",
+      ir1: "Adresse", ir1v: "24 rue Herzl, Netanya", ir2: "Aujourd'hui", ir3: "On parle", ir3v: "français, hébreu, anglais",
+      "p-sur": "Prestations", "p-titre": "La carte du salon", "p-p": "Prix indicatifs pour cheveux mi-longs. Un diagnostic gratuit est fait avant chaque couleur.",
+      cats: ["Coupe et coiffage", "Couleur et soins", "Mariage et événements"],
+      noms: { cf: "Coupe femme, shampooing et brushing", ch: "Coupe homme", ce: "Coupe enfant (moins de 12 ans)", br: "Brushing", co: "Couleur racines", ba: "Balayage", ra: "Patine et gloss", so: "Soin profond", ma: "Coiffure de mariée avec essai", es: "Chignon de soirée" },
+      min: "min", h: "h", apartir: "",
+      "r-sur": "Rendez-vous", "r-titre": "Réservez en trois choix", "r-p": "Choisissez la prestation, le jour et l'heure : votre demande part sur WhatsApp et le salon la confirme dans l'heure.",
+      r1: "Prestation", r2: "Jour", r3: "Heure", "r-nom": "Votre prénom", "r-tel": "Téléphone", "r-envoyer": "Envoyer sur WhatsApp",
+      choisirJour: "Choisissez d'abord un jour.", complet: "complet", ferme: "Fermé",
+      recapVide: "Choisissez une prestation, un jour et une heure.",
+      recap: "{p}, {j} à {h}, {prix} ₪.",
+      apercu: "Message envoyé au salon",
+      msg: "Bonjour, je souhaite prendre rendez-vous à l'Atelier Shira :\n{p}\n{j} à {h}\nPrénom : {nom}\nTéléphone : {tel}",
+      jours: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+      joursLong: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+      mois: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+      ouvertAuj: "Ouvert de {a} à {b}", fermeAuj: "Fermé aujourd'hui", samedi: "Fermé (Chabbat)",
+      "c-sur": "Nuancier", "c-titre": "Quelques teintes du moment", "c-p": "Le premier chiffre donne la hauteur de ton, de 1 (noir) à 10 (blond très très clair) ; après le point, le reflet.",
+      teintes: ["Châtain naturel", "Châtain clair cuivré", "Blond foncé cuivré doré", "Blond doré", "Blond clair cendré", "Blond très clair naturel doré"],
+      "e-sur": "L'équipe", "e-titre": "Trois coiffeuses, trois spécialités",
+      e1: "Shira", e1d: "Fondatrice. Coloriste, spécialiste du balayage et des blonds lumineux.",
+      e2: "Noa", e2d: "Coupes courtes et coupes hommes, travail aux ciseaux.",
+      e3: "Myriam", e3d: "Chignons et coiffures de mariée, essai offert pour la mariée.",
+      i1: "Adresse", i1d: "24 rue Herzl, Netanya. Parking public rue Smilansky, à deux minutes.",
+      i2: "Horaires", i3: "Contact", i3d: "Téléphone et WhatsApp :", i3e: "Mariées : réservez l'essai au moins un mois avant le mariage.",
+      pied: "Site de démonstration : le salon, l'équipe et les prix sont fictifs."
+    },
+    he: {
+      demo: "אתר הדגמה: הסלון בדיוני.", nom: "האטלייה של שירה",
+      n1: "שירותים", n2: "קביעת תור", n3: "צבעים", n4: "מידע שימושי",
+      "o-sur": "עיצוב שיער וצבע · נתניה", "o-h1a": "הצבע שלך,", "o-h1b": "המקצוע שלנו.",
+      "o-p": "תספורות, צבע, גוונים ותסרוקות כלה, בידי צוות שהוכשר בפריז. קובעים תור באתר בשלושים שניות.",
+      "o-cta": "לקביעת תור", "o-cta2": "למחירון",
+      ir1: "כתובת", ir1v: "רחוב הרצל 24, נתניה", ir2: "היום", ir3: "מדברים", ir3v: "עברית, צרפתית, אנגלית",
+      "p-sur": "שירותים", "p-titre": "המחירון של הסלון", "p-p": "מחירים משוערים לשיער באורך בינוני. לפני כל צבע מתבצע אבחון ללא עלות.",
+      cats: ["תספורת ועיצוב", "צבע וטיפולים", "חתונות ואירועים"],
+      noms: { cf: "תספורת אישה, חפיפה ופן", ch: "תספורת גבר", ce: "תספורת ילדים (עד גיל 12)", br: "פן", co: "צבע שורשים", ba: "גוונים (בליאז')", ra: "פטינה וגלוס", so: "טיפול עמוק", ma: "תסרוקת כלה כולל ניסיון", es: "תסרוקת ערב" },
+      min: "דק'", h: "ש'", apartir: "",
+      "r-sur": "קביעת תור", "r-titre": "קובעים תור בשלוש בחירות", "r-p": "בוחרים שירות, יום ושעה: הבקשה נשלחת בוואטסאפ והסלון מאשר תוך שעה.",
+      r1: "שירות", r2: "יום", r3: "שעה", "r-nom": "שם פרטי", "r-tel": "טלפון", "r-envoyer": "שליחה בוואטסאפ",
+      choisirJour: "בחרו קודם יום.", complet: "תפוס", ferme: "סגור",
+      recapVide: "בחרו שירות, יום ושעה.",
+      recap: "{p}, {j} בשעה {h}, {prix} ₪.",
+      apercu: "ההודעה שתישלח לסלון",
+      msg: "שלום, אשמח לקבוע תור באטלייה של שירה:\n{p}\n{j} בשעה {h}\nשם: {nom}\nטלפון: {tel}",
+      jours: ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ש'"],
+      joursLong: ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "שבת"],
+      mois: ["בינואר", "בפברואר", "במרץ", "באפריל", "במאי", "ביוני", "ביולי", "באוגוסט", "בספטמבר", "באוקטובר", "בנובמבר", "בדצמבר"],
+      ouvertAuj: "פתוח {a}–{b}", fermeAuj: "סגור היום", samedi: "סגור (שבת)",
+      "c-sur": "פלטת צבעים", "c-titre": "כמה גוונים של העונה", "c-p": "הספרה הראשונה היא עומק הגוון, מ-1 (שחור) עד 10 (בלונד בהיר מאוד); אחרי הנקודה, ההשתקפות.",
+      teintes: ["חום טבעי", "חום בהיר נחושתי", "בלונד כהה נחושתי זהוב", "בלונד זהוב", "בלונד בהיר אפרפר", "בלונד בהיר מאוד זהוב"],
+      "e-sur": "הצוות", "e-titre": "שלוש מעצבות, שלוש התמחויות",
+      e1: "שירה", e1d: "המייסדת. קולוריסטית, מומחית לגוונים ולבלונד זוהר.",
+      e2: "נועה", e2d: "תספורות קצרות ותספורות גברים, עבודה במספריים.",
+      e3: "מרים", e3d: "תסרוקות אסופות ותסרוקות כלה, ניסיון מתנה לכלה.",
+      i1: "כתובת", i1d: "רחוב הרצל 24, נתניה. חניון ציבורי ברחוב סמילנסקי, במרחק שתי דקות.",
+      i2: "שעות פתיחה", i3: "יצירת קשר", i3d: "טלפון ווואטסאפ:", i3e: "כלות: קבעו את הניסיון לפחות חודש לפני החתונה.",
+      pied: "אתר הדגמה: הסלון, הצוות והמחירים בדיוניים."
+    }
+  };
+  let langue = "fr";
+  const etat = { p: null, j: null, h: null };
+
+  const hh = m => `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}`;
+  function maintenant() {
+    const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Jerusalem", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
+    const g = t => Number(parts.find(p => p.type === t).value);
+    return { date: new Date(Date.UTC(g("year"), g("month") - 1, g("day"))), min: g("hour") * 60 + g("minute") };
+  }
+  function prochainsJours() {
+    const { date } = maintenant();
+    return Array.from({ length: 8 }, (_, i) => new Date(date.getTime() + i * 864e5));
+  }
+  // Créneaux « complets » stables pour une date donnée (démo).
+  const complet = (d, m) => ((d.getUTCDate() * 7 + m / 30) % 5) === 0;
+  const libJour = d => `${T[langue].joursLong[d.getUTCDay()]} ${d.getUTCDate()} ${T[langue].mois[d.getUTCMonth()]}`;
+  const dureeTxt = m => m >= 60 ? `${Math.floor(m / 60)} ${T[langue].h}${m % 60 ? " " + (m % 60) : ""}` : `${m} ${T[langue].min}`;
+
+  function rendreCarte() {
+    const t = T[langue];
+    const carte = document.getElementById("carte");
+    carte.innerHTML = "";
+    t.cats.forEach((nomCat, i) => {
+      const bloc = document.createElement("div");
+      bloc.className = "categorie";
+      const h = document.createElement("h3"); h.textContent = nomCat; bloc.append(h);
+      PRESTATIONS.filter(p => p.cat === i).forEach(p => {
+        const l = document.createElement("div"); l.className = "prestation";
+        l.innerHTML = `<span class="pnom"></span><span class="prix">${p.prix} ₪</span><span class="duree"></span>`;
+        l.querySelector(".pnom").textContent = t.noms[p.id];
+        l.querySelector(".duree").textContent = dureeTxt(p.duree);
+        bloc.append(l);
+      });
+      carte.append(bloc);
+    });
+  }
+
+  function rendreReservation() {
+    const t = T[langue];
+    const zp = document.getElementById("choix-prestation"); zp.innerHTML = "";
+    RESERVABLES.forEach(id => {
+      const p = PRESTATIONS.find(x => x.id === id);
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "option"; b.setAttribute("aria-pressed", String(etat.p === id));
+      b.innerHTML = `<span></span><small>${p.prix} ₪ · ${dureeTxt(p.duree)}</small>`;
+      b.querySelector("span").textContent = t.noms[id];
+      b.addEventListener("click", () => { etat.p = id; etat.h = null; rendreReservation(); });
+      zp.append(b);
+    });
+    const zj = document.getElementById("choix-jour"); zj.innerHTML = "";
+    const { min } = maintenant();
+    prochainsJours().forEach((d, i) => {
+      const ouv = HORAIRES[d.getUTCDay()];
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "jour";
+      b.disabled = !ouv || (i === 0 && min > ouv[1] - 60);
+      const cle = d.toISOString().slice(0, 10);
+      b.setAttribute("aria-pressed", String(etat.j === cle));
+      b.innerHTML = `<span>${t.jours[d.getUTCDay()]}</span><b>${d.getUTCDate()}</b>`;
+      b.setAttribute("aria-label", libJour(d));
+      b.addEventListener("click", () => { etat.j = cle; etat.h = null; rendreReservation(); });
+      zj.append(b);
+    });
+    const zc = document.getElementById("zone-creneaux"); zc.innerHTML = "";
+    if (!etat.j) {
+      const p = document.createElement("p"); p.className = "vide-etape"; p.textContent = t.choisirJour; zc.append(p);
+    } else {
+      const d = new Date(etat.j + "T00:00:00Z");
+      const ouv = HORAIRES[d.getUTCDay()];
+      const duree = etat.p ? PRESTATIONS.find(x => x.id === etat.p).duree : 30;
+      const grille = document.createElement("div"); grille.className = "creneaux";
+      const estAuj = etat.j === prochainsJours()[0].toISOString().slice(0, 10);
+      for (let m = ouv[0]; m + duree <= ouv[1]; m += 30) {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "creneau"; b.textContent = hh(m);
+        b.disabled = complet(d, m) || (estAuj && m < min + 60);
+        if (complet(d, m)) b.title = t.complet;
+        b.setAttribute("aria-pressed", String(etat.h === m));
+        b.addEventListener("click", () => { etat.h = m; rendreReservation(); });
+        grille.append(b);
+      }
+      zc.append(grille);
+    }
+    rendreRecap();
+  }
+
+  function rendreRecap() {
+    const t = T[langue];
+    const lien = document.getElementById("envoyer-wa");
+    const apercu = document.getElementById("apercu-message");
+    const pret = etat.p && etat.j && etat.h !== null;
+    if (!pret) {
+      document.getElementById("recap-texte").textContent = t.recapVide;
+      lien.setAttribute("aria-disabled", "true"); lien.style.opacity = "0.4"; lien.removeAttribute("href");
+      apercu.hidden = true;
+      return;
+    }
+    const p = PRESTATIONS.find(x => x.id === etat.p);
+    const d = new Date(etat.j + "T00:00:00Z");
+    document.getElementById("recap-texte").textContent = t.recap.replace("{p}", t.noms[p.id]).replace("{j}", libJour(d)).replace("{h}", hh(etat.h)).replace("{prix}", p.prix);
+    const msg = t.msg.replace("{p}", t.noms[p.id]).replace("{j}", libJour(d)).replace("{h}", hh(etat.h))
+      .replace("{nom}", document.getElementById("r-nom").value.trim() || "—").replace("{tel}", document.getElementById("r-tel").value.trim() || "—");
+    lien.href = `https://wa.me/${NUMERO_WA}?text=${encodeURIComponent(msg)}`;
+    lien.setAttribute("aria-disabled", "false"); lien.style.opacity = "";
+    apercu.innerHTML = "";
+    const b = document.createElement("b"); b.textContent = t.apercu; apercu.append(b, document.createTextNode(msg));
+    apercu.hidden = false;
+  }
+
+  function rendreNuancier() {
+    const t = T[langue];
+    const z = document.getElementById("nuancier"); z.innerHTML = "";
+    TEINTES.forEach((x, i) => {
+      const d = document.createElement("div"); d.className = "teinte";
+      d.innerHTML = `<div class="meche" style="background:${x.c}"></div><b dir="ltr">${x.code}</b><span></span>`;
+      d.querySelector("span").textContent = t.teintes[i];
+      z.append(d);
+    });
+  }
+
+  function rendreHoraires() {
+    const t = T[langue];
+    const dl = document.getElementById("horaires"); dl.innerHTML = "";
+    HORAIRES.forEach((h, i) => {
+      const dt = document.createElement("dt"); dt.textContent = t.joursLong[i];
+      const dd = document.createElement("dd"); dd.textContent = h ? `${hh(h[0])} – ${hh(h[1])}` : t.samedi;
+      dl.append(dt, dd);
+    });
+    const { date, min } = maintenant();
+    const h = HORAIRES[date.getUTCDay()];
+    document.getElementById("aujourdhui").textContent = h ? t.ouvertAuj.replace("{a}", hh(h[0])).replace("{b}", hh(h[1])) : t.fermeAuj;
+  }
+
+  function appliquer(l) {
+    langue = l;
+    const t = T[l];
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-t]").forEach(el => { const v = t[el.dataset.t]; if (typeof v === "string") el.textContent = v; });
+    document.querySelectorAll(".langues button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    rendreCarte(); rendreReservation(); rendreNuancier(); rendreHoraires();
+    try { localStorage.setItem("shira-langue", l); } catch (e) {}
+  }
+  document.querySelectorAll(".langues button").forEach(b => b.addEventListener("click", () => appliquer(b.dataset.lang)));
+  ["r-nom", "r-tel"].forEach(id => document.getElementById(id).addEventListener("input", rendreRecap));
+  document.getElementById("envoyer-wa").addEventListener("click", e => { if (e.currentTarget.getAttribute("aria-disabled") === "true") e.preventDefault(); });
+
+  // État de départ : une prestation déjà choisie pour montrer le fonctionnement.
+  etat.p = "cf";
+  let initiale = "fr";
+  try { initiale = localStorage.getItem("shira-langue") || "fr"; } catch (e) {}
+  appliquer(T[initiale] ? initiale : "fr");
+})();
+</script>
+</body>
+</html>

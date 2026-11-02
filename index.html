@@ -124,10 +124,15 @@ section.alt { background: var(--surface); border-block: 1px solid var(--trait); 
 .etapes h3 { font-size: 20px; }
 .etapes p { margin: 0; color: var(--doux); font-size: 16px; }
 
-.demo { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; background: var(--encre); color: var(--fond); border-radius: var(--rayon); padding: 32px; }
-.demo h2 { font-size: 30px; }
-.demo p { margin: 8px 0 0; opacity: 0.8; }
-.demo .bouton { border-color: var(--fond); color: var(--fond); }
+.demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.demo { display: grid; gap: 10px; align-content: start; background: var(--encre); color: var(--fond); border-radius: var(--rayon); padding: 30px; text-decoration: none; transition: transform .15s; }
+.demo:hover { transform: translateY(-2px); }
+.demo h3 { font-size: 30px; }
+.demo p { margin: 0; opacity: 0.8; }
+.demo-type { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.demo-lien { font-weight: 700; margin-top: 6px; }
+.demo-lien::after { content: " →"; }
+[dir="rtl"] .demo-lien::after { content: " ←"; }
 
 /* Formulaire */
 .contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: start; }
@@ -169,12 +174,12 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
   .hero .env { padding-block: 40px 56px; }
   .inclus, .formules { grid-template-columns: 1fr 1fr; }
   .etapes { grid-template-columns: 1fr 1fr; }
-  .demo { grid-template-columns: 1fr; }
+  .demos { grid-template-columns: 1fr; }
   section { padding-block: 56px; }
 }
 @media (max-width: 560px) {
   .inclus, .formules, .etapes, .deux { grid-template-columns: 1fr; }
-  .hero .actions .bouton, .demo .bouton { width: 100%; }
+  .hero .actions .bouton { width: 100%; }
   form { padding: 20px; }
   .logo small { display: none; }
 }
@@ -206,7 +211,7 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
         <p data-t="h-p">Vos clients vous trouvent sur Google Maps, voient si vous êtes ouvert et vous écrivent sur WhatsApp. Je m'occupe de tout, vous gardez la main sur votre commerce.</p>
         <div class="actions">
           <a class="bouton plein" href="#contact" data-t="h-cta1">Être rappelé gratuitement</a>
-          <a class="bouton vide" href="https://moise770.github.io/demo-comptoir/" target="_blank" rel="noopener" data-t="h-cta2">Voir un exemple de site</a>
+          <a class="bouton vide" href="#exemples" data-t="h-cta2">Voir des exemples</a>
         </div>
         <ul class="garanties">
           <li data-t="g1">Maquette à votre nom offerte</li>
@@ -309,14 +314,22 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
     </div>
   </section>
 
-  <section>
+  <section id="exemples">
     <div class="env">
-      <div class="demo">
-        <div>
-          <h2 data-t="d-titre">Voyez par vous-même</h2>
-          <p data-t="d-p">Un exemple complet pour une épicerie fine française à Jérusalem, en français et en hébreu.</p>
-        </div>
-        <a class="bouton vide" href="https://moise770.github.io/demo-comptoir/" target="_blank" rel="noopener" data-t="d-cta">Ouvrir l'exemple</a>
+      <div class="tete"><div class="sur-titre" data-t="d-sur">Exemples</div><h2 data-t="d-titre">Voyez par vous-même</h2></div>
+      <div class="demos">
+        <a class="demo" href="https://moise770.github.io/demo-comptoir/" target="_blank" rel="noopener">
+          <span class="demo-type" data-t="d1-type">Commerce de bouche · Jérusalem</span>
+          <h3 data-t="d1">Le Comptoir de Rivka</h3>
+          <p data-t="d1-p">Épicerie fine : horaires ouverts ou fermés en direct, commande du vendredi, livraison par quartier.</p>
+          <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
+        </a>
+        <a class="demo" href="https://moise770.github.io/coiffure/" target="_blank" rel="noopener">
+          <span class="demo-type" data-t="d2-type">Salon de coiffure · Netanya</span>
+          <h3 data-t="d2">Atelier Shira</h3>
+          <p data-t="d2-p">Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.</p>
+          <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
+        </a>
       </div>
     </div>
   </section>
@@ -415,7 +428,7 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       "h-sur": "Création de sites pour commerces et petites entreprises",
       h1a: "Le site de votre commerce,", h1b: "en français et en hébreu,", h1c: "en ligne en une semaine.",
       "h-p": "Vos clients vous trouvent sur Google Maps, voient si vous êtes ouvert et vous écrivent sur WhatsApp. Je m'occupe de tout, vous gardez la main sur votre commerce.",
-      "h-cta1": "Être rappelé gratuitement", "h-cta2": "Voir un exemple de site",
+      "h-cta1": "Être rappelé gratuitement", "h-cta2": "Voir des exemples",
       g1: "Maquette à votre nom offerte", g2: "Sans engagement", g3: "On se parle en français",
       "t-ouvert": "Ouvert · ferme à 20 h", "t-wa": "Commander sur WhatsApp", "t-maps": "Itinéraire Google Maps", "t-p1": "Baguette tradition", "t-p2": "Comté 18 mois",
       "i-sur": "Ce qui est inclus", "i-titre": "Tout ce dont un commerce a besoin, rien de superflu",
@@ -436,7 +449,9 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       e2: "Maquette sous 48 h", e2d: "Je vous montre votre site, à votre nom, sans engagement.",
       e3: "En ligne en une semaine", e3d: "Vous validez, j'ajuste, le site est publié.",
       e4: "Je reste là", e4d: "Un horaire change, une promotion arrive : un message suffit.",
-      "d-titre": "Voyez par vous-même", "d-p": "Un exemple complet pour une épicerie fine française à Jérusalem, en français et en hébreu.", "d-cta": "Ouvrir l'exemple",
+      "d-sur": "Exemples", "d-titre": "Voyez par vous-même", "d-cta": "Ouvrir l'exemple",
+      "d1-type": "Commerce de bouche · Jérusalem", d1: "Le Comptoir de Rivka", "d1-p": "Épicerie fine : horaires ouverts ou fermés en direct, commande du vendredi, livraison par quartier.",
+      "d2-type": "Salon de coiffure · Netanya", d2: "Atelier Shira", "d2-p": "Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.",
       "c-sur": "Être rappelé", "c-titre": "Parlons de votre commerce", "c-p": "Laissez vos coordonnées : je vous recontacte sous 24 heures ouvrées, du dimanche au jeudi.",
       r1: "Premier échange gratuit et sans engagement", r2: "Vos coordonnées ne servent qu'à vous recontacter", r3: "Réponse en français ou en hébreu",
       "l-nom": "Votre nom", "l-commerce": "Nom du commerce", "l-activite": "Activité", "l-ville": "Ville", "l-tel": "Téléphone", "l-email": "Email",
@@ -463,7 +478,7 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       "h-sur": "בניית אתרים לחנויות ולעסקים קטנים",
       h1a: "האתר של העסק שלכם,", h1b: "בעברית ובצרפתית,", h1c: "באוויר תוך שבוע.",
       "h-p": "הלקוחות מוצאים אתכם בגוגל מפות, רואים אם אתם פתוחים וכותבים לכם בוואטסאפ. אני דואג להכול, ואתם מתרכזים בעסק.",
-      "h-cta1": "לחזרה טלפונית בחינם", "h-cta2": "לצפייה באתר לדוגמה",
+      "h-cta1": "לחזרה טלפונית בחינם", "h-cta2": "לאתרים לדוגמה",
       g1: "סקיצה בשם העסק שלכם במתנה", g2: "ללא התחייבות", g3: "מדברים עברית וצרפתית",
       "t-ouvert": "פתוח · נסגר ב-20:00", "t-wa": "להזמנה בוואטסאפ", "t-maps": "ניווט בגוגל מפות", "t-p1": "באגט טרדיסיון", "t-p2": "קונטה 18 חודשים",
       "i-sur": "מה כלול", "i-titre": "כל מה שעסק צריך, בלי מה שמיותר",
@@ -484,7 +499,9 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       e2: "סקיצה תוך 48 שעות", e2d: "אני מציג לכם את האתר בשם העסק, ללא התחייבות.",
       e3: "באוויר תוך שבוע", e3d: "אתם מאשרים, אני מתאים, והאתר עולה.",
       e4: "אני ממשיך ללוות", e4d: "שעות משתנות או מבצע חדש: הודעה אחת מספיקה.",
-      "d-titre": "תראו בעצמכם", "d-p": "דוגמה מלאה למעדנייה צרפתית בירושלים, בעברית ובצרפתית.", "d-cta": "לאתר לדוגמה",
+      "d-sur": "דוגמאות", "d-titre": "תראו בעצמכם", "d-cta": "לאתר לדוגמה",
+      "d1-type": "מזון · ירושלים", d1: "הקומפטואר של רבקה", "d1-p": "מעדנייה: פתוח או סגור בזמן אמת, הזמנה ליום שישי, משלוחים לפי שכונה.",
+      "d2-type": "מספרה · נתניה", d2: "האטלייה של שירה", "d2-p": "קביעת תור בשלוש בחירות עם שליחה בוואטסאפ, מחירון, פלטת צבעים.",
       "c-sur": "לחזרה טלפונית", "c-titre": "בואו נדבר על העסק שלכם", "c-p": "השאירו פרטים ואחזור אליכם תוך 24 שעות עבודה, בימים א'–ה'.",
       r1: "שיחה ראשונה בחינם וללא התחייבות", r2: "הפרטים משמשים רק כדי לחזור אליכם", r3: "מענה בעברית או בצרפתית",
       "l-nom": "שם", "l-commerce": "שם העסק", "l-activite": "תחום", "l-ville": "עיר", "l-tel": "טלפון", "l-email": "אימייל",
