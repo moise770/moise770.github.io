@@ -40,6 +40,7 @@
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { background: var(--fond); color: var(--encre); font: 17px/1.6 var(--texte); }
@@ -108,7 +109,8 @@ section.alt { background: var(--surface); border-block: 1px solid var(--trait); 
 .inclus p { margin: 0; color: var(--doux); font-size: 16px; }
 
 .formules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-.formule { background: var(--fond); border: 1px solid var(--trait); border-radius: var(--rayon); padding: 26px; display: grid; gap: 14px; grid-template-rows: auto auto 1fr auto; }
+.formule { background: var(--fond); border: 1px solid var(--trait); border-radius: var(--rayon); padding: 26px; display: grid; gap: 14px; grid-template-rows: auto auto 1fr auto auto; }
+.formule.mise .voir-exemple { color: var(--turquoise); }
 .formule.mise { background: var(--turquoise-fond); border: 2px solid var(--turquoise); }
 .formule .pour { font-size: 15px; color: var(--doux); margin: 0; }
 .formule h3 { font-size: 26px; }
@@ -124,13 +126,15 @@ section.alt { background: var(--surface); border-block: 1px solid var(--trait); 
 .etapes h3 { font-size: 20px; }
 .etapes p { margin: 0; color: var(--doux); font-size: 16px; }
 
-.demos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .demo { display: grid; gap: 10px; align-content: start; background: var(--encre); color: var(--fond); border-radius: var(--rayon); padding: 30px; text-decoration: none; transition: transform .15s; }
 .demo:hover { transform: translateY(-2px); }
 .demo h3 { font-size: 30px; }
 .demo p { margin: 0; opacity: 0.8; }
 .demo-type { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
 .demo-lien { font-weight: 700; margin-top: 6px; }
+.demo-formule { justify-self: start; background: var(--turquoise); color: var(--surface); font-size: 13px; font-weight: 700; padding: 3px 12px; border-radius: 999px; }
+.voir-exemple { justify-self: center; font-weight: 700; font-size: 15px; }
 .demo-lien::after { content: " →"; }
 [dir="rtl"] .demo-lien::after { content: " ←"; }
 
@@ -270,6 +274,7 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
             <li data-t="f1d">Français et hébreu</li>
           </ul>
           <a class="bouton vide" href="#contact" data-f="Vitrine" data-t="f-choisir">Je suis intéressé</a>
+          <a class="voir-exemple" href="https://moise770.github.io/demo-comptoir/" target="_blank" rel="noopener" data-t="f-exemple">Voir l'exemple</a>
         </article>
         <article class="formule mise">
           <span class="badge" data-t="f2-badge">La plus demandée</span>
@@ -282,6 +287,7 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
             <li data-t="f2d">Mises à jour illimitées des horaires et des prix</li>
           </ul>
           <a class="bouton plein" href="#contact" data-f="Vitrine +" data-t="f-choisir">Je suis intéressé</a>
+          <a class="voir-exemple" href="https://moise770.github.io/coiffure/" target="_blank" rel="noopener" data-t="f-exemple">Voir l'exemple</a>
         </article>
         <article class="formule">
           <p class="pour" data-t="f3-pour">Pour vendre en ligne</p>
@@ -293,6 +299,7 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
             <li data-t="f3d">Formation et accompagnement</li>
           </ul>
           <a class="bouton vide" href="#contact" data-f="Boutique" data-t="f-choisir">Je suis intéressé</a>
+          <a class="voir-exemple" href="https://moise770.github.io/boutique/" target="_blank" rel="noopener" data-t="f-exemple">Voir l'exemple</a>
         </article>
       </div>
       <p class="tarif" data-t="tarif">Tarif sur devis : un prix de création, puis un abonnement mensuel tout compris (hébergement, sécurité, modifications).</p>
@@ -319,15 +326,24 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       <div class="tete"><div class="sur-titre" data-t="d-sur">Exemples</div><h2 data-t="d-titre">Voyez par vous-même</h2></div>
       <div class="demos">
         <a class="demo" href="https://moise770.github.io/demo-comptoir/" target="_blank" rel="noopener">
+          <span class="demo-formule" data-t="f1">Vitrine</span>
           <span class="demo-type" data-t="d1-type">Commerce de bouche · Jérusalem</span>
           <h3 data-t="d1">Le Comptoir de Rivka</h3>
           <p data-t="d1-p">Épicerie fine : horaires ouverts ou fermés en direct, commande du vendredi, livraison par quartier.</p>
           <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
         </a>
         <a class="demo" href="https://moise770.github.io/coiffure/" target="_blank" rel="noopener">
+          <span class="demo-formule" data-t="f2">Vitrine +</span>
           <span class="demo-type" data-t="d2-type">Salon de coiffure · Netanya</span>
           <h3 data-t="d2">Atelier Shira</h3>
           <p data-t="d2-p">Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.</p>
+          <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
+        </a>
+        <a class="demo" href="https://moise770.github.io/boutique/" target="_blank" rel="noopener">
+          <span class="demo-formule" data-t="f3">Boutique</span>
+          <span class="demo-type" data-t="d3-type">Artisan et vente en ligne · Jérusalem</span>
+          <h3 data-t="d3">Atelier Or</h3>
+          <p data-t="d3-p">Catalogue filtrable, panier, livraison en Israël ou en France, commande en deux étapes.</p>
           <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
         </a>
       </div>
@@ -442,7 +458,8 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       "f1-pour": "Pour être trouvé et contacté", f1: "Vitrine", f1a: "Une page complète : activité, horaires, plan, contact", f1b: "Fiche Google Maps optimisée", f1c: "Bouton WhatsApp et formulaire", f1d: "Français et hébreu",
       "f2-badge": "La plus demandée", "f2-pour": "Pour présenter vos produits ou vos services", f2: "Vitrine +", f2a: "Tout ce qui est dans Vitrine", f2b: "Jusqu'à 5 pages : produits, services, équipe, galerie", f2c: "Prise de rendez-vous ou commande sur WhatsApp", f2d: "Mises à jour illimitées des horaires et des prix",
       "f3-pour": "Pour vendre en ligne", f3: "Boutique", f3a: "Catalogue de produits avec photos", f3b: "Paiement en ligne et livraison", f3c: "Vous gérez vos produits vous-même", f3d: "Formation et accompagnement",
-      "f-choisir": "Je suis intéressé",
+      "f-choisir": "Je suis intéressé", "f-exemple": "Voir l'exemple",
+      "d3-type": "Artisan et vente en ligne · Jérusalem", d3: "Atelier Or", "d3-p": "Catalogue filtrable, panier, livraison en Israël ou en France, commande en deux étapes.",
       tarif: "Tarif sur devis : un prix de création, puis un abonnement mensuel tout compris (hébergement, sécurité, modifications).",
       "e-sur": "Comment ça marche", "e-titre": "De notre premier appel à votre site en ligne",
       e1: "On se parle 15 minutes", e1d: "Vous m'expliquez votre commerce et vos clients.",
@@ -492,7 +509,8 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       "f1-pour": "כדי שימצאו אתכם ויפנו אליכם", f1: "תדמית", f1a: "עמוד מלא: פעילות, שעות, מפה, יצירת קשר", f1b: "כרטיס גוגל מפות משופר", f1c: "כפתור וואטסאפ וטופס", f1d: "עברית וצרפתית",
       "f2-badge": "הכי מבוקשת", "f2-pour": "להצגת מוצרים או שירותים", f2: "תדמית +", f2a: "כל מה שכלול בתדמית", f2b: "עד 5 עמודים: מוצרים, שירותים, צוות, גלריה", f2c: "קביעת תורים או הזמנה בוואטסאפ", f2d: "עדכוני שעות ומחירים ללא הגבלה",
       "f3-pour": "למכירה אונליין", f3: "חנות", f3a: "קטלוג מוצרים עם תמונות", f3b: "תשלום אונליין ומשלוחים", f3c: "אתם מנהלים את המוצרים בעצמכם", f3d: "הדרכה וליווי",
-      "f-choisir": "אני מעוניין",
+      "f-choisir": "אני מעוניין", "f-exemple": "לאתר לדוגמה",
+      "d3-type": "אומן ומכירה אונליין · ירושלים", d3: "אטלייה אור", "d3-p": "קטלוג עם סינון, סל קניות, משלוח לישראל או לצרפת, הזמנה בשני שלבים.",
       tarif: "המחיר לפי הצעה: עלות הקמה, ואחריה מנוי חודשי שכולל הכול (אחסון, אבטחה, שינויים).",
       "e-sur": "איך זה עובד", "e-titre": "מהשיחה הראשונה ועד שהאתר באוויר",
       e1: "שיחה של 15 דקות", e1d: "מספרים לי על העסק ועל הלקוחות.",
