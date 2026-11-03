@@ -8,10 +8,10 @@ BASE = "https://moise770.github.io"
 
 META = {
     "fr": ("Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi",
-           "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne en une semaine. Jérusalem, Israël et France.",
+           "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne rapidement. Jérusalem, Israël et France.",
            "fr_FR", "/"),
     "he": ("בניית אתרים לעסקים בירושלים, בעברית ובצרפתית | משה מאיז ברבי",
-           "האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, באוויר תוך שבוע. ירושלים, ישראל וצרפת.",
+           "האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, עלייה מהירה לאוויר. ירושלים, ישראל וצרפת.",
            "he_IL", "/he/"),
 }
 
