@@ -148,9 +148,11 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
   .marque { font-size: 22px; }
   .btn-panier span.libelle { display: none; }
 }
+
+.retour-site { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; margin-inline-start: 14px; white-space: nowrap; }
 </style>
 
-<div class="demo-bandeau"><div class="env" data-t="demo">Boutique de démonstration : aucun paiement n'est réalisé.</div></div>
+<div class="demo-bandeau"><div class="env"><span data-t="demo">Boutique de démonstration : aucun paiement n'est réalisé.</span><a id="retour-site" class="retour-site" href="https://moise770.github.io/#exemples" data-t="retourSite">← Retour au site</a></div></div>
 <div class="livraison-bandeau"><div class="env" data-t="bandeau">Livraison offerte en Israël dès 400 ₪ · Envoi en France sous 7 jours</div></div>
 <header>
   <div class="env">
@@ -222,7 +224,7 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
   const LIVRAISONS = { il: { prix: 35, seuil: 400 }, fr: { prix: 95, seuil: null }, retrait: { prix: 0, seuil: null } };
   const T = {
     fr: {
-      demo: "Boutique de démonstration : aucun paiement n'est réalisé.",
+      demo: "Boutique de démonstration : aucun paiement n'est réalisé.", retourSite: "← Retour au site",
       bandeau: "Livraison offerte en Israël dès 400 ₪ · Envoi en France sous 7 jours",
       marque: "Atelier <span>Or</span>", panier: "Panier",
       "o-titre": "Judaïca contemporaine, façonnée à Jérusalem",
@@ -246,7 +248,7 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
       pied1: "Atelier Or · Nahlaot, Jérusalem", pied2: "Boutique de démonstration : l'atelier, les produits et les prix sont fictifs."
     },
     he: {
-      demo: "חנות הדגמה: לא מתבצע שום תשלום.",
+      demo: "חנות הדגמה: לא מתבצע שום תשלום.", retourSite: "→ חזרה לאתר",
       bandeau: "משלוח חינם בישראל מעל 400 ₪ · משלוח לצרפת תוך 7 ימים",
       marque: "אטלייה <span>אור</span>", panier: "סל קניות",
       "o-titre": "יודאיקה עכשווית, בעבודת יד בירושלים",
@@ -420,6 +422,8 @@ footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-conte
     const t = T[l];
     document.documentElement.lang = l;
     document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+    const retour = document.getElementById("retour-site");
+    if (retour) retour.href = l === "he" ? "https://moise770.github.io/he/#exemples" : "https://moise770.github.io/#exemples";
     document.querySelectorAll("[data-t]").forEach(el => {
       const k = el.dataset.t;
       if (k === "marque-html") { el.innerHTML = t.marque; return; }

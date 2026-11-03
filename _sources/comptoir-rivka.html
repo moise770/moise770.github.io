@@ -34,6 +34,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
 body {
@@ -169,9 +170,11 @@ footer p { margin: 0; opacity: 0.8; max-width: 42em; }
   .hero .enveloppe { padding-block: 32px 44px; }
   .bouton { width: 100%; justify-content: center; }
 }
+
+.retour-site { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; margin-inline-start: 14px; white-space: nowrap; }
 </style>
 
-<div class="demo"><div class="enveloppe"><span data-t="demo">Site de démonstration : ce commerce est fictif.</span></div></div>
+<div class="demo"><div class="enveloppe"><span data-t="demo">Site de démonstration : ce commerce est fictif.</span><a id="retour-site" class="retour-site" href="https://moise770.github.io/#exemples" data-t="retour">← Retour au site</a></div></div>
 
 <header class="haut">
   <div class="enveloppe">
@@ -363,7 +366,7 @@ footer p { margin: 0; opacity: 0.8; max-width: 42em; }
 (function () {
   const T = {
     fr: {
-      demo: "Site de démonstration : ce commerce est fictif.",
+      demo: "Site de démonstration : ce commerce est fictif.", retour: "← Retour au site",
       nom: "Le Comptoir de Rivka", sousnom: "Épicerie fine française · Jérusalem",
       m1: "Nos rayons", m2: "Commande du vendredi", m3: "Horaires", m4: "Contact",
       eyebrow: "Moshava Germanit · depuis 2014",
@@ -403,7 +406,7 @@ footer p { margin: 0; opacity: 0.8; max-width: 42em; }
       fermeA: "Ferme à {h}", ouvreA: "Ouvre aujourd'hui à {h}", ouvreDemain: "Ouvre {jour} à {h}", motsae: "Sortie de Chabbat + 1 h – 23 h"
     },
     he: {
-      demo: "אתר הדגמה: העסק בדיוני.",
+      demo: "אתר הדגמה: העסק בדיוני.", retour: "→ חזרה לאתר",
       nom: "הקומפטואר של רבקה", sousnom: "מעדנייה צרפתית · ירושלים",
       m1: "המחלקות שלנו", m2: "הזמנה ליום שישי", m3: "שעות פתיחה", m4: "צור קשר",
       eyebrow: "המושבה הגרמנית · מאז 2014",
@@ -500,6 +503,8 @@ footer p { margin: 0; opacity: 0.8; max-width: 42em; }
     const t = T[l];
     document.documentElement.lang = l;
     document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+    const retour = document.getElementById("retour-site");
+    if (retour) retour.href = l === "he" ? "https://moise770.github.io/he/#exemples" : "https://moise770.github.io/#exemples";
     document.querySelectorAll("[data-t]").forEach(el => {
       const k = el.dataset.t;
       if (t[k] !== undefined) el.textContent = t[k];

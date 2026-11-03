@@ -83,8 +83,10 @@ def main():
         b.close()
     open(brut, "w").write("<!doctype html>\n" + html + "\n")
     open(f"{DEST}/coiffure/index.html", "w").write(page_demo(f"{SRC}/coiffure/coiffure.html", "Atelier Shira, salon de coiffure à Netanya : exemple de site Vitrine + avec prise de rendez-vous, réalisé par Moïse Berrebi."))
+    os.makedirs(f"{DEST}/epicerie", exist_ok=True)
+    open(f"{DEST}/epicerie/index.html", "w").write(page_demo(f"{SRC}/comptoir-rivka.html", "Le Comptoir de Rivka, épicerie fine à Jérusalem : exemple de site Vitrine bilingue, réalisé par Moïse Berrebi."))
     open(f"{DEST}/boutique/index.html", "w").write(page_demo(f"{SRC}/boutique/boutique.html", "Atelier Or, judaïca à Jérusalem : exemple de boutique en ligne bilingue avec panier, réalisé par Moïse Berrebi."))
-    urls = ["/", "/he/", "/demo-comptoir/", "/coiffure/", "/boutique/"]
+    urls = ["/", "/he/", "/epicerie/", "/coiffure/", "/boutique/"]
     open(f"{DEST}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{BASE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
     open(f"{DEST}/robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
