@@ -3,9 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Création de sites pour commerces et petites entreprises, en français et en hébreu. Jérusalem.">
-<title>Sites pour commerces</title>
-
+<title>Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi</title>
+<meta name="description" content="Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne en une semaine. Jérusalem, Israël et France.">
+<link rel="canonical" href="https://moise770.github.io/">
+<link rel="alternate" hreflang="fr" href="https://moise770.github.io/">
+<link rel="alternate" hreflang="he" href="https://moise770.github.io/he/">
+<link rel="alternate" hreflang="x-default" href="https://moise770.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moise770.github.io/">
+<meta property="og:title" content="Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi">
+<meta property="og:description" content="Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne en une semaine. Jérusalem, Israël et France.">
+<meta property="og:image" content="https://moise770.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Moïse Berrebi — Création de sites pour commerces", "url": "https://moise770.github.io/", "image": "https://moise770.github.io/og.png", "description": "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne en une semaine. Jérusalem, Israël et France.", "address": {"@type": "PostalAddress", "addressLocality": "Jérusalem", "addressCountry": "IL"}, "areaServed": [{"@type": "City", "name": "Jerusalem"}, {"@type": "Country", "name": "Israel"}, {"@type": "Country", "name": "France"}], "availableLanguage": ["fr", "he"], "serviceType": ["Création de sites internet", "Boutique en ligne", "Référencement local Google Maps"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@400;500;700&display=swap">
@@ -542,18 +557,33 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
     }
   };
   let langue = "fr";
+  const META = {
+    fr: { titre: "Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi",
+          desc: "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne en une semaine. Jérusalem, Israël et France." },
+    he: { titre: "בניית אתרים לעסקים בירושלים, בעברית ובצרפתית | משה מאיז ברבי",
+          desc: "האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, באוויר תוך שבוע. ירושלים, ישראל וצרפת." }
+  };
+  // Sur le site publié, chaque langue a sa propre adresse (meilleur référencement).
+  const PAGES = { fr: "/", he: "/he/" };
+  const surSitePublie = /github\.io$/.test(location.hostname) || (location.hostname && !/claude|localhost|127\.0\.0\.1|usercontent/.test(location.hostname));
 
   function appliquer(l) {
     langue = l;
     const t = T[l];
     document.documentElement.lang = l;
     document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+    document.title = META[l].titre;
+    const md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute("content", META[l].desc);
     document.querySelectorAll("[data-t]").forEach(el => { const v = t[el.dataset.t]; if (v !== undefined) el.textContent = v; });
     document.querySelectorAll(".langues button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
     document.getElementById("retour").hidden = true;
-    try { localStorage.setItem("site-langue", l); } catch (e) {}
   }
-  document.querySelectorAll(".langues button").forEach(b => b.addEventListener("click", () => appliquer(b.dataset.lang)));
+  document.querySelectorAll(".langues button").forEach(b => b.addEventListener("click", () => {
+    const l = b.dataset.lang;
+    if (surSitePublie && l !== langue) { location.href = PAGES[l]; return; }
+    appliquer(l);
+  }));
 
   // Les boutons « Je suis intéressé » pré-cochent la formule.
   document.querySelectorAll("[data-f]").forEach(a => a.addEventListener("click", () => {
@@ -627,9 +657,8 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
     }
   });
 
-  let initiale = "fr";
-  try { initiale = localStorage.getItem("site-langue") || "fr"; } catch (e) {}
-  appliquer(T[initiale] ? initiale : "fr");
+  // La langue de départ est celle de la page (fr à la racine, he dans /he/).
+  appliquer(document.documentElement.getAttribute("lang") === "he" ? "he" : "fr");
 })();
 </script>
 </body>

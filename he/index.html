@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>בניית אתרים לעסקים בירושלים, בעברית ובצרפתית | משה מאיז ברבי</title>
+<meta name="description" content="האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, באוויר תוך שבוע. ירושלים, ישראל וצרפת.">
+<link rel="canonical" href="https://moise770.github.io/he/">
+<link rel="alternate" hreflang="fr" href="https://moise770.github.io/">
+<link rel="alternate" hreflang="he" href="https://moise770.github.io/he/">
+<link rel="alternate" hreflang="x-default" href="https://moise770.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moise770.github.io/he/">
+<meta property="og:title" content="בניית אתרים לעסקים בירושלים, בעברית ובצרפתית | משה מאיז ברבי">
+<meta property="og:description" content="האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, באוויר תוך שבוע. ירושלים, ישראל וצרפת.">
+<meta property="og:image" content="https://moise770.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "משה מאיז ברבי — בניית אתרים לעסקים", "url": "https://moise770.github.io/he/", "image": "https://moise770.github.io/og.png", "description": "האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, באוויר תוך שבוע. ירושלים, ישראל וצרפת.", "address": {"@type": "PostalAddress", "addressLocality": "ירושלים", "addressCountry": "IL"}, "areaServed": [{"@type": "City", "name": "Jerusalem"}, {"@type": "Country", "name": "Israel"}, {"@type": "Country", "name": "France"}], "availableLanguage": ["fr", "he"], "serviceType": ["Création de sites internet", "Boutique en ligne", "Référencement local Google Maps"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&amp;family=Heebo:wght@400;500;700&amp;display=swap">
+<style>
+/* Mise en page : en-tête, promesse + téléphone qui montre un site de commerce, ce qui est inclus, formules, étapes, démo, formulaire, questions. Motif : carreaux de céramique arménienne de Jérusalem. */
+:root {
+  --fond: #f7f8f8;
+  --surface: #ffffff;
+  --encre: #13201f;
+  --doux: #55625f;
+  --turquoise: #0b7a75;     /* céramique de Jérusalem */
+  --turquoise-fond: #e2f1ef;
+  --bleu: #1c4f8a;
+  --ocre: #c98a2b;
+  --trait: #dfe4e3;
+  --ok: #26864f;
+  --erreur: #b23a2e;
+  --titre: "Secular One", "Heebo", system-ui, sans-serif;
+  --texte: "Heebo", "Segoe UI", system-ui, sans-serif;
+  --rayon: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #0f1716; --surface: #162120; --encre: #e9f0ee; --doux: #9fb0ac; --turquoise: #4cc3b9;
+    --turquoise-fond: #15312f; --bleu: #7fb0ea; --ocre: #e6ac52; --trait: #273634; --ok: #63cf8f; --erreur: #f08a7c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fond: #0f1716; --surface: #162120; --encre: #e9f0ee; --doux: #9fb0ac; --turquoise: #4cc3b9;
+  --turquoise-fond: #15312f; --bleu: #7fb0ea; --ocre: #e6ac52; --trait: #273634; --ok: #63cf8f; --erreur: #f08a7c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--fond); color: var(--encre); font: 17px/1.6 var(--texte); }
+h1, h2, h3 { font-family: var(--titre); font-weight: 400; line-height: 1.12; margin: 0; text-wrap: balance; }
+a { color: var(--turquoise); }
+:focus-visible { outline: 3px solid var(--ocre); outline-offset: 2px; }
+.env { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sur-titre { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--turquoise); }
+[dir="rtl"] .sur-titre { letter-spacing: 0; font-size: 15px; }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--fond); }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--fond) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--trait); }
+header .env { display: flex; align-items: center; gap: 20px; padding-block: 12px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--encre); }
+.carreau { width: 34px; height: 34px; border-radius: 9px; flex: none; background:
+  radial-gradient(circle at 50% 50%, var(--ocre) 0 4px, transparent 5px),
+  conic-gradient(from 45deg, var(--turquoise) 0 25%, var(--bleu) 0 50%, var(--turquoise) 0 75%, var(--bleu) 0); }
+.logo b { font-family: var(--titre); font-weight: 400; font-size: 20px; line-height: 1.1; }
+.logo small { display: block; font-size: 12.5px; color: var(--doux); }
+header nav { margin-inline-start: auto; display: flex; gap: 22px; }
+header nav a { color: var(--doux); text-decoration: none; font-weight: 500; font-size: 15px; }
+.langues { display: flex; border: 1px solid var(--trait); border-radius: 999px; padding: 3px; }
+.langues button { border: 0; background: none; color: var(--doux); font: 700 14px var(--texte); padding: 6px 12px; border-radius: 999px; cursor: pointer; min-width: 44px; }
+.langues button[aria-pressed="true"] { background: var(--encre); color: var(--fond); }
+
+.bouton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 12px; border: 2px solid var(--turquoise); font: 700 16.5px var(--texte); text-decoration: none; cursor: pointer; }
+.bouton.plein { background: var(--turquoise); color: var(--surface); }
+.bouton.vide { background: transparent; color: var(--turquoise); }
+
+/* Promesse */
+.hero { position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; inset-block: 0; inset-inline-end: 0; width: 38%; opacity: 0.09; pointer-events: none; background:
+  radial-gradient(circle at 50% 50%, var(--ocre) 0 6px, transparent 7px) 0 0 / 56px 56px,
+  conic-gradient(from 45deg, var(--turquoise) 0 25%, transparent 0 50%, var(--bleu) 0 75%, transparent 0) 0 0 / 56px 56px; }
+.hero .env { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; padding-block: 64px 72px; }
+.hero h1 { font-size: clamp(36px, 5vw, 58px); margin-block: 14px 18px; }
+.hero h1 em { font-style: normal; color: var(--turquoise); }
+.hero p { font-size: 19px; color: var(--doux); margin: 0 0 28px; max-width: 32em; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.garanties { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; font-size: 15px; color: var(--doux); padding: 0; list-style: none; }
+.garanties li::before { content: "✓"; color: var(--turquoise); font-weight: 700; margin-inline-end: 6px; }
+
+/* Téléphone : aperçu d'un site de commerce */
+.telephone { justify-self: center; width: min(300px, 100%); border-radius: 38px; padding: 12px; background: var(--encre); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.45); }
+.ecran { border-radius: 28px; overflow: hidden; background: #fbfaf7; color: #1f2a24; font-size: 13px; }
+.ecran .barre { display: flex; justify-content: space-between; padding: 12px 16px 6px; font-size: 11px; font-weight: 700; }
+.ecran .store { height: 16px; background: repeating-linear-gradient(90deg, #2f4a3a 0 20px, #efebe3 20px 40px); }
+.ecran .corps { padding: 16px; display: grid; gap: 10px; }
+.ecran h4 { font-family: Georgia, serif; font-weight: 400; font-size: 21px; color: #2f4a3a; margin: 4px 0 0; line-height: 1.15; }
+.mini-statut { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
+.mini-statut i { width: 9px; height: 9px; border-radius: 50%; background: #2f7a4b; box-shadow: 0 0 0 4px rgba(47,122,75,0.2); }
+.mini-bouton { border-radius: 999px; padding: 10px; text-align: center; font-weight: 700; background: #2f4a3a; color: #fff; }
+.mini-bouton.clair { background: #efebe3; color: #2f4a3a; }
+.mini-carte { border: 1px solid #e3ddd2; border-radius: 12px; padding: 10px; display: flex; justify-content: space-between; }
+.mini-carte span:last-child { color: #8a6210; font-weight: 700; }
+
+section { padding-block: 76px; }
+section.alt { background: var(--surface); border-block: 1px solid var(--trait); }
+.tete { display: grid; gap: 10px; margin-bottom: 36px; max-width: 42em; }
+.tete h2 { font-size: clamp(30px, 3.6vw, 42px); }
+.tete p { margin: 0; color: var(--doux); }
+
+.inclus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 32px; }
+.inclus div { display: grid; gap: 6px; align-content: start; padding-top: 16px; border-top: 3px solid var(--turquoise); }
+.inclus h3 { font-size: 21px; }
+.inclus p { margin: 0; color: var(--doux); font-size: 16px; }
+
+.formules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+.formule { background: var(--fond); border: 1px solid var(--trait); border-radius: var(--rayon); padding: 26px; display: grid; gap: 14px; grid-template-rows: auto auto 1fr auto auto; }
+.formule.mise .voir-exemple { color: var(--turquoise); }
+.formule.mise { background: var(--turquoise-fond); border: 2px solid var(--turquoise); }
+.formule .pour { font-size: 15px; color: var(--doux); margin: 0; }
+.formule h3 { font-size: 26px; }
+.formule ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15.5px; align-content: start; }
+.formule li { padding-inline-start: 24px; position: relative; }
+.formule li::before { content: ""; position: absolute; inset-inline-start: 0; top: 0.55em; width: 10px; height: 10px; border-radius: 3px; background: var(--turquoise); transform: rotate(45deg); }
+.badge { justify-self: start; font-size: 12.5px; font-weight: 700; background: var(--turquoise); color: var(--surface); padding: 3px 10px; border-radius: 999px; }
+.tarif { font-size: 15px; color: var(--doux); margin: 22px 0 0; text-align: center; }
+
+.etapes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; list-style: none; padding: 0; margin: 0; counter-reset: e; }
+.etapes li { display: grid; gap: 6px; align-content: start; }
+.etapes li::before { counter-increment: e; content: counter(e); font-family: var(--titre); font-size: 22px; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; background: var(--turquoise-fond); color: var(--turquoise); }
+.etapes h3 { font-size: 20px; }
+.etapes p { margin: 0; color: var(--doux); font-size: 16px; }
+
+.demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.demo { display: grid; gap: 10px; align-content: start; background: var(--encre); color: var(--fond); border-radius: var(--rayon); padding: 30px; text-decoration: none; transition: transform .15s; }
+.demo:hover { transform: translateY(-2px); }
+.demo h3 { font-size: 30px; }
+.demo p { margin: 0; opacity: 0.8; }
+.demo-type { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+.demo-lien { font-weight: 700; margin-top: 6px; }
+.demo-formule { justify-self: start; background: var(--turquoise); color: var(--surface); font-size: 13px; font-weight: 700; padding: 3px 12px; border-radius: 999px; }
+.voir-exemple { justify-self: center; font-weight: 700; font-size: 15px; }
+.demo-lien::after { content: " →"; }
+[dir="rtl"] .demo-lien::after { content: " ←"; }
+
+/* Formulaire */
+.contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: start; }
+.contact .tete { margin-bottom: 16px; }
+.rassurance { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; color: var(--doux); }
+.rassurance li::before { content: "✓"; color: var(--turquoise); font-weight: 700; margin-inline-end: 8px; }
+form { background: var(--surface); border: 1px solid var(--trait); border-radius: var(--rayon); padding: 28px; display: grid; gap: 16px; }
+.deux { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.champ { display: grid; gap: 6px; }
+.champ label, fieldset legend { font-weight: 500; font-size: 15px; }
+.req { color: var(--erreur); }
+input, select, textarea { font: 16px var(--texte); color: var(--encre); background: var(--fond); border: 1px solid var(--trait); border-radius: 10px; padding: 12px 14px; width: 100%; min-height: 48px; }
+textarea { min-height: 100px; resize: vertical; }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
+.choix { display: flex; flex-wrap: wrap; gap: 8px; }
+.choix label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--trait); border-radius: 999px; padding: 8px 14px; cursor: pointer; font-size: 15px; }
+.choix label:has(input:checked) { border-color: var(--turquoise); background: var(--turquoise-fond); font-weight: 700; }
+.choix input { width: auto; min-height: 0; accent-color: var(--turquoise); }
+.accord { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; color: var(--doux); }
+.accord input { width: 20px; min-height: 20px; margin-top: 3px; accent-color: var(--turquoise); flex: none; }
+.piege { position: absolute; inset-inline-start: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.retour { border-radius: 10px; padding: 14px 16px; font-size: 15.5px; }
+.retour.ok { background: color-mix(in srgb, var(--ok) 14%, transparent); }
+.retour.ko { background: color-mix(in srgb, var(--erreur) 14%, transparent); }
+.erreur-champ input, .erreur-champ select, .erreur-champ textarea { border-color: var(--erreur); }
+
+.faq { display: grid; gap: 12px; max-width: 760px; }
+details { background: var(--surface); border: 1px solid var(--trait); border-radius: 12px; padding: 16px 20px; }
+summary { cursor: pointer; font-weight: 700; }
+details p { margin: 10px 0 0; color: var(--doux); }
+
+footer { border-top: 1px solid var(--trait); }
+footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14.5px; color: var(--doux); }
+
+@media (max-width: 900px) {
+  header nav { display: none; }
+  .langues { margin-inline-start: auto; }
+  .hero .env, .contact { grid-template-columns: 1fr; }
+  .hero .env { padding-block: 40px 56px; }
+  .inclus, .formules { grid-template-columns: 1fr 1fr; }
+  .etapes { grid-template-columns: 1fr 1fr; }
+  .demos { grid-template-columns: 1fr; }
+  section { padding-block: 56px; }
+}
+@media (max-width: 560px) {
+  .inclus, .formules, .etapes, .deux { grid-template-columns: 1fr; }
+  .hero .actions .bouton { width: 100%; }
+  form { padding: 20px; }
+  .logo small { display: none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="env">
+    <a class="logo" href="#haut"><span class="carreau" aria-hidden="true"></span><span><b data-t="marque">משה מאיז ברבי</b><small data-t="metier">אתרים לעסקים · ירושלים</small></span></a>
+    <nav aria-label="Menu">
+      <a href="#inclus" data-t="n1">מה כלול</a>
+      <a href="#formules" data-t="n2">חבילות</a>
+      <a href="#etapes" data-t="n3">איך זה עובד</a>
+      <a href="#contact" data-t="n4">לחזרה טלפונית</a>
+    </nav>
+    <div class="langues" role="group" aria-label="Langue">
+      <button type="button" id="btn-fr" data-lang="fr" aria-pressed="false">FR</button>
+      <button type="button" id="btn-he" data-lang="he" aria-pressed="true" lang="he">עב</button>
+    </div>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="hero">
+    <div class="env">
+      <div>
+        <div class="sur-titre" data-t="h-sur">בניית אתרים לחנויות ולעסקים קטנים</div>
+        <h1><span data-t="h1a">האתר של העסק שלכם,</span> <em data-t="h1b">בעברית ובצרפתית,</em> <span data-t="h1c">באוויר תוך שבוע.</span></h1>
+        <p data-t="h-p">הלקוחות מוצאים אתכם בגוגל מפות, רואים אם אתם פתוחים וכותבים לכם בוואטסאפ. אני דואג להכול, ואתם מתרכזים בעסק.</p>
+        <div class="actions">
+          <a class="bouton plein" href="#contact" data-t="h-cta1">לחזרה טלפונית בחינם</a>
+          <a class="bouton vide" href="#exemples" data-t="h-cta2">לאתרים לדוגמה</a>
+        </div>
+        <ul class="garanties">
+          <li data-t="g1">סקיצה בשם העסק שלכם במתנה</li>
+          <li data-t="g2">ללא התחייבות</li>
+          <li data-t="g3">מדברים עברית וצרפתית</li>
+        </ul>
+      </div>
+      <div class="telephone" aria-hidden="true">
+        <div class="ecran">
+          <div class="barre"><span>9:41</span><span>5G</span></div>
+          <div class="store"></div>
+          <div class="corps">
+            <h4>Le Comptoir de Rivka</h4>
+            <span class="mini-statut"><i></i><span data-t="t-ouvert">פתוח · נסגר ב-20:00</span></span>
+            <div class="mini-bouton" data-t="t-wa">להזמנה בוואטסאפ</div>
+            <div class="mini-bouton clair" data-t="t-maps">ניווט בגוגל מפות</div>
+            <div class="mini-carte"><span data-t="t-p1">באגט טרדיסיון</span><span>9 ₪</span></div>
+            <div class="mini-carte"><span data-t="t-p2">קונטה 18 חודשים</span><span>39 ₪</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="alt" id="inclus">
+    <div class="env">
+      <div class="tete">
+        <div class="sur-titre" data-t="i-sur">מה כלול</div>
+        <h2 data-t="i-titre">כל מה שעסק צריך, בלי מה שמיותר</h2>
+      </div>
+      <div class="inclus">
+        <div><h3 data-t="i1">נראים בגוגל</h3><p data-t="i1d">יצירה או תיקון של כרטיס העסק בגוגל מפות: שעות, תמונות, ניווט, ביקורות.</p></div>
+        <div><h3 data-t="i2">מותאם לטלפון</h3><p data-t="i2d">רוב הלקוחות מגיעים מהטלפון: הכול קריא ומהיר.</p></div>
+        <div><h3 data-t="i3">עברית וצרפתית</h3><p data-t="i3d">שתי שפות, ואנגלית אם תרצו. העברית מימין לשמאל, כמו שצריך.</p></div>
+        <div><h3 data-t="i4">יצירת קשר בלחיצה</h3><p data-t="i4d">כפתור וואטסאפ, חיוג, וייז וגוגל מפות, טופס יצירת קשר.</p></div>
+        <div><h3 data-t="i5">שעות פתיחה תמיד מעודכנות</h3><p data-t="i5d">פתוח או סגור בזמן אמת, כולל שישי, שבת וערבי חג.</p></div>
+        <div><h3 data-t="i6">אני דואג לכל השאר</h3><p data-t="i6d">אחסון, אבטחה ושינויים קטנים: שולחים הודעה, וזה מטופל.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formules">
+    <div class="env">
+      <div class="tete">
+        <div class="sur-titre" data-t="f-sur">חבילות</div>
+        <h2 data-t="f-titre">שלוש חבילות לפי סוג העסק</h2>
+      </div>
+      <div class="formules">
+        <article class="formule">
+          <p class="pour" data-t="f1-pour">כדי שימצאו אתכם ויפנו אליכם</p>
+          <h3 data-t="f1">תדמית</h3>
+          <ul>
+            <li data-t="f1a">עמוד מלא: פעילות, שעות, מפה, יצירת קשר</li>
+            <li data-t="f1b">כרטיס גוגל מפות משופר</li>
+            <li data-t="f1c">כפתור וואטסאפ וטופס</li>
+            <li data-t="f1d">עברית וצרפתית</li>
+          </ul>
+          <a class="bouton vide" href="#contact" data-f="Vitrine" data-t="f-choisir">אני מעוניין</a>
+          <a class="voir-exemple" href="https://moise770.github.io/demo-comptoir/" target="_blank" rel="noopener" data-t="f-exemple">לאתר לדוגמה</a>
+        </article>
+        <article class="formule mise">
+          <span class="badge" data-t="f2-badge">הכי מבוקשת</span>
+          <p class="pour" data-t="f2-pour">להצגת מוצרים או שירותים</p>
+          <h3 data-t="f2">תדמית +</h3>
+          <ul>
+            <li data-t="f2a">כל מה שכלול בתדמית</li>
+            <li data-t="f2b">עד 5 עמודים: מוצרים, שירותים, צוות, גלריה</li>
+            <li data-t="f2c">קביעת תורים או הזמנה בוואטסאפ</li>
+            <li data-t="f2d">עדכוני שעות ומחירים ללא הגבלה</li>
+          </ul>
+          <a class="bouton plein" href="#contact" data-f="Vitrine +" data-t="f-choisir">אני מעוניין</a>
+          <a class="voir-exemple" href="https://moise770.github.io/coiffure/" target="_blank" rel="noopener" data-t="f-exemple">לאתר לדוגמה</a>
+        </article>
+        <article class="formule">
+          <p class="pour" data-t="f3-pour">למכירה אונליין</p>
+          <h3 data-t="f3">חנות</h3>
+          <ul>
+            <li data-t="f3a">קטלוג מוצרים עם תמונות</li>
+            <li data-t="f3b">תשלום אונליין ומשלוחים</li>
+            <li data-t="f3c">אתם מנהלים את המוצרים בעצמכם</li>
+            <li data-t="f3d">הדרכה וליווי</li>
+          </ul>
+          <a class="bouton vide" href="#contact" data-f="Boutique" data-t="f-choisir">אני מעוניין</a>
+          <a class="voir-exemple" href="https://moise770.github.io/boutique/" target="_blank" rel="noopener" data-t="f-exemple">לאתר לדוגמה</a>
+        </article>
+      </div>
+      <p class="tarif" data-t="tarif">המחיר לפי הצעה: עלות הקמה, ואחריה מנוי חודשי שכולל הכול (אחסון, אבטחה, שינויים).</p>
+    </div>
+  </section>
+
+  <section class="alt" id="etapes">
+    <div class="env">
+      <div class="tete">
+        <div class="sur-titre" data-t="e-sur">איך זה עובד</div>
+        <h2 data-t="e-titre">מהשיחה הראשונה ועד שהאתר באוויר</h2>
+      </div>
+      <ol class="etapes">
+        <li><h3 data-t="e1">שיחה של 15 דקות</h3><p data-t="e1d">מספרים לי על העסק ועל הלקוחות.</p></li>
+        <li><h3 data-t="e2">סקיצה תוך 48 שעות</h3><p data-t="e2d">אני מציג לכם את האתר בשם העסק, ללא התחייבות.</p></li>
+        <li><h3 data-t="e3">באוויר תוך שבוע</h3><p data-t="e3d">אתם מאשרים, אני מתאים, והאתר עולה.</p></li>
+        <li><h3 data-t="e4">אני ממשיך ללוות</h3><p data-t="e4d">שעות משתנות או מבצע חדש: הודעה אחת מספיקה.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="exemples">
+    <div class="env">
+      <div class="tete"><div class="sur-titre" data-t="d-sur">דוגמאות</div><h2 data-t="d-titre">תראו בעצמכם</h2></div>
+      <div class="demos">
+        <a class="demo" href="https://moise770.github.io/demo-comptoir/" target="_blank" rel="noopener">
+          <span class="demo-formule" data-t="f1">תדמית</span>
+          <span class="demo-type" data-t="d1-type">מזון · ירושלים</span>
+          <h3 data-t="d1">הקומפטואר של רבקה</h3>
+          <p data-t="d1-p">מעדנייה: פתוח או סגור בזמן אמת, הזמנה ליום שישי, משלוחים לפי שכונה.</p>
+          <span class="demo-lien" data-t="d-cta">לאתר לדוגמה</span>
+        </a>
+        <a class="demo" href="https://moise770.github.io/coiffure/" target="_blank" rel="noopener">
+          <span class="demo-formule" data-t="f2">תדמית +</span>
+          <span class="demo-type" data-t="d2-type">מספרה · נתניה</span>
+          <h3 data-t="d2">האטלייה של שירה</h3>
+          <p data-t="d2-p">קביעת תור בשלוש בחירות עם שליחה בוואטסאפ, מחירון, פלטת צבעים.</p>
+          <span class="demo-lien" data-t="d-cta">לאתר לדוגמה</span>
+        </a>
+        <a class="demo" href="https://moise770.github.io/boutique/" target="_blank" rel="noopener">
+          <span class="demo-formule" data-t="f3">חנות</span>
+          <span class="demo-type" data-t="d3-type">אומן ומכירה אונליין · ירושלים</span>
+          <h3 data-t="d3">אטלייה אור</h3>
+          <p data-t="d3-p">קטלוג עם סינון, סל קניות, משלוח לישראל או לצרפת, הזמנה בשני שלבים.</p>
+          <span class="demo-lien" data-t="d-cta">לאתר לדוגמה</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="contact">
+    <div class="env contact">
+      <div>
+        <div class="tete">
+          <div class="sur-titre" data-t="c-sur">לחזרה טלפונית</div>
+          <h2 data-t="c-titre">בואו נדבר על העסק שלכם</h2>
+          <p data-t="c-p">השאירו פרטים ואחזור אליכם תוך 24 שעות עבודה, בימים א'–ה'.</p>
+        </div>
+        <ul class="rassurance">
+          <li data-t="r1">שיחה ראשונה בחינם וללא התחייבות</li>
+          <li data-t="r2">הפרטים משמשים רק כדי לחזור אליכם</li>
+          <li data-t="r3">מענה בעברית או בצרפתית</li>
+        </ul>
+      </div>
+      <form id="formulaire" novalidate="">
+        <div class="deux">
+          <div class="champ"><label for="nom"><span data-t="l-nom">שם</span> <span class="req">*</span></label><input id="nom" name="nom" autocomplete="name" required=""></div>
+          <div class="champ"><label for="commerce"><span data-t="l-commerce">שם העסק</span> <span class="req">*</span></label><input id="commerce" name="commerce" autocomplete="organization" required=""></div>
+        </div>
+        <div class="deux">
+          <div class="champ"><label for="activite"><span data-t="l-activite">תחום</span></label>
+            <select id="activite" name="activite">
+              <option value="Boutique" data-t="a1">חנות</option>
+              <option value="Alimentation" data-t="a2">מזון, מסעדה</option>
+              <option value="Santé" data-t="a3">בריאות, בית מרקחת, פרא-רפואי</option>
+              <option value="Beauté" data-t="a4">יופי, מספרה</option>
+              <option value="Services" data-t="a5">שירותים, בעל מקצוע</option>
+              <option value="Autre" data-t="a6">אחר</option>
+            </select>
+          </div>
+          <div class="champ"><label for="ville"><span data-t="l-ville">עיר</span></label><input id="ville" name="ville" autocomplete="address-level2"></div>
+        </div>
+        <div class="deux">
+          <div class="champ"><label for="telephone"><span data-t="l-tel">טלפון</span> <span class="req">*</span></label><input id="telephone" name="telephone" type="tel" autocomplete="tel" dir="ltr" required=""></div>
+          <div class="champ"><label for="email"><span data-t="l-email">אימייל</span></label><input id="email" name="email" type="email" autocomplete="email" dir="ltr"></div>
+        </div>
+        <fieldset>
+          <legend data-t="l-formule">החבילה שמעניינת אתכם</legend>
+          <div class="choix">
+            <label><input type="radio" name="formule" value="Vitrine" id="fo-1"> <span data-t="f1">תדמית</span></label>
+            <label><input type="radio" name="formule" value="Vitrine +" id="fo-2"> <span data-t="f2">תדמית +</span></label>
+            <label><input type="radio" name="formule" value="Boutique" id="fo-3"> <span data-t="f3">חנות</span></label>
+            <label><input type="radio" name="formule" value="Je ne sais pas" id="fo-4" checked=""> <span data-t="fo-nsp">עוד לא יודע</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-t="l-pref">איך נוח לכם שאחזור אליכם?</legend>
+          <div class="choix">
+            <label><input type="radio" name="preference" value="WhatsApp" id="pr-1" checked=""> WhatsApp</label>
+            <label><input type="radio" name="preference" value="Appel" id="pr-2"> <span data-t="pr-appel">שיחה</span></label>
+            <label><input type="radio" name="preference" value="Email" id="pr-3"> Email</label>
+          </div>
+        </fieldset>
+        <div class="champ"><label for="message" data-t="l-msg">כמה מילים על הפרויקט (לא חובה)</label><textarea id="message" name="message"></textarea></div>
+        <div class="piege" aria-hidden="true"><label for="site_web">Ne pas remplir</label><input id="site_web" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <label class="accord" for="accord"><input type="checkbox" id="accord" name="accord" required=""> <span data-t="l-accord">אני מסכים/ה שיחזרו אליי בנוגע לפנייה. הפרטים לא יועברו לאחרים ולא ישמשו לשום מטרה אחרת.</span></label>
+        <button class="bouton plein" type="submit" id="envoyer" data-t="envoyer">שליחת הפנייה</button>
+        <div class="retour" id="retour" role="status" hidden=""></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="env">
+      <div class="tete"><div class="sur-titre" data-t="q-sur">שאלות נפוצות</div><h2 data-t="q-titre">אולי אתם שואלים את עצמכם</h2></div>
+      <div class="faq">
+        <details><summary data-t="q1">כבר יש לי אתר, אפשר לבנות אותו מחדש?</summary><p data-t="q1r">כן. אני משתמש בטקסטים ובתמונות שלכם, ושומר על כתובת האתר אם יש לכם.</p></details>
+        <details><summary data-t="q2">אוכל לשנות את האתר בעצמי?</summary><p data-t="q2r">בחבילת חנות, כן. בשאר החבילות מספיקה הודעת וואטסאפ: שינויים קטנים כלולים במנוי.</p></details>
+        <details><summary data-t="q3">מה צריך להכין?</summary><p data-t="q3r">כמה תמונות של העסק והמוצרים ושעות הפתיחה, וזהו. בטקסטים אני עוזר.</p></details>
+        <details><summary data-t="q4">אתה עובד גם עם צרפת?</summary><p data-t="q4r">כן, הכול עובד מצוין מרחוק, בווידאו ובוואטסאפ.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="env">
+    <span data-t="pied1">משה מאיז ברבי · בניית אתרים לעסקים · ירושלים</span>
+    <span data-t="pied2">Français · עברית</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Adresse qui reçoit les demandes (service FormSubmit). À remplacer avant la mise en ligne.
+  const EMAIL_RECEPTION = "moscheberrebi@gmail.com";
+
+  const T = {
+    fr: {
+      marque: "Moïse Berrebi", metier: "Sites pour commerces · Jérusalem",
+      n1: "Ce qui est inclus", n2: "Formules", n3: "Comment ça marche", n4: "Être rappelé",
+      "h-sur": "Création de sites pour commerces et petites entreprises",
+      h1a: "Le site de votre commerce,", h1b: "en français et en hébreu,", h1c: "en ligne en une semaine.",
+      "h-p": "Vos clients vous trouvent sur Google Maps, voient si vous êtes ouvert et vous écrivent sur WhatsApp. Je m'occupe de tout, vous gardez la main sur votre commerce.",
+      "h-cta1": "Être rappelé gratuitement", "h-cta2": "Voir des exemples",
+      g1: "Maquette à votre nom offerte", g2: "Sans engagement", g3: "On se parle en français",
+      "t-ouvert": "Ouvert · ferme à 20 h", "t-wa": "Commander sur WhatsApp", "t-maps": "Itinéraire Google Maps", "t-p1": "Baguette tradition", "t-p2": "Comté 18 mois",
+      "i-sur": "Ce qui est inclus", "i-titre": "Tout ce dont un commerce a besoin, rien de superflu",
+      i1: "Visible sur Google", i1d: "Votre fiche Google Maps créée ou corrigée : horaires, photos, itinéraire, avis.",
+      i2: "Pensé pour le téléphone", i2d: "La plupart de vos clients arrivent depuis leur téléphone : tout y est lisible et rapide.",
+      i3: "Français et hébreu", i3d: "Deux langues, et l'anglais si vous le souhaitez. L'hébreu se lit de droite à gauche, comme il se doit.",
+      i4: "Contact en un geste", i4d: "Bouton WhatsApp, appel, Waze et Google Maps, formulaire de contact.",
+      i5: "Horaires toujours justes", i5d: "Ouvert ou fermé en direct, vendredi, Chabbat et veilles de fêtes compris.",
+      i6: "Je m'occupe du reste", i6d: "Hébergement, sécurité, petites modifications : vous m'envoyez un message, c'est fait.",
+      "f-sur": "Formules", "f-titre": "Trois formules selon votre activité",
+      "f1-pour": "Pour être trouvé et contacté", f1: "Vitrine", f1a: "Une page complète : activité, horaires, plan, contact", f1b: "Fiche Google Maps optimisée", f1c: "Bouton WhatsApp et formulaire", f1d: "Français et hébreu",
+      "f2-badge": "La plus demandée", "f2-pour": "Pour présenter vos produits ou vos services", f2: "Vitrine +", f2a: "Tout ce qui est dans Vitrine", f2b: "Jusqu'à 5 pages : produits, services, équipe, galerie", f2c: "Prise de rendez-vous ou commande sur WhatsApp", f2d: "Mises à jour illimitées des horaires et des prix",
+      "f3-pour": "Pour vendre en ligne", f3: "Boutique", f3a: "Catalogue de produits avec photos", f3b: "Paiement en ligne et livraison", f3c: "Vous gérez vos produits vous-même", f3d: "Formation et accompagnement",
+      "f-choisir": "Je suis intéressé", "f-exemple": "Voir l'exemple",
+      "d3-type": "Artisan et vente en ligne · Jérusalem", d3: "Atelier Or", "d3-p": "Catalogue filtrable, panier, livraison en Israël ou en France, commande en deux étapes.",
+      tarif: "Tarif sur devis : un prix de création, puis un abonnement mensuel tout compris (hébergement, sécurité, modifications).",
+      "e-sur": "Comment ça marche", "e-titre": "De notre premier appel à votre site en ligne",
+      e1: "On se parle 15 minutes", e1d: "Vous m'expliquez votre commerce et vos clients.",
+      e2: "Maquette sous 48 h", e2d: "Je vous montre votre site, à votre nom, sans engagement.",
+      e3: "En ligne en une semaine", e3d: "Vous validez, j'ajuste, le site est publié.",
+      e4: "Je reste là", e4d: "Un horaire change, une promotion arrive : un message suffit.",
+      "d-sur": "Exemples", "d-titre": "Voyez par vous-même", "d-cta": "Ouvrir l'exemple",
+      "d1-type": "Commerce de bouche · Jérusalem", d1: "Le Comptoir de Rivka", "d1-p": "Épicerie fine : horaires ouverts ou fermés en direct, commande du vendredi, livraison par quartier.",
+      "d2-type": "Salon de coiffure · Netanya", d2: "Atelier Shira", "d2-p": "Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.",
+      "c-sur": "Être rappelé", "c-titre": "Parlons de votre commerce", "c-p": "Laissez vos coordonnées : je vous recontacte sous 24 heures ouvrées, du dimanche au jeudi.",
+      r1: "Premier échange gratuit et sans engagement", r2: "Vos coordonnées ne servent qu'à vous recontacter", r3: "Réponse en français ou en hébreu",
+      "l-nom": "Votre nom", "l-commerce": "Nom du commerce", "l-activite": "Activité", "l-ville": "Ville", "l-tel": "Téléphone", "l-email": "Email",
+      a1: "Boutique", a2: "Alimentation, restaurant", a3: "Santé, pharmacie, paramédical", a4: "Beauté, coiffure", a5: "Services, artisan", a6: "Autre",
+      "l-formule": "Formule envisagée", "fo-nsp": "Je ne sais pas encore", "l-pref": "Comment préférez-vous être recontacté ?", "pr-appel": "Appel",
+      "l-msg": "Un mot sur votre projet (facultatif)",
+      "l-accord": "J'accepte d'être recontacté au sujet de ma demande. Mes coordonnées ne seront ni partagées ni utilisées à d'autres fins.",
+      envoyer: "Envoyer ma demande", envoi: "Envoi en cours…",
+      ok: "Merci {nom}, votre demande est bien envoyée. Je vous recontacte sous 24 heures ouvrées.",
+      manque: "Il manque : {liste}.", accordManque: "Cochez la case d'accord pour que je puisse vous recontacter.",
+      echec: "L'envoi n'a pas fonctionné. Réessayez dans un instant ; si le problème continue, écrivez-moi directement.",
+      apercu: "Aperçu : le formulaire est complet. Sur le site en ligne, cette demande arrivera directement dans votre boîte mail.",
+      config: "Le formulaire n'est pas encore relié à une adresse email. Écrivez-moi directement en attendant.",
+      "q-sur": "Questions fréquentes", "q-titre": "Vous vous demandez peut-être",
+      q1: "J'ai déjà un site, pouvez-vous le refaire ?", q1r: "Oui. Je reprends vos textes et vos photos, et je garde votre adresse internet si vous en avez une.",
+      q2: "Est-ce que je pourrai modifier mon site moi-même ?", q2r: "Avec la formule Boutique, oui. Pour les autres, un message WhatsApp suffit : les petites modifications sont comprises dans l'abonnement.",
+      q3: "Que faut-il préparer ?", q3r: "Quelques photos de votre commerce et de vos produits, vos horaires, et c'est tout. Je vous aide pour les textes.",
+      q4: "Travaillez-vous aussi avec la France ?", q4r: "Oui, tout se fait très bien à distance, par visio et par WhatsApp.",
+      pied1: "Moïse Berrebi · Création de sites pour commerces · Jérusalem", pied2: "Français · עברית"
+    },
+    he: {
+      marque: "משה מאיז ברבי", metier: "אתרים לעסקים · ירושלים",
+      n1: "מה כלול", n2: "חבילות", n3: "איך זה עובד", n4: "לחזרה טלפונית",
+      "h-sur": "בניית אתרים לחנויות ולעסקים קטנים",
+      h1a: "האתר של העסק שלכם,", h1b: "בעברית ובצרפתית,", h1c: "באוויר תוך שבוע.",
+      "h-p": "הלקוחות מוצאים אתכם בגוגל מפות, רואים אם אתם פתוחים וכותבים לכם בוואטסאפ. אני דואג להכול, ואתם מתרכזים בעסק.",
+      "h-cta1": "לחזרה טלפונית בחינם", "h-cta2": "לאתרים לדוגמה",
+      g1: "סקיצה בשם העסק שלכם במתנה", g2: "ללא התחייבות", g3: "מדברים עברית וצרפתית",
+      "t-ouvert": "פתוח · נסגר ב-20:00", "t-wa": "להזמנה בוואטסאפ", "t-maps": "ניווט בגוגל מפות", "t-p1": "באגט טרדיסיון", "t-p2": "קונטה 18 חודשים",
+      "i-sur": "מה כלול", "i-titre": "כל מה שעסק צריך, בלי מה שמיותר",
+      i1: "נראים בגוגל", i1d: "יצירה או תיקון של כרטיס העסק בגוגל מפות: שעות, תמונות, ניווט, ביקורות.",
+      i2: "מותאם לטלפון", i2d: "רוב הלקוחות מגיעים מהטלפון: הכול קריא ומהיר.",
+      i3: "עברית וצרפתית", i3d: "שתי שפות, ואנגלית אם תרצו. העברית מימין לשמאל, כמו שצריך.",
+      i4: "יצירת קשר בלחיצה", i4d: "כפתור וואטסאפ, חיוג, וייז וגוגל מפות, טופס יצירת קשר.",
+      i5: "שעות פתיחה תמיד מעודכנות", i5d: "פתוח או סגור בזמן אמת, כולל שישי, שבת וערבי חג.",
+      i6: "אני דואג לכל השאר", i6d: "אחסון, אבטחה ושינויים קטנים: שולחים הודעה, וזה מטופל.",
+      "f-sur": "חבילות", "f-titre": "שלוש חבילות לפי סוג העסק",
+      "f1-pour": "כדי שימצאו אתכם ויפנו אליכם", f1: "תדמית", f1a: "עמוד מלא: פעילות, שעות, מפה, יצירת קשר", f1b: "כרטיס גוגל מפות משופר", f1c: "כפתור וואטסאפ וטופס", f1d: "עברית וצרפתית",
+      "f2-badge": "הכי מבוקשת", "f2-pour": "להצגת מוצרים או שירותים", f2: "תדמית +", f2a: "כל מה שכלול בתדמית", f2b: "עד 5 עמודים: מוצרים, שירותים, צוות, גלריה", f2c: "קביעת תורים או הזמנה בוואטסאפ", f2d: "עדכוני שעות ומחירים ללא הגבלה",
+      "f3-pour": "למכירה אונליין", f3: "חנות", f3a: "קטלוג מוצרים עם תמונות", f3b: "תשלום אונליין ומשלוחים", f3c: "אתם מנהלים את המוצרים בעצמכם", f3d: "הדרכה וליווי",
+      "f-choisir": "אני מעוניין", "f-exemple": "לאתר לדוגמה",
+      "d3-type": "אומן ומכירה אונליין · ירושלים", d3: "אטלייה אור", "d3-p": "קטלוג עם סינון, סל קניות, משלוח לישראל או לצרפת, הזמנה בשני שלבים.",
+      tarif: "המחיר לפי הצעה: עלות הקמה, ואחריה מנוי חודשי שכולל הכול (אחסון, אבטחה, שינויים).",
+      "e-sur": "איך זה עובד", "e-titre": "מהשיחה הראשונה ועד שהאתר באוויר",
+      e1: "שיחה של 15 דקות", e1d: "מספרים לי על העסק ועל הלקוחות.",
+      e2: "סקיצה תוך 48 שעות", e2d: "אני מציג לכם את האתר בשם העסק, ללא התחייבות.",
+      e3: "באוויר תוך שבוע", e3d: "אתם מאשרים, אני מתאים, והאתר עולה.",
+      e4: "אני ממשיך ללוות", e4d: "שעות משתנות או מבצע חדש: הודעה אחת מספיקה.",
+      "d-sur": "דוגמאות", "d-titre": "תראו בעצמכם", "d-cta": "לאתר לדוגמה",
+      "d1-type": "מזון · ירושלים", d1: "הקומפטואר של רבקה", "d1-p": "מעדנייה: פתוח או סגור בזמן אמת, הזמנה ליום שישי, משלוחים לפי שכונה.",
+      "d2-type": "מספרה · נתניה", d2: "האטלייה של שירה", "d2-p": "קביעת תור בשלוש בחירות עם שליחה בוואטסאפ, מחירון, פלטת צבעים.",
+      "c-sur": "לחזרה טלפונית", "c-titre": "בואו נדבר על העסק שלכם", "c-p": "השאירו פרטים ואחזור אליכם תוך 24 שעות עבודה, בימים א'–ה'.",
+      r1: "שיחה ראשונה בחינם וללא התחייבות", r2: "הפרטים משמשים רק כדי לחזור אליכם", r3: "מענה בעברית או בצרפתית",
+      "l-nom": "שם", "l-commerce": "שם העסק", "l-activite": "תחום", "l-ville": "עיר", "l-tel": "טלפון", "l-email": "אימייל",
+      a1: "חנות", a2: "מזון, מסעדה", a3: "בריאות, בית מרקחת, פרא-רפואי", a4: "יופי, מספרה", a5: "שירותים, בעל מקצוע", a6: "אחר",
+      "l-formule": "החבילה שמעניינת אתכם", "fo-nsp": "עוד לא יודע", "l-pref": "איך נוח לכם שאחזור אליכם?", "pr-appel": "שיחה",
+      "l-msg": "כמה מילים על הפרויקט (לא חובה)",
+      "l-accord": "אני מסכים/ה שיחזרו אליי בנוגע לפנייה. הפרטים לא יועברו לאחרים ולא ישמשו לשום מטרה אחרת.",
+      envoyer: "שליחת הפנייה", envoi: "שולח…",
+      ok: "תודה {nom}, הפנייה נשלחה. אחזור אליכם תוך 24 שעות עבודה.",
+      manque: "חסר: {liste}.", accordManque: "סמנו את תיבת ההסכמה כדי שאוכל לחזור אליכם.",
+      echec: "השליחה לא הצליחה. נסו שוב בעוד רגע; אם הבעיה חוזרת, כתבו לי ישירות.",
+      apercu: "תצוגה מקדימה: הטופס מלא. באתר החי, הפנייה תגיע ישירות לתיבת המייל.",
+      config: "הטופס עדיין לא מחובר לכתובת מייל. בינתיים כתבו לי ישירות.",
+      "q-sur": "שאלות נפוצות", "q-titre": "אולי אתם שואלים את עצמכם",
+      q1: "כבר יש לי אתר, אפשר לבנות אותו מחדש?", q1r: "כן. אני משתמש בטקסטים ובתמונות שלכם, ושומר על כתובת האתר אם יש לכם.",
+      q2: "אוכל לשנות את האתר בעצמי?", q2r: "בחבילת חנות, כן. בשאר החבילות מספיקה הודעת וואטסאפ: שינויים קטנים כלולים במנוי.",
+      q3: "מה צריך להכין?", q3r: "כמה תמונות של העסק והמוצרים ושעות הפתיחה, וזהו. בטקסטים אני עוזר.",
+      q4: "אתה עובד גם עם צרפת?", q4r: "כן, הכול עובד מצוין מרחוק, בווידאו ובוואטסאפ.",
+      pied1: "משה מאיז ברבי · בניית אתרים לעסקים · ירושלים", pied2: "Français · עברית"
+    }
+  };
+  let langue = "fr";
+  const META = {
+    fr: { titre: "Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi",
+          desc: "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne en une semaine. Jérusalem, Israël et France." },
+    he: { titre: "בניית אתרים לעסקים בירושלים, בעברית ובצרפתית | משה מאיז ברבי",
+          desc: "האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, באוויר תוך שבוע. ירושלים, ישראל וצרפת." }
+  };
+  // Sur le site publié, chaque langue a sa propre adresse (meilleur référencement).
+  const PAGES = { fr: "/", he: "/he/" };
+  const surSitePublie = /github\.io$/.test(location.hostname) || (location.hostname && !/claude|localhost|127\.0\.0\.1|usercontent/.test(location.hostname));
+
+  function appliquer(l) {
+    langue = l;
+    const t = T[l];
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+    document.title = META[l].titre;
+    const md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute("content", META[l].desc);
+    document.querySelectorAll("[data-t]").forEach(el => { const v = t[el.dataset.t]; if (v !== undefined) el.textContent = v; });
+    document.querySelectorAll(".langues button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    document.getElementById("retour").hidden = true;
+  }
+  document.querySelectorAll(".langues button").forEach(b => b.addEventListener("click", () => {
+    const l = b.dataset.lang;
+    if (surSitePublie && l !== langue) { location.href = PAGES[l]; return; }
+    appliquer(l);
+  }));
+
+  // Les boutons « Je suis intéressé » pré-cochent la formule.
+  document.querySelectorAll("[data-f]").forEach(a => a.addEventListener("click", () => {
+    const r = document.querySelector(`input[name="formule"][value="${a.dataset.f}"]`);
+    if (r) r.checked = true;
+  }));
+
+  const form = document.getElementById("formulaire");
+  const retour = document.getElementById("retour");
+  const bouton = document.getElementById("envoyer");
+
+  function afficher(type, texte) {
+    retour.className = "retour " + type;
+    retour.textContent = texte;
+    retour.hidden = false;
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const t = T[langue];
+    form.querySelectorAll(".erreur-champ").forEach(c => c.classList.remove("erreur-champ"));
+    const manquants = [];
+    [["nom", "l-nom"], ["commerce", "l-commerce"], ["telephone", "l-tel"]].forEach(([id, cle]) => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) { manquants.push(t[cle].toLowerCase()); el.closest(".champ").classList.add("erreur-champ"); }
+    });
+    if (manquants.length) { afficher("ko", t.manque.replace("{liste}", manquants.join(", "))); return; }
+    if (!form.accord.checked) { afficher("ko", t.accordManque); return; }
+    if (form._honey.value) return;
+
+    const donnees = {
+      _subject: `Nouvelle demande de site : ${form.commerce.value.trim()}`,
+      _template: "table",
+      Nom: form.nom.value.trim(),
+      Commerce: form.commerce.value.trim(),
+      Activité: form.activite.value,
+      Ville: form.ville.value.trim(),
+      Téléphone: form.telephone.value.trim(),
+      Email: form.email.value.trim(),
+      Formule: form.formule.value,
+      "Recontacter par": form.preference.value,
+      Langue: langue === "he" ? "Hébreu" : "Français",
+      Message: form.message.value.trim()
+    };
+    const nom = donnees.Nom;
+
+    const enLigne = /github\.io$|netlify\.app$|pages\.dev$/.test(location.hostname) || (location.hostname && !/claude|localhost|127\.0\.0\.1|usercontent/.test(location.hostname));
+    if (!enLigne) { afficher("ok", t.apercu); return; }
+    if (!EMAIL_RECEPTION) { afficher("ko", t.config); return; }
+
+    bouton.disabled = true;
+    bouton.textContent = t.envoi;
+    try {
+      const r = await fetch(`https://formsubmit.co/ajax/${EMAIL_RECEPTION}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(donnees)
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && String(j.success) !== "false") {
+        afficher("ok", t.ok.replace("{nom}", nom));
+        form.reset();
+      } else {
+        afficher("ko", t.echec);
+      }
+    } catch (err) {
+      afficher("ko", t.echec);
+    } finally {
+      bouton.disabled = false;
+      bouton.textContent = t.envoyer;
+    }
+  });
+
+  // La langue de départ est celle de la page (fr à la racine, he dans /he/).
+  appliquer(document.documentElement.getAttribute("lang") === "he" ? "he" : "fr");
+})();
+</script>
+
+
+</body></html>
