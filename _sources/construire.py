@@ -51,6 +51,8 @@ def tete(lang):
 <meta property="og:locale:alternate" content="{META[autre][2]}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Moïse Berrebi">
 <script type="application/ld+json">{jsonld(lang)}</script>'''
 
 def corps_et_style(src):
