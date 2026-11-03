@@ -35,6 +35,7 @@ def tete(lang):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{titre}</title>
 <meta name="description" content="{desc}">
+<meta name="google-site-verification" content="ocGXDJN6NkBjCIQqLeDsyyLvTQ0OhC97x3OOsmQPNXs">
 <link rel="canonical" href="{BASE}{chemin}">
 <link rel="alternate" hreflang="fr" href="{BASE}/">
 <link rel="alternate" hreflang="he" href="{BASE}/he/">
