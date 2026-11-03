@@ -1,0 +1,443 @@
+<title>Atelier Or</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Suez+One&family=Alef:wght@400;700&display=swap">
+<style>
+/* Mise en page : boutique en ligne. Bandeau de livraison, ouverture courte, filtres par catégorie, grille de produits, panier en tiroir, commande en deux étapes. Matières : laiton, céramique, cire. */
+:root {
+  --fond: #f6f7fc;
+  --surface: #ffffff;
+  --sable: #e8edfd;          /* bleu très pâle */
+  --encre: #121833;
+  --doux: #565d7a;
+  --laiton: #2147d9;         /* bleu outremer, vitraux de Chagall */
+  --laiton-fort: #1a37b0;
+  --rouge: #e3343f;
+  --jaune: #f6c42c;
+  --vert: #17a06e;
+  --violet: #6c3fc4;
+  --trait: #dfe3f2;
+  --ok: #17a06e;
+  --titre: "Suez One", "Frank Ruhl Libre", Georgia, serif;
+  --texte: "Alef", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #0e1226; --surface: #161b36; --sable: #1d2550; --encre: #eef0fb; --doux: #a7aed0;
+    --laiton: #7f9cff; --laiton-fort: #a5baff; --trait: #2a3160; --ok: #4fd39c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fond: #0e1226; --surface: #161b36; --sable: #1d2550; --encre: #eef0fb; --doux: #a7aed0;
+  --laiton: #7f9cff; --laiton-fort: #a5baff; --trait: #2a3160; --ok: #4fd39c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--fond); color: var(--encre); font: 18px/1.55 var(--texte); }
+h1, h2, h3 { font-family: var(--titre); font-weight: 400; margin: 0; line-height: 1.12; text-wrap: balance; }
+a { color: var(--laiton-fort); }
+button { font-family: var(--texte); }
+:focus-visible { outline: 3px solid var(--laiton); outline-offset: 2px; }
+.env { max-width: 1160px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.demo-bandeau { background: var(--encre); color: var(--fond); font-size: 14px; text-align: center; }
+.demo-bandeau .env { padding-block: 6px; }
+.livraison-bandeau { background: var(--jaune); color: #121833; font-size: 15px; font-weight: 700; text-align: center; }
+.livraison-bandeau .env { padding-block: 8px; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--fond); }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 6; background: color-mix(in srgb, var(--fond) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--trait); }
+header .env { display: flex; align-items: center; gap: 18px; padding-block: 12px; }
+.marque { font-family: var(--titre); font-size: 26px; text-decoration: none; color: var(--encre); }
+.marque span { color: var(--rouge); }
+.droite { margin-inline-start: auto; display: flex; align-items: center; gap: 12px; }
+.langues { display: flex; border: 1px solid var(--trait); border-radius: 999px; padding: 3px; }
+.langues button { border: 0; background: none; color: var(--doux); font-weight: 700; font-size: 14px; padding: 6px 12px; border-radius: 999px; cursor: pointer; min-width: 44px; }
+.langues button[aria-pressed="true"] { background: var(--encre); color: var(--fond); }
+.btn-panier { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--laiton); background: var(--laiton); color: #fff; border-radius: 999px; padding: 0 18px; min-height: 44px; font-weight: 700; font-size: 16px; cursor: pointer; }
+.btn-panier b { background: var(--rouge); color: #fff; border-radius: 999px; min-width: 24px; height: 24px; display: inline-grid; place-items: center; font-size: 14px; padding: 0 6px; }
+
+.ouverture { position: relative; overflow: hidden; color: #fff; margin-bottom: 28px;
+  background:
+    radial-gradient(circle at 82% 30%, rgba(246,196,44,0.95) 0 7%, transparent 7.1%),
+    conic-gradient(from 200deg at 78% 60%, #e3343f 0 12%, #6c3fc4 0 26%, #17a06e 0 38%, #2147d9 0 62%, #f6c42c 0 70%, #1636b8 0 100%);
+}
+.ouverture::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.35;
+  background: repeating-linear-gradient(62deg, transparent 0 46px, rgba(10,14,40,0.55) 46px 49px), repeating-linear-gradient(-28deg, transparent 0 64px, rgba(10,14,40,0.55) 64px 67px); }
+.ouverture::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(18,24,80,0.92) 0 46%, rgba(18,24,80,0.35) 75%, transparent); pointer-events: none; }
+[dir="rtl"] .ouverture::after { background: linear-gradient(270deg, rgba(18,24,80,0.92) 0 46%, rgba(18,24,80,0.35) 75%, transparent); }
+.ouverture .env { position: relative; z-index: 1; padding-block: 72px 64px; display: grid; gap: 18px; max-width: 1160px; }
+.ouverture h1 { font-size: clamp(40px, 6vw, 72px); max-width: 11em; }
+.ouverture p { margin: 0; color: rgba(255,255,255,0.88); font-size: 19px; max-width: 30em; }
+.ouverture .cta { justify-self: start; display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; border-radius: 999px; background: var(--jaune); color: #121833; font-weight: 700; text-decoration: none; }
+
+.filtres { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 8px 24px; }
+.filtre { border: 1.5px solid var(--trait); background: var(--surface); color: var(--encre); border-radius: 999px; padding: 8px 16px; font-size: 16px; font-weight: 700; cursor: pointer; min-height: 42px; }
+.filtre[aria-pressed="true"] { background: var(--laiton); color: #fff; border-color: var(--laiton); }
+
+.grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding-bottom: 72px; }
+.produit { background: var(--surface); border: 1px solid var(--trait); border-radius: 18px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.visuel { aspect-ratio: 4 / 3; display: grid; place-items: center; max-width: 100%; position: relative; }
+.visuel svg { width: 46%; height: auto; }
+.etiquette { position: absolute; top: 12px; inset-inline-start: 12px; background: #fff; color: #121833; border-radius: 999px; font-size: 13px; font-weight: 700; padding: 3px 10px; }
+.infos { padding: 18px; display: grid; gap: 6px; align-content: start; }
+.infos h3 { font-size: 22px; }
+.infos p { margin: 0; color: var(--doux); font-size: 16px; }
+.bas { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+.prix { font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; }
+.ajouter { border: 1.5px solid var(--laiton); background: transparent; color: var(--laiton); border-radius: 999px; padding: 0 16px; min-height: 42px; font-weight: 700; font-size: 15px; cursor: pointer; }
+.ajouter:hover { background: var(--laiton); color: #fff; }
+.ajouter.fait { background: var(--ok); border-color: var(--ok); color: #fff; }
+
+.garanties { border-top: 1px solid var(--trait); }
+.garanties .env { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-block: 40px; }
+.garanties h3 { font-size: 19px; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+.garanties h3::before { content: ""; width: 12px; height: 12px; border-radius: 3px; transform: rotate(45deg); background: var(--c, var(--laiton)); flex: none; }
+.garanties p { margin: 0; color: var(--doux); font-size: 16px; }
+
+/* Tiroir du panier */
+.voile { position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 20; }
+.tiroir { position: fixed; inset-block: 0; inset-inline-end: 0; width: min(440px, 100%); background: var(--surface); z-index: 21; display: grid; grid-template-rows: auto 1fr auto;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-inline-end: env(safe-area-inset-right, 0px); box-shadow: 0 0 40px rgba(0,0,0,0.2); }
+.tiroir-tete { display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; border-bottom: 1px solid var(--trait); }
+.tiroir-tete h2 { font-size: 26px; }
+.fermer { border: 0; background: var(--sable); color: var(--encre); width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; }
+.tiroir-corps { overflow-y: auto; padding: 16px 20px; display: grid; gap: 14px; align-content: start; }
+.ligne { display: grid; grid-template-columns: 56px 1fr auto; gap: 12px; align-items: center; }
+.mini { width: 56px; height: 56px; border-radius: 12px; display: grid; place-items: center; }
+.mini svg { width: 60%; }
+.ligne h4 { margin: 0; font-size: 16px; }
+.ligne .pu { color: var(--doux); font-size: 14px; }
+.qte { display: inline-flex; align-items: center; border: 1px solid var(--trait); border-radius: 999px; }
+.qte button { border: 0; background: none; width: 34px; height: 34px; font-size: 18px; cursor: pointer; color: var(--encre); }
+.qte span { min-width: 22px; text-align: center; font-variant-numeric: tabular-nums; font-weight: 700; }
+.tiroir-pied { border-top: 1px solid var(--trait); padding: 16px 20px; display: grid; gap: 12px; }
+.choix-livraison { display: grid; gap: 8px; }
+.choix-livraison label { display: flex; justify-content: space-between; gap: 10px; border: 1.5px solid var(--trait); border-radius: 12px; padding: 10px 12px; cursor: pointer; font-size: 16px; }
+.choix-livraison label:has(input:checked) { border-color: var(--laiton); background: var(--sable); }
+.choix-livraison input { accent-color: var(--laiton); margin-inline-end: 8px; }
+.totaux { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-variant-numeric: tabular-nums; }
+.totaux dt { color: var(--doux); }
+.totaux dd { margin: 0; text-align: end; }
+.totaux .total { font-weight: 700; font-size: 20px; color: var(--encre); }
+.commander { border: 0; background: var(--laiton); color: #fff; border-radius: 999px; min-height: 52px; font-weight: 700; font-size: 17px; cursor: pointer; width: 100%; }
+.commander:disabled { opacity: 0.4; cursor: not-allowed; }
+.vide { text-align: center; color: var(--doux); padding: 40px 0; }
+.formulaire { display: grid; gap: 12px; }
+.formulaire label { display: grid; gap: 4px; font-weight: 700; font-size: 15px; }
+.formulaire input, .formulaire textarea { font: 17px var(--texte); color: var(--encre); background: var(--fond); border: 1.5px solid var(--trait); border-radius: 12px; padding: 10px 12px; min-height: 46px; width: 100%; }
+.paiement { background: var(--sable); border-radius: 14px; padding: 14px; display: grid; gap: 6px; font-size: 15.5px; }
+.paiement-modes { display: flex; flex-wrap: wrap; gap: 6px; }
+.paiement-modes span { background: var(--surface); border-radius: 8px; padding: 4px 10px; font-weight: 700; font-size: 14px; }
+.lien-retour { border: 0; background: none; color: var(--laiton-fort); font-weight: 700; cursor: pointer; padding: 0; font-size: 15px; justify-self: start; }
+.merci { text-align: center; display: grid; gap: 10px; padding: 24px 0; }
+.merci h3 { font-size: 28px; }
+.merci p { margin: 0; color: var(--doux); }
+.erreur { color: #b23a2e; font-size: 15px; margin: 0; }
+
+footer { border-top: 1px solid var(--trait); }
+footer .env { padding-block: 26px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; color: var(--doux); font-size: 15px; }
+
+@media (max-width: 900px) {
+  .ouverture .env { grid-template-columns: 1fr; padding-block: 32px 20px; }
+  .grille { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .garanties .env { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .grille { grid-template-columns: 1fr; }
+  .marque { font-size: 22px; }
+  .btn-panier span.libelle { display: none; }
+}
+</style>
+
+<div class="demo-bandeau"><div class="env" data-t="demo">Boutique de démonstration : aucun paiement n'est réalisé.</div></div>
+<div class="livraison-bandeau"><div class="env" data-t="bandeau">Livraison offerte en Israël dès 400 ₪ · Envoi en France sous 7 jours</div></div>
+<header>
+  <div class="env">
+    <a class="marque" href="#haut" data-t="marque-html">Atelier <span>Or</span></a>
+    <div class="droite">
+      <div class="langues" role="group" aria-label="Langue">
+        <button type="button" id="btn-fr" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" id="btn-he" data-lang="he" aria-pressed="false" lang="he">עב</button>
+      </div>
+      <button type="button" class="btn-panier" id="ouvrir-panier"><span class="libelle" data-t="panier">Panier</span> <b id="compteur">0</b></button>
+    </div>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="ouverture">
+    <div class="env">
+      <h1 data-t="o-titre">Judaïca contemporaine, façonnée à Jérusalem</h1>
+      <p data-t="o-p">Hanoukiot en laiton, mezouzot en céramique, bougies de Chabbat coulées à la main. Chaque pièce est fabriquée dans notre atelier du quartier de Nahlaot.</p>
+      <a class="cta" href="#catalogue" data-t="o-cta">Voir la collection</a>
+    </div>
+  </div>
+  <div class="env">
+    <div id="catalogue" style="scroll-margin-top: 90px"><div class="filtres" id="filtres" role="group" aria-label="Catégories"></div></div>
+    <div class="grille" id="grille"></div>
+  </div>
+  <div class="garanties">
+    <div class="env">
+      <div style="--c: var(--jaune)"><h3 data-t="g1">Fait main</h3><p data-t="g1d">Dans notre atelier de Nahlaot, pièce par pièce.</p></div>
+      <div style="--c: var(--laiton)"><h3 data-t="g2">Paiement sécurisé</h3><p data-t="g2d">Carte bancaire, Bit ou PayPal.</p></div>
+      <div style="--c: var(--rouge)"><h3 data-t="g3">Israël et France</h3><p data-t="g3d">Livraison à domicile ou en point relais.</p></div>
+      <div style="--c: var(--vert)"><h3 data-t="g4">Emballage cadeau</h3><p data-t="g4d">Offert, avec un mot écrit à la main.</p></div>
+    </div>
+  </div>
+</main>
+
+<div class="voile" id="voile" hidden></div>
+<aside class="tiroir" id="tiroir" hidden aria-labelledby="titre-panier" role="dialog">
+  <div class="tiroir-tete"><h2 id="titre-panier" data-t="panier">Panier</h2><button type="button" class="fermer" id="fermer-panier" aria-label="Fermer">×</button></div>
+  <div class="tiroir-corps" id="tiroir-corps"></div>
+  <div class="tiroir-pied" id="tiroir-pied"></div>
+</aside>
+
+<footer><div class="env"><span data-t="pied1">Atelier Or · Nahlaot, Jérusalem</span><span data-t="pied2">Boutique de démonstration : l'atelier, les produits et les prix sont fictifs.</span> <a href="https://moise770.github.io/" data-t="credit" style="color: inherit">Site réalisé par Moïse Berrebi</a></div></footer>
+
+<script>
+(function () {
+  const ILLU = {
+    hanoukia: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M10 40c0 22 18 30 40 30s40-8 40-30"/><path d="M20 40c0 15 13 22 30 22s30-7 30-22"/><path d="M30 40c0 9 9 14 20 14s20-5 20-14"/><path d="M40 40c0 4 4 7 10 7s10-3 10-7"/><path d="M50 30v62M38 92h24"/><path d="M50 22c-3-4-3-8 0-12 3 4 3 8 0 12z" fill="currentColor"/></svg>',
+    mezouza: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><rect x="38" y="10" width="24" height="80" rx="10"/><rect x="44" y="24" width="12" height="32" rx="4"/><text x="50" y="76" font-size="16" text-anchor="middle" fill="currentColor" stroke="none" font-family="serif">ש</text></svg>',
+    bougie: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><rect x="24" y="40" width="18" height="50" rx="3"/><rect x="58" y="40" width="18" height="50" rx="3"/><path d="M33 40v-6M67 40v-6"/><path d="M33 30c-3-4-3-8 0-12 3 4 3 8 0 12zM67 30c-3-4-3-8 0-12 3 4 3 8 0 12z" fill="currentColor"/></svg>',
+    plateau: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><ellipse cx="50" cy="66" rx="40" ry="14"/><path d="M28 60c4-14 40-14 44 0"/><path d="M30 58c10-6 30-6 40 0" stroke-dasharray="3 4"/></svg>',
+    coupe: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><path d="M28 14h44c0 26-8 40-22 40S28 40 28 14z"/><path d="M50 54v24M34 88h32M38 80h24"/><path d="M30 26h40"/></svg>',
+    sac: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><rect x="16" y="28" width="68" height="56" rx="6"/><path d="M16 46h68"/><path d="M42 62l8-10 8 10-8 10z"/></svg>'
+  };
+  const FONDS = { hanoukia: "#f6c42c", mezouza: "#2147d9", bougie: "#e3343f", plateau: "#17a06e", coupe: "#6c3fc4", sac: "#f07a32" };
+  const ENCRES = { hanoukia: "#1a1d4a", mezouza: "#ffffff", bougie: "#ffffff", plateau: "#ffffff", coupe: "#ffffff", sac: "#ffffff" };
+  const PRODUITS = [
+    { id: 1, cat: "lumiere", illu: "hanoukia", prix: 680, tag: "nouveau" },
+    { id: 2, cat: "maison", illu: "mezouza", prix: 240 },
+    { id: 3, cat: "chabbat", illu: "bougie", prix: 95, tag: "top" },
+    { id: 4, cat: "chabbat", illu: "plateau", prix: 320 },
+    { id: 5, cat: "chabbat", illu: "coupe", prix: 450 },
+    { id: 6, cat: "maison", illu: "sac", prix: 180 },
+    { id: 7, cat: "lumiere", illu: "hanoukia", prix: 390 },
+    { id: 8, cat: "maison", illu: "mezouza", prix: 150 },
+    { id: 9, cat: "lumiere", illu: "bougie", prix: 65 }
+  ];
+  const LIVRAISONS = { il: { prix: 35, seuil: 400 }, fr: { prix: 95, seuil: null }, retrait: { prix: 0, seuil: null } };
+  const T = {
+    fr: {
+      demo: "Boutique de démonstration : aucun paiement n'est réalisé.",
+      bandeau: "Livraison offerte en Israël dès 400 ₪ · Envoi en France sous 7 jours",
+      marque: "Atelier <span>Or</span>", panier: "Panier",
+      "o-titre": "Judaïca contemporaine, façonnée à Jérusalem",
+      "o-p": "Hanoukiot en laiton, mezouzot en céramique, bougies de Chabbat coulées à la main. Chaque pièce est fabriquée dans notre atelier du quartier de Nahlaot.", "o-cta": "Voir la collection",
+      cats: { tout: "Tout", lumiere: "Hanoucca et lumière", chabbat: "Chabbat", maison: "Maison" },
+      tags: { nouveau: "Nouveau", top: "Le plus vendu" },
+      noms: { 1: "Hanoukia « Collines »", 2: "Mezouza céramique bleu outremer", 3: "Bougies de Chabbat, la paire", 4: "Plateau à hallot en olivier", 5: "Coupe de Kiddouch martelée", 6: "Pochette à tallit brodée", 7: "Hanoukia de voyage", 8: "Mezouza enfant, émaillée", 9: "Coffret de 44 bougies de Hanoucca" },
+      desc: { 1: "Laiton brossé, neuf branches en courbes douces. 32 cm.", 2: "Céramique émaillée à la main, fixation incluse. 15 cm.", 3: "Cire d'abeille coulée à la main, 4 heures de combustion.", 4: "Bois d'olivier de Galilée, huilé, gravure au choix.", 5: "Laiton martelé, intérieur argenté. 15 cl.", 6: "Lin naturel, broderie de fil d'or, prénom offert.", 7: "Compacte et pliable, pour les fêtes loin de chez soi.", 8: "Couleurs vives, idéale pour une chambre d'enfant.", 9: "Les huit soirs de Hanoucca, bougies colorées." },
+      ajouter: "Ajouter", ajoute: "Ajouté ✓",
+      vide: "Votre panier est vide.", sousTotal: "Sous-total", livraison: "Livraison", total: "Total", offerte: "offerte",
+      livIl: "Livraison en Israël", livFr: "Envoi en France", livRetrait: "Retrait à l'atelier (Nahlaot)",
+      seuil: "Livraison offerte dès 400 ₪ en Israël", commander: "Commander", continuer: "Continuer vers le paiement",
+      nom: "Nom complet", tel: "Téléphone", adresse: "Adresse de livraison", note: "Message pour l'emballage cadeau (facultatif)",
+      retour: "← Retour au panier", payer: "Payer {t} ₪",
+      payInfo: "Sur le vrai site, le paiement se fait sur une page sécurisée de la plateforme de paiement. Ici, c'est une démonstration : aucune carte n'est demandée.",
+      manque: "Indiquez votre nom, votre téléphone et l'adresse.",
+      merci: "Merci pour votre commande !", merciP: "Commande de démonstration n° {n}. Sur le vrai site, vous recevriez une confirmation par email et par WhatsApp.",
+      fermer: "Fermer",
+      g1: "Fait main", g1d: "Dans notre atelier de Nahlaot, pièce par pièce.", g2: "Paiement sécurisé", g2d: "Carte bancaire, Bit ou PayPal.",
+      g3: "Israël et France", g3d: "Livraison à domicile ou en point relais.", g4: "Emballage cadeau", g4d: "Offert, avec un mot écrit à la main.",
+      pied1: "Atelier Or · Nahlaot, Jérusalem", pied2: "Boutique de démonstration : l'atelier, les produits et les prix sont fictifs.", credit: "Site réalisé par Moïse Berrebi"
+    },
+    he: {
+      demo: "חנות הדגמה: לא מתבצע שום תשלום.",
+      bandeau: "משלוח חינם בישראל מעל 400 ₪ · משלוח לצרפת תוך 7 ימים",
+      marque: "אטלייה <span>אור</span>", panier: "סל קניות",
+      "o-titre": "יודאיקה עכשווית, בעבודת יד בירושלים",
+      "o-p": "חנוכיות מפליז, מזוזות מקרמיקה, נרות שבת יצוקים ביד. כל פריט נוצר בסדנה שלנו בשכונת נחלאות.", "o-cta": "לקולקציה",
+      cats: { tout: "הכול", lumiere: "חנוכה ואור", chabbat: "שבת", maison: "בית" },
+      tags: { nouveau: "חדש", top: "הנמכר ביותר" },
+      noms: { 1: "חנוכיית „גבעות”", 2: "מזוזת קרמיקה כחולה", 3: "זוג נרות שבת", 4: "מגש חלות מעץ זית", 5: "גביע קידוש מרוקע", 6: "תיק טלית רקום", 7: "חנוכיית נסיעות", 8: "מזוזת ילדים מאומלת", 9: "מארז 44 נרות חנוכה" },
+      desc: { 1: "פליז מוברש, תשעה קנים בקווים רכים. 32 ס\"מ.", 2: "קרמיקה מזוגגת ביד, כולל התקנה. 15 ס\"מ.", 3: "שעוות דבורים יצוקה ביד, 4 שעות בעירה.", 4: "עץ זית מהגליל, משומן, חריטה לבחירה.", 5: "פליז מרוקע, ציפוי כסף פנימי. 15 מ\"ל.", 6: "פשתן טבעי, רקמת חוט זהב, שם במתנה.", 7: "קומפקטית ומתקפלת, לחגים הרחק מהבית.", 8: "צבעים עזים, מושלמת לחדר ילדים.", 9: "שמונת לילות החנוכה, נרות צבעוניים." },
+      ajouter: "הוספה", ajoute: "נוסף ✓",
+      vide: "הסל ריק.", sousTotal: "סכום ביניים", livraison: "משלוח", total: "סה\"כ", offerte: "חינם",
+      livIl: "משלוח בישראל", livFr: "משלוח לצרפת", livRetrait: "איסוף מהסדנה (נחלאות)",
+      seuil: "משלוח חינם בישראל מעל 400 ₪", commander: "להזמנה", continuer: "המשך לתשלום",
+      nom: "שם מלא", tel: "טלפון", adresse: "כתובת למשלוח", note: "הקדשה לאריזת המתנה (לא חובה)",
+      retour: "→ חזרה לסל", payer: "תשלום {t} ₪",
+      payInfo: "באתר האמיתי התשלום מתבצע בעמוד מאובטח של חברת הסליקה. כאן זו הדגמה: לא מתבקשים פרטי כרטיס.",
+      manque: "נא למלא שם, טלפון וכתובת.",
+      merci: "תודה על ההזמנה!", merciP: "הזמנת הדגמה מס' {n}. באתר האמיתי הייתם מקבלים אישור במייל ובוואטסאפ.",
+      fermer: "סגירה",
+      g1: "עבודת יד", g1d: "בסדנה שלנו בנחלאות, פריט אחר פריט.", g2: "תשלום מאובטח", g2d: "כרטיס אשראי, ביט או PayPal.",
+      g3: "ישראל וצרפת", g3d: "משלוח עד הבית או לנקודת איסוף.", g4: "אריזת מתנה", g4d: "במתנה, עם פתק בכתב יד.",
+      pied1: "אטלייה אור · נחלאות, ירושלים", pied2: "חנות הדגמה: הסדנה, המוצרים והמחירים בדיוניים.", credit: "האתר נבנה על ידי משה מאיז ברבי"
+    }
+  };
+  let langue = "fr", filtre = "tout", etape = "panier", livraison = "il";
+  const panier = new Map();
+  const fmt = n => n.toLocaleString(langue === "he" ? "he-IL" : "fr-FR");
+
+  function visuel(p, mini) {
+    const d = document.createElement("div");
+    d.className = mini ? "mini" : "visuel";
+    d.style.background = FONDS[p.illu];
+    d.style.color = ENCRES[p.illu];
+    d.innerHTML = ILLU[p.illu];
+    return d;
+  }
+
+  function rendreFiltres() {
+    const t = T[langue], z = document.getElementById("filtres");
+    z.innerHTML = "";
+    Object.keys(t.cats).forEach(k => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "filtre"; b.textContent = t.cats[k];
+      b.setAttribute("aria-pressed", String(filtre === k));
+      b.addEventListener("click", () => { filtre = k; rendreFiltres(); rendreGrille(); });
+      z.append(b);
+    });
+  }
+
+  function rendreGrille() {
+    const t = T[langue], z = document.getElementById("grille");
+    z.innerHTML = "";
+    PRODUITS.filter(p => filtre === "tout" || p.cat === filtre).forEach(p => {
+      const a = document.createElement("article"); a.className = "produit";
+      const v = visuel(p, false);
+      if (p.tag) { const e = document.createElement("span"); e.className = "etiquette"; e.textContent = t.tags[p.tag]; v.append(e); }
+      const inf = document.createElement("div"); inf.className = "infos";
+      inf.innerHTML = `<h3></h3><p></p><div class="bas"><span class="prix">${fmt(p.prix)} ₪</span><button type="button" class="ajouter"></button></div>`;
+      inf.querySelector("h3").textContent = t.noms[p.id];
+      inf.querySelector("p").textContent = t.desc[p.id];
+      const b = inf.querySelector(".ajouter"); b.textContent = t.ajouter;
+      b.addEventListener("click", () => {
+        panier.set(p.id, (panier.get(p.id) || 0) + 1);
+        b.textContent = t.ajoute; b.classList.add("fait");
+        setTimeout(() => { b.textContent = T[langue].ajouter; b.classList.remove("fait"); }, 1200);
+        majCompteur();
+      });
+      a.append(v, inf); z.append(a);
+    });
+  }
+
+  function majCompteur() {
+    document.getElementById("compteur").textContent = [...panier.values()].reduce((a, b) => a + b, 0);
+    if (!document.getElementById("tiroir").hidden) rendrePanier();
+  }
+
+  function calcul() {
+    const sous = [...panier].reduce((s, [id, q]) => s + PRODUITS.find(p => p.id === id).prix * q, 0);
+    const l = LIVRAISONS[livraison];
+    const frais = sous === 0 ? 0 : (l.seuil !== null && sous >= l.seuil ? 0 : l.prix);
+    return { sous, frais, total: sous + frais };
+  }
+
+  function rendrePanier() {
+    const t = T[langue];
+    const corps = document.getElementById("tiroir-corps"), pied = document.getElementById("tiroir-pied");
+    corps.innerHTML = ""; pied.innerHTML = "";
+    if (etape === "merci") {
+      const m = document.createElement("div"); m.className = "merci";
+      const n = 1000 + Math.floor(Math.random() * 9000);
+      m.innerHTML = "<h3></h3><p></p>";
+      m.querySelector("h3").textContent = t.merci;
+      m.querySelector("p").textContent = t.merciP.replace("{n}", n);
+      corps.append(m);
+      const b = document.createElement("button"); b.className = "commander"; b.type = "button"; b.textContent = t.fermer;
+      b.addEventListener("click", fermer); pied.append(b);
+      return;
+    }
+    if (!panier.size) { const v = document.createElement("p"); v.className = "vide"; v.textContent = t.vide; corps.append(v); return; }
+    const { sous, frais, total } = calcul();
+    if (etape === "panier") {
+      panier.forEach((q, id) => {
+        const p = PRODUITS.find(x => x.id === id);
+        const l = document.createElement("div"); l.className = "ligne";
+        const info = document.createElement("div");
+        info.innerHTML = `<h4></h4><div class="pu">${fmt(p.prix)} ₪</div>`;
+        info.querySelector("h4").textContent = t.noms[id];
+        const qd = document.createElement("div"); qd.className = "qte";
+        qd.innerHTML = `<button type="button" aria-label="−">−</button><span>${q}</span><button type="button" aria-label="+">+</button>`;
+        const [moins, plus] = qd.querySelectorAll("button");
+        moins.addEventListener("click", () => { q > 1 ? panier.set(id, q - 1) : panier.delete(id); majCompteur(); });
+        plus.addEventListener("click", () => { panier.set(id, q + 1); majCompteur(); });
+        l.append(visuel(p, true), info, qd); corps.append(l);
+      });
+      const choix = document.createElement("div"); choix.className = "choix-livraison";
+      [["il", t.livIl, LIVRAISONS.il.prix], ["fr", t.livFr, LIVRAISONS.fr.prix], ["retrait", t.livRetrait, 0]].forEach(([k, lib, prix]) => {
+        const lab = document.createElement("label");
+        lab.innerHTML = `<span><input type="radio" name="livraison" id="liv-${k}"> <span></span></span><span>${prix ? fmt(prix) + " ₪" : t.offerte}</span>`;
+        lab.querySelector("span span").textContent = lib;
+        const r = lab.querySelector("input"); r.checked = livraison === k;
+        r.addEventListener("change", () => { livraison = k; rendrePanier(); });
+        choix.append(lab);
+      });
+      corps.append(choix);
+      if (livraison === "il" && sous < 400) { const s = document.createElement("p"); s.className = "pu"; s.style.margin = "0"; s.textContent = t.seuil; corps.append(s); }
+    } else {
+      const retour = document.createElement("button"); retour.type = "button"; retour.className = "lien-retour"; retour.textContent = t.retour;
+      retour.addEventListener("click", () => { etape = "panier"; rendrePanier(); });
+      const f = document.createElement("div"); f.className = "formulaire";
+      [["c-nom", t.nom, "name", "text"], ["c-tel", t.tel, "tel", "tel"], ["c-adr", t.adresse, "street-address", "text"], ["c-note", t.note, "off", "text"]].forEach(([id, lib, ac, type]) => {
+        if (id === "c-adr" && livraison === "retrait") return;
+        const lab = document.createElement("label"); lab.htmlFor = id;
+        lab.innerHTML = `<span></span><input id="${id}" type="${type}" autocomplete="${ac}">`;
+        lab.querySelector("span").textContent = lib;
+        if (type === "tel") lab.querySelector("input").dir = "ltr";
+        f.append(lab);
+      });
+      const pay = document.createElement("div"); pay.className = "paiement";
+      pay.innerHTML = `<div class="paiement-modes"><span>Visa · Mastercard</span><span>Bit</span><span>PayPal</span></div><span></span>`;
+      pay.querySelector(":scope > span").textContent = t.payInfo;
+      const err = document.createElement("p"); err.className = "erreur"; err.id = "erreur"; err.hidden = true;
+      corps.append(retour, f, pay, err);
+    }
+    const dl = document.createElement("dl"); dl.className = "totaux"; dl.style.margin = "0";
+    dl.innerHTML = `<dt></dt><dd>${fmt(sous)} ₪</dd><dt></dt><dd>${frais ? fmt(frais) + " ₪" : T[langue].offerte}</dd><dt class="total"></dt><dd class="total">${fmt(total)} ₪</dd>`;
+    const dts = dl.querySelectorAll("dt"); dts[0].textContent = t.sousTotal; dts[1].textContent = t.livraison; dts[2].textContent = t.total;
+    const b = document.createElement("button"); b.type = "button"; b.className = "commander";
+    if (etape === "panier") {
+      b.textContent = t.continuer;
+      b.addEventListener("click", () => { etape = "coordonnees"; rendrePanier(); });
+    } else {
+      b.textContent = t.payer.replace("{t}", fmt(total));
+      b.addEventListener("click", () => {
+        const val = id => (document.getElementById(id) || { value: "x" }).value.trim();
+        if (!val("c-nom") || !val("c-tel") || !val("c-adr")) { const e = document.getElementById("erreur"); e.textContent = t.manque; e.hidden = false; return; }
+        panier.clear(); etape = "merci"; majCompteur(); rendrePanier();
+      });
+    }
+    pied.append(dl, b);
+  }
+
+  const tiroir = document.getElementById("tiroir"), voile = document.getElementById("voile");
+  function ouvrir() { if (etape === "merci") etape = "panier"; tiroir.hidden = false; voile.hidden = false; rendrePanier(); document.getElementById("fermer-panier").focus(); }
+  function fermer() { tiroir.hidden = true; voile.hidden = true; if (etape === "merci") etape = "panier"; document.getElementById("ouvrir-panier").focus(); }
+  document.getElementById("ouvrir-panier").addEventListener("click", ouvrir);
+  document.getElementById("fermer-panier").addEventListener("click", fermer);
+  voile.addEventListener("click", fermer);
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !tiroir.hidden) fermer(); });
+
+  function appliquer(l) {
+    langue = l;
+    const t = T[l];
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-t]").forEach(el => {
+      const k = el.dataset.t;
+      if (k === "marque-html") { el.innerHTML = t.marque; return; }
+      if (typeof t[k] === "string") el.textContent = t[k];
+    });
+    document.querySelectorAll(".langues button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    document.getElementById("fermer-panier").setAttribute("aria-label", t.fermer);
+    rendreFiltres(); rendreGrille();
+    if (!tiroir.hidden) rendrePanier();
+    try { localStorage.setItem("or-langue", l); } catch (e) {}
+  }
+  document.querySelectorAll(".langues button").forEach(b => b.addEventListener("click", () => appliquer(b.dataset.lang)));
+
+  // Panier de départ, pour montrer le fonctionnement.
+  panier.set(1, 1); panier.set(3, 2);
+  let initiale = "fr";
+  try { initiale = localStorage.getItem("or-langue") || "fr"; } catch (e) {}
+  appliquer(T[initiale] ? initiale : "fr");
+  majCompteur();
+})();
+</script>

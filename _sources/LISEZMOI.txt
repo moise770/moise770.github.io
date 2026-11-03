@@ -1,0 +1,2 @@
+Sources des pages (non publiées : GitHub Pages ignore les dossiers commençant par _).
+Reconstruire : python3 _sources/construire.py (chemins à adapter).
