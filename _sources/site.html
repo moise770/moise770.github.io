@@ -162,6 +162,13 @@ details { background: var(--surface); border: 1px solid var(--trait); border-rad
 summary { cursor: pointer; font-weight: 700; }
 details p { margin: 10px 0 0; color: var(--doux); }
 
+.conseils { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.conseil { display: grid; gap: 8px; align-content: start; background: var(--surface); border: 1px solid var(--trait); border-radius: 12px; padding: 20px; color: var(--encre); text-decoration: none; }
+.conseil:hover { border-color: var(--turquoise); }
+.conseil b { font-family: var(--titre); font-weight: 400; font-size: 20px; line-height: 1.2; }
+.conseil span { color: var(--doux); font-size: 15.5px; }
+.conseil em { font-style: normal; font-weight: 700; color: var(--turquoise); font-size: 15px; }
+
 footer { border-top: 1px solid var(--trait); }
 footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14.5px; color: var(--doux); }
 
@@ -416,6 +423,16 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       </div>
     </div>
   </section>
+  <section id="conseils">
+    <div class="env">
+      <div class="tete"><div class="sur-titre" data-t="c-sur">Conseils</div><h2 data-t="c-titre">Bien démarrer sur internet</h2></div>
+      <div class="conseils">
+        <a class="conseil" data-lien="prix-site-internet-commerce-israel" href="/conseils/prix-site-internet-commerce-israel/"><b data-t="c1">Combien coûte un site internet pour un commerce en Israël ?</b><span data-t="c1d">Prix d'un site vitrine, d'un site avec rendez-vous ou d'une boutique en ligne en Israël : ce qui fait varier le coût, les frais annuels et les pièges à éviter.</span><em data-t="c-lire">Lire l'article</em></a>
+        <a class="conseil" data-lien="apparaitre-google-maps-commerce-jerusalem" href="/conseils/apparaitre-google-maps-commerce-jerusalem/"><b data-t="c2">Comment apparaître sur Google Maps quand on a un commerce à Jérusalem</b><span data-t="c2d">Créer et optimiser la fiche Google de votre commerce à Jérusalem : catégorie, horaires, photos, avis clients et site internet, étape par étape.</span><em data-t="c-lire">Lire l'article</em></a>
+        <a class="conseil" data-lien="site-internet-francais-hebreu" href="/conseils/site-internet-francais-hebreu/"><b data-t="c3">Site internet en français et en hébreu : pourquoi et comment le faire</b><span data-t="c3d">Pourquoi un commerce en Israël gagne à avoir un site bilingue français-hébreu, et comment bien le construire : traduction, sens de lecture, Google et WhatsApp.</span><em data-t="c-lire">Lire l'article</em></a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -480,6 +497,8 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       q2: "Est-ce que je pourrai modifier mon site moi-même ?", q2r: "Avec la formule Boutique, oui. Pour les autres, un message WhatsApp suffit : les petites modifications sont comprises dans l'abonnement.",
       q3: "Que faut-il préparer ?", q3r: "Quelques photos de votre commerce et de vos produits, vos horaires, et c'est tout. Je vous aide pour les textes.",
       q4: "Travaillez-vous aussi avec la France ?", q4r: "Oui, tout se fait très bien à distance, par visio et par WhatsApp.",
+      "c-sur": "Conseils", "c-titre": "Bien démarrer sur internet", "c-lire": "Lire l'article",
+      c1: "Combien coûte un site internet pour un commerce en Israël ?", c1d: "Prix d'un site vitrine, d'un site avec rendez-vous ou d'une boutique en ligne en Israël : ce qui fait varier le coût, les frais annuels et les pièges à éviter.", c2: "Comment apparaître sur Google Maps quand on a un commerce à Jérusalem", c2d: "Créer et optimiser la fiche Google de votre commerce à Jérusalem : catégorie, horaires, photos, avis clients et site internet, étape par étape.", c3: "Site internet en français et en hébreu : pourquoi et comment le faire", c3d: "Pourquoi un commerce en Israël gagne à avoir un site bilingue français-hébreu, et comment bien le construire : traduction, sens de lecture, Google et WhatsApp.",
       pied1: "Moïse Berrebi · Création de sites pour commerces · Jérusalem", pied2: "Français · עברית"
     },
     he: {
@@ -531,6 +550,8 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       q2: "אוכל לשנות את האתר בעצמי?", q2r: "בחבילת חנות, כן. בשאר החבילות מספיקה הודעת וואטסאפ: שינויים קטנים כלולים במנוי.",
       q3: "מה צריך להכין?", q3r: "כמה תמונות של העסק והמוצרים ושעות הפתיחה, וזהו. בטקסטים אני עוזר.",
       q4: "אתה עובד גם עם צרפת?", q4r: "כן, הכול עובד מצוין מרחוק, בווידאו ובוואטסאפ.",
+      "c-sur": "טיפים", "c-titre": "להתחיל נכון באינטרנט", "c-lire": "לקריאת המאמר",
+      c1: "כמה עולה אתר לעסק קטן בישראל?", c1d: "מחיר של אתר תדמית, אתר עם קביעת תורים או חנות אונליין בישראל: מה משפיע על העלות, מה ההוצאות השנתיות וממה להיזהר.", c2: "איך להופיע בגוגל מפות עם עסק בירושלים", c2d: "פתיחה ושיפור של כרטיס העסק בגוגל לעסק בירושלים: קטגוריה, שעות פתיחה, תמונות, ביקורות ואתר, שלב אחר שלב.", c3: "אתר בעברית ובצרפתית: למה ואיך", c3d: "למה עסק בישראל מרוויח מאתר דו־לשוני בעברית ובצרפתית, ואיך לבנות אותו נכון: תרגום, כיוון קריאה, גוגל ווואטסאפ.",
       pied1: "משה מאיז ברבי · בניית אתרים לעסקים · ירושלים", pied2: "Français · עברית"
     }
   };
@@ -555,6 +576,8 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
     if (md) md.setAttribute("content", META[l].desc);
     document.querySelectorAll("[data-t]").forEach(el => { const v = t[el.dataset.t]; if (v !== undefined) el.textContent = v; });
     document.querySelectorAll(".langues button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
+    // Liens vers les articles : relatifs sur le site publié, absolus ailleurs (aperçu).
+    document.querySelectorAll("[data-lien]").forEach(a => { a.href = (surSitePublie ? "" : "https://moise770.github.io") + (l === "he" ? "/he" : "") + "/conseils/" + a.dataset.lien + "/"; });
     document.getElementById("retour").hidden = true;
   }
   document.querySelectorAll(".langues button").forEach(b => b.addEventListener("click", () => {

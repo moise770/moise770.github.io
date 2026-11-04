@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>אתר בעברית ובצרפתית: למה ואיך | Moïse Berrebi</title>
+<meta name="description" content="למה עסק בישראל מרוויח מאתר דו־לשוני בעברית ובצרפתית, ואיך לבנות אותו נכון: תרגום, כיוון קריאה, גוגל ווואטסאפ.">
+<link rel="canonical" href="https://moise770.github.io/he/conseils/site-internet-francais-hebreu/">
+<link rel="alternate" hreflang="fr" href="https://moise770.github.io/conseils/site-internet-francais-hebreu/">
+<link rel="alternate" hreflang="he" href="https://moise770.github.io/he/conseils/site-internet-francais-hebreu/">
+<link rel="alternate" hreflang="x-default" href="https://moise770.github.io/conseils/site-internet-francais-hebreu/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Moïse Berrebi">
+<meta property="og:url" content="https://moise770.github.io/he/conseils/site-internet-francais-hebreu/">
+<meta property="og:title" content="אתר בעברית ובצרפתית: למה ואיך">
+<meta property="og:description" content="למה עסק בישראל מרוויח מאתר דו־לשוני בעברית ובצרפתית, ואיך לבנות אותו נכון: תרגום, כיוון קריאה, גוגל ווואטסאפ.">
+<meta property="og:image" content="https://moise770.github.io/og.png">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@400;500;700&display=swap">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "אתר בעברית ובצרפתית: למה ואיך", "description": "למה עסק בישראל מרוויח מאתר דו־לשוני בעברית ובצרפתית, ואיך לבנות אותו נכון: תרגום, כיוון קריאה, גוגל ווואטסאפ.", "inLanguage": "he", "datePublished": "2026-11-04", "dateModified": "2026-11-04", "mainEntityOfPage": "https://moise770.github.io/he/conseils/site-internet-francais-hebreu/", "image": "https://moise770.github.io/og.png", "author": {"@type": "Person", "name": "Moïse Berrebi", "url": "https://moise770.github.io/"}, "publisher": {"@type": "Organization", "name": "Moïse Berrebi", "logo": {"@type": "ImageObject", "url": "https://moise770.github.io/apple-touch-icon.png"}}}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "דף הבית", "item": "https://moise770.github.io/he/"}, {"@type": "ListItem", "position": 2, "name": "אתר בעברית ובצרפתית: למה ואיך", "item": "https://moise770.github.io/he/conseils/site-internet-francais-hebreu/"}]}]</script>
+<style>
+:root {
+  --fond: #f7f8f8;
+  --surface: #ffffff;
+  --encre: #13201f;
+  --doux: #55625f;
+  --turquoise: #0b7a75;     /* céramique de Jérusalem */
+  --turquoise-fond: #e2f1ef;
+  --bleu: #1c4f8a;
+  --ocre: #c98a2b;
+  --trait: #dfe4e3;
+  --ok: #26864f;
+  --erreur: #b23a2e;
+  --titre: "Secular One", "Heebo", system-ui, sans-serif;
+  --texte: "Heebo", "Segoe UI", system-ui, sans-serif;
+  --rayon: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #0f1716; --surface: #162120; --encre: #e9f0ee; --doux: #9fb0ac; --turquoise: #4cc3b9;
+    --turquoise-fond: #15312f; --bleu: #7fb0ea; --ocre: #e6ac52; --trait: #273634; --ok: #63cf8f; --erreur: #f08a7c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fond: #0f1716; --surface: #162120; --encre: #e9f0ee; --doux: #9fb0ac; --turquoise: #4cc3b9;
+  --turquoise-fond: #15312f; --bleu: #7fb0ea; --ocre: #e6ac52; --trait: #273634; --ok: #63cf8f; --erreur: #f08a7c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fond); color: var(--encre); font: 18px/1.7 var(--texte); }
+h1, h2, h3 { font-family: var(--titre); font-weight: 400; line-height: 1.15; margin: 0; text-wrap: balance; }
+a { color: var(--turquoise); }
+:focus-visible { outline: 3px solid var(--ocre); outline-offset: 2px; }
+.env { max-width: 760px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { border-bottom: 1px solid var(--trait); background: var(--surface); }
+header .env { max-width: 1120px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { display: flex; align-items: center; gap: 10px; color: var(--encre); text-decoration: none; line-height: 1.2; }
+.logo small { display: block; color: var(--doux); font-size: 13px; }
+.carreau { width: 30px; height: 30px; border-radius: 8px; flex: none; background: var(--turquoise) radial-gradient(circle, var(--ocre) 0 4px, transparent 5px); }
+.langue { font-weight: 700; text-decoration: none; border: 1px solid var(--trait); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+.fil { font-size: 14.5px; color: var(--doux); margin: 28px 0 14px; }
+.fil a { color: var(--doux); }
+article h1 { font-size: clamp(32px, 5vw, 46px); }
+.date { color: var(--doux); font-size: 14.5px; margin: 12px 0 28px; }
+.chapo { font-size: 20px; }
+article h2 { font-size: 28px; margin: 40px 0 10px; color: var(--turquoise); }
+article h3 { font-size: 21px; margin: 24px 0 6px; }
+article li { margin-bottom: 8px; }
+.appel { margin: 48px 0; background: var(--turquoise-fond); border-radius: var(--rayon); padding: 26px; display: grid; gap: 12px; }
+.appel h2 { font-size: 26px; }
+.appel p { margin: 0; }
+.bouton { justify-self: start; background: var(--turquoise); color: #fff; text-decoration: none; font-weight: 700; border-radius: 999px; padding: 12px 22px; }
+.lire { font-size: 24px; margin-bottom: 12px; }
+.autres { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.autres a { display: block; background: var(--surface); border: 1px solid var(--trait); border-radius: 12px; padding: 14px 18px; text-decoration: none; color: var(--encre); font-weight: 700; }
+.autres a:hover { border-color: var(--turquoise); }
+footer { border-top: 1px solid var(--trait); margin-top: 56px; }
+footer .env { max-width: 1120px; padding-block: 28px; font-size: 14.5px; color: var(--doux); }
+</style>
+</head>
+<body>
+<header><div class="env">
+  <a class="logo" href="/he/"><span class="carreau" aria-hidden="true"></span><span><b>משה מאיז ברבי</b><small>אתרים לעסקים · ירושלים</small></span></a>
+  <a class="langue" href="/conseils/site-internet-francais-hebreu/" hreflang="fr" lang="fr">Français</a>
+</div></header>
+<main class="env">
+  <nav class="fil" aria-label="דף הבית"><a href="/he/">דף הבית</a> › <a href="/he/#conseils">טיפים</a></nav>
+  <article>
+    <h1>אתר בעברית ובצרפתית: למה ואיך</h1>
+    <p class="date">משה מאיז ברבי · עודכן ב־4 בנובמבר 2026</p>
+<p class="chapo">בישראל עסקים רבים משרתים גם לקוחות ישראלים וגם דוברי צרפתית: עולים, תיירים ומשפחות שמגיעות לחגים. אתר בשתי השפות מדבר עם כל אחד בשפה שלו, ומופיע בגוגל בשתיהן.</p>
+
+<h2>למה שתי שפות</h2>
+<ul>
+<li><strong>להימצא בגוגל</strong>: לקוח ישראלי מחפש בעברית, דובר צרפתית – בצרפתית.</li>
+<li><strong>לבנות אמון</strong>: לקוח שרואה אתר בשפה שלו מרגיש שמבינים אותו.</li>
+<li><strong>למנוע אי־הבנות</strong> לגבי מחירים, שעות פתיחה או כשרות.</li>
+</ul>
+
+<h2>מה מבדיל אתר דו־לשוני אמיתי</h2>
+<ul>
+<li><strong>כיוון קריאה</strong>: בעברית כל הדף מתהפך מימין לשמאל – תפריט, טקסט וכפתורים.</li>
+<li><strong>תרגום אמיתי</strong>: תרגום אוטומטי עושה טעויות מביכות; כל טקסט צריך הגהה.</li>
+<li><strong>שתי כתובות נפרדות</strong> לכל שפה, כדי שגוגל יבין שיש שתי גרסאות.</li>
+<li><strong>כפתור החלפת שפה</strong> בראש כל דף.</li>
+</ul>
+
+<h2>לסיכום</h2>
+<p>אתר דו־לשוני הוא לא אתר מתורגם: זה אתר שנבנה לשני קוראים. כשהוא עשוי נכון, הוא מרחיב את קהל הלקוחות בלי לסבך את היום־יום.</p>
+  </article>
+  <section class="appel">
+    <h2>רוצים אתר לעסק שלכם?</h2>
+    <p>אני בונה אתרים בעברית ובצרפתית לעסקים בירושלים ובכל הארץ. השאירו מספר טלפון ואחזור אליכם בחינם.</p>
+    <a class="bouton" href="/he/#contact">שיחה חוזרת בחינם</a>
+  </section>
+  <h2 class="lire">עוד מאמרים</h2>
+  <ul class="autres">
+    <li><a href="/he/conseils/prix-site-internet-commerce-israel/">כמה עולה אתר לעסק קטן בישראל?</a></li>
+    <li><a href="/he/conseils/apparaitre-google-maps-commerce-jerusalem/">איך להופיע בגוגל מפות עם עסק בירושלים</a></li>
+  </ul>
+</main>
+<footer><div class="env">משה מאיז ברבי · בניית אתרים לעסקים · ירושלים</div></footer>
+</body>
+</html>

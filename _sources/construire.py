@@ -1,6 +1,8 @@
 """Construit les pages publiées de moise770.github.io à partir des sources des artifacts."""
 import json, os, re
 from playwright.sync_api import sync_playwright
+from articles import ARTICLES
+import pages_articles
 
 SRC = "/home/claude/sites_demo"
 DEST = "/home/claude/moise770.github.io"
@@ -98,6 +100,12 @@ def main():
     open(f"{DEST}/epicerie/index.html", "w").write(page_demo(f"{SRC}/comptoir-rivka.html", "Le Comptoir de Rivka, épicerie fine à Jérusalem : exemple de site Vitrine bilingue, réalisé par Moïse Berrebi."))
     open(f"{DEST}/boutique/index.html", "w").write(page_demo(f"{SRC}/boutique/boutique.html", "Atelier Or, judaïca à Jérusalem : exemple de boutique en ligne bilingue avec panier, réalisé par Moïse Berrebi."))
     urls = ["/", "/he/", "/epicerie/", "/coiffure/", "/boutique/"]
+    for a in ARTICLES:
+        for lang in ("fr", "he"):
+            ch = pages_articles.chemin(a["slug"], lang)
+            os.makedirs(DEST + ch, exist_ok=True)
+            open(DEST + ch + "index.html", "w").write(pages_articles.page(a, lang))
+            urls.append(ch)
     open(f"{DEST}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{BASE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
     open(f"{DEST}/robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
