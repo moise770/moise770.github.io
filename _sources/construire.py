@@ -26,7 +26,14 @@ def jsonld(lang):
         "availableLanguage": ["fr", "he"],
         "serviceType": ["Création de sites internet", "Boutique en ligne", "Référencement local Google Maps"],
     }
-    return json.dumps(d, ensure_ascii=False)
+    site = {
+        "@context": "https://schema.org", "@type": "WebSite",
+        "name": "Moïse Berrebi",
+        "alternateName": ["Moïse Berrebi – Sites pour commerces", "משה מאיז ברבי"],
+        "url": BASE + "/",
+        "inLanguage": ["fr", "he"],
+    }
+    return json.dumps([site, d], ensure_ascii=False)
 
 def tete(lang):
     titre, desc, locale, chemin = META[lang]
@@ -41,6 +48,8 @@ def tete(lang):
 <link rel="alternate" hreflang="he" href="{BASE}/he/">
 <link rel="alternate" hreflang="x-default" href="{BASE}/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Moïse Berrebi">
+<meta name="application-name" content="Moïse Berrebi">
 <meta property="og:url" content="{BASE}{chemin}">
 <meta property="og:title" content="{titre}">
 <meta property="og:description" content="{desc}">
