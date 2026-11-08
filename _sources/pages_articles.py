@@ -3,7 +3,7 @@ import json, html as H
 from articles import ARTICLES
 
 SRC = "/home/claude/sites_demo"
-BASE = "https://moise770.github.io"
+BASE = "https://moiseberrebi.com"
 DATE = "2026-11-04"
 LOCALE = {"fr": "fr_FR", "he": "he_IL"}
 

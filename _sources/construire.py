@@ -7,7 +7,7 @@ import pages_articles
 SRC = "/home/claude/sites_demo"
 DEST = "/home/claude/moise770.github.io"
 STATS = """<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c37bb9093bd64924b32423af388350af"}'></script><!-- End Cloudflare Web Analytics -->"""
-BASE = "https://moise770.github.io"
+BASE = "https://moiseberrebi.com"
 
 META = {
     "fr": ("Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi",
@@ -109,6 +109,7 @@ def main():
             urls.append(ch)
     open(f"{DEST}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{BASE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
+    open(f"{DEST}/CNAME", "w").write("moiseberrebi.com\n")  # adresse personnalisée GitHub Pages
     open(f"{DEST}/robots.txt", "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
     # Mesure d'audience Cloudflare Web Analytics (sans cookies) sur toutes les pages publiées.
     for u in urls:

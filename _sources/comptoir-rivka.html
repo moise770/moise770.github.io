@@ -174,7 +174,7 @@ footer p { margin: 0; opacity: 0.8; max-width: 42em; }
 .retour-site { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; margin-inline-start: 14px; white-space: nowrap; }
 </style>
 
-<div class="demo"><div class="enveloppe"><span data-t="demo">Site de démonstration : ce commerce est fictif.</span><a id="retour-site" class="retour-site" href="https://moise770.github.io/#exemples" data-t="retour">← Retour au site</a></div></div>
+<div class="demo"><div class="enveloppe"><span data-t="demo">Site de démonstration : ce commerce est fictif.</span><a id="retour-site" class="retour-site" href="https://moiseberrebi.com/#exemples" data-t="retour">← Retour au site</a></div></div>
 
 <header class="haut">
   <div class="enveloppe">
@@ -504,7 +504,7 @@ footer p { margin: 0; opacity: 0.8; max-width: 42em; }
     document.documentElement.lang = l;
     document.documentElement.dir = l === "he" ? "rtl" : "ltr";
     const retour = document.getElementById("retour-site");
-    if (retour) retour.href = l === "he" ? "https://moise770.github.io/he/#exemples" : "https://moise770.github.io/#exemples";
+    if (retour) retour.href = l === "he" ? "https://moiseberrebi.com/he/#exemples" : "https://moiseberrebi.com/#exemples";
     document.querySelectorAll("[data-t]").forEach(el => {
       const k = el.dataset.t;
       if (t[k] !== undefined) el.textContent = t[k];

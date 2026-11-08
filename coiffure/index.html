@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atelier Shira</title>
 <meta name="description" content="Atelier Shira, salon de coiffure à Netanya : exemple de site Vitrine + avec prise de rendez-vous, réalisé par Moïse Berrebi.">
-<meta property="og:image" content="https://moise770.github.io/og.png">
+<meta property="og:image" content="https://moiseberrebi.com/og.png">
 <link rel="icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,7 +159,7 @@ footer .env { padding-block: 28px; color: var(--doux); font-size: 15px; display:
 </style>
 </head>
 <body>
-<div class="demo-bandeau"><div class="env"><span data-t="demo">Site de démonstration : ce salon est fictif.</span><a id="retour-site" class="retour-site" href="https://moise770.github.io/#exemples" data-t="retour">← Retour au site</a></div></div>
+<div class="demo-bandeau"><div class="env"><span data-t="demo">Site de démonstration : ce salon est fictif.</span><a id="retour-site" class="retour-site" href="https://moiseberrebi.com/#exemples" data-t="retour">← Retour au site</a></div></div>
 <header>
   <div class="env">
     <a class="nom" href="#haut" data-t="nom">Atelier Shira</a>
@@ -472,7 +472,7 @@ footer .env { padding-block: 28px; color: var(--doux); font-size: 15px; display:
     document.documentElement.lang = l;
     document.documentElement.dir = l === "he" ? "rtl" : "ltr";
     const retour = document.getElementById("retour-site");
-    if (retour) retour.href = l === "he" ? "https://moise770.github.io/he/#exemples" : "https://moise770.github.io/#exemples";
+    if (retour) retour.href = l === "he" ? "https://moiseberrebi.com/he/#exemples" : "https://moiseberrebi.com/#exemples";
     document.querySelectorAll("[data-t]").forEach(el => { const v = t[el.dataset.t]; if (typeof v === "string") el.textContent = v; });
     document.querySelectorAll(".langues button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === l)));
     rendreCarte(); rendreReservation(); rendreNuancier(); rendreHoraires();
