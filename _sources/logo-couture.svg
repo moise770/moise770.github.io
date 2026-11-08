@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#1f2a44"/>
+  <path d="M390 340 L 230 512 L 390 684" fill="none" stroke="#d39a3d" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M634 340 L 794 512 L 634 684" fill="none" stroke="#d39a3d" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- fil cousu (points) qui passe derrière l'aiguille -->
+  <path d="M598 566 C 540 610, 420 590, 330 596 C 230 604, 220 720, 300 760" fill="none" stroke="#f3e9d6" stroke-width="15" stroke-linecap="round" stroke-dasharray="30 26" opacity=".95"/>
+  <!-- aiguille -->
+  <g transform="rotate(32 512 512)">
+    <path d="M512 250 C 532 250, 540 300, 540 330 L 524 780 L 512 812 L 500 780 L 484 330 C 484 300, 492 250, 512 250 Z" fill="#f3e9d6"/>
+    <ellipse cx="512" cy="318" rx="10" ry="34" fill="#1f2a44"/>
+  </g>
+  <!-- fil tendu qui sort du chas -->
+  <path d="M621 346 C 690 380, 680 500, 598 566" fill="none" stroke="#f3e9d6" stroke-width="15" stroke-linecap="round"/>
+</svg>
