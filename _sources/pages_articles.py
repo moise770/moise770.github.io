@@ -9,12 +9,12 @@ LOCALE = {"fr": "fr_FR", "he": "he_IL"}
 
 TXT = {
     "fr": {"accueil": "Accueil", "conseils": "Conseils", "autre": "עברית", "cta_t": "Vous voulez un site pour votre commerce ?",
-           "cta_p": "Je crée des sites en français et en hébreu pour les commerces de Jérusalem et d'ailleurs. Écrivez-moi : je vous réponds par email ou sur WhatsApp, et je vous prépare une maquette gratuite.",
+           "cta_p": "Nous créons des sites en français et en hébreu pour les commerces de Jérusalem et d'ailleurs. Écrivez-nous : nous vous répondons par email ou sur WhatsApp, et nous vous préparons une maquette gratuite.",
            "cta_b": "Demander ma maquette gratuite", "lire": "À lire aussi", "metier": "Sites sur mesure à Jérusalem",
            "pied": "Moïse Berrebi · Création de sites pour commerces · Jérusalem", "auteur": "Moïse Berrebi",
            "maj": "Mis à jour le 4 novembre 2026", "marque": "Moïse Berrebi"},
     "he": {"accueil": "דף הבית", "conseils": "טיפים", "autre": "Français", "cta_t": "רוצים אתר לעסק שלכם?",
-           "cta_p": "אני בונה אתרים בעברית ובצרפתית לעסקים בירושלים ובכל הארץ. כתבו לי ואענה במייל או בוואטסאפ, עם סקיצה בחינם.",
+           "cta_p": "אנחנו בונים אתרים בעברית ובצרפתית לעסקים בירושלים ובכל הארץ. כתבו לנו ונענה במייל או בוואטסאפ, עם סקיצה בחינם.",
            "cta_b": "לקבלת סקיצה בחינם", "lire": "עוד מאמרים", "metier": "אתרים בהתאמה אישית בירושלים",
            "pied": "משה מאיז ברבי · בניית אתרים לעסקים · ירושלים", "auteur": "משה מאיז ברבי",
            "maj": "עודכן ב־4 בנובמבר 2026", "marque": "משה מאיז ברבי"},
