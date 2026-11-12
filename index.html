@@ -28,218 +28,309 @@
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "Moïse Berrebi", "alternateName": ["Moïse Berrebi – Sites pour commerces", "משה מאיז ברבי"], "url": "https://moiseberrebi.com/", "inLanguage": ["fr", "he"]}, {"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Moïse Berrebi — Création de sites pour commerces", "url": "https://moiseberrebi.com/", "image": "https://moiseberrebi.com/og.png", "description": "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne rapidement. Jérusalem, Israël et France.", "address": {"@type": "PostalAddress", "addressLocality": "Jérusalem", "addressCountry": "IL"}, "areaServed": [{"@type": "City", "name": "Jerusalem"}, {"@type": "Country", "name": "Israel"}, {"@type": "Country", "name": "France"}], "availableLanguage": ["fr", "he"], "serviceType": ["Création de sites internet", "Boutique en ligne", "Référencement local Google Maps"]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Heebo:wght@400;500;700&display=swap">
 <style>
-/* Mise en page : en-tête, promesse + téléphone qui montre un site de commerce, ce qui est inclus, formules, étapes, démo, formulaire, questions. Motif : carreaux de céramique arménienne de Jérusalem. */
+/* Studio moderne. Couleurs de la marque : ivoire, bleu marine, bleu vif. Fil conducteur : le fil de l'aiguille du logo (travail sur mesure), en pointillés. */
 :root {
-  --fond: #f7f8f8;
-  --surface: #ffffff;
-  --encre: #13201f;
-  --doux: #55625f;
-  --turquoise: #0b7a75;     /* céramique de Jérusalem */
-  --turquoise-fond: #e2f1ef;
-  --bleu: #1c4f8a;
-  --ocre: #c98a2b;
-  --trait: #dfe4e3;
-  --ok: #26864f;
-  --erreur: #b23a2e;
-  --titre: "Secular One", "Heebo", system-ui, sans-serif;
+  --encre-nuit: #0e1f40;   /* fonds sombres : accueil, formule mise en avant, contact */
+  --marine: #1f3a6e;
+  --bleu: #2f7fd8;
+  --fil: #8fb8f2;          /* le fil sur fond sombre */
+  --ivoire: #f6f4ef;
+  --papier: #ffffff;
+  --encre: #15213d;
+  --doux: #56617a;
+  --trait: #e2dfd7;
+  --sur-nuit: #e8eefb;
+  --sur-nuit-doux: #a9b6d3;
+  --ok: #1f8a57;
+  --erreur: #c0392b;
+  --titre: "Rubik", "Heebo", system-ui, sans-serif;
   --texte: "Heebo", "Segoe UI", system-ui, sans-serif;
-  --rayon: 16px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --fond: #0f1716; --surface: #162120; --encre: #e9f0ee; --doux: #9fb0ac; --turquoise: #4cc3b9;
-    --turquoise-fond: #15312f; --bleu: #7fb0ea; --ocre: #e6ac52; --trait: #273634; --ok: #63cf8f; --erreur: #f08a7c;
+    --ivoire: #0b1730; --papier: #12213f; --encre: #e8eefb; --doux: #a9b6d3; --trait: #24365c;
+    --marine: #9cc0f5; --bleu: #6aa7f0; --encre-nuit: #071027; --ok: #5fd39a; --erreur: #f08a7c;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --fond: #0f1716; --surface: #162120; --encre: #e9f0ee; --doux: #9fb0ac; --turquoise: #4cc3b9;
-  --turquoise-fond: #15312f; --bleu: #7fb0ea; --ocre: #e6ac52; --trait: #273634; --ok: #63cf8f; --erreur: #f08a7c;
+  --ivoire: #0b1730; --papier: #12213f; --encre: #e8eefb; --doux: #a9b6d3; --trait: #24365c;
+  --marine: #9cc0f5; --bleu: #6aa7f0; --encre-nuit: #071027; --ok: #5fd39a; --erreur: #f08a7c;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { background: var(--fond); color: var(--encre); font: 17px/1.6 var(--texte); }
-h1, h2, h3 { font-family: var(--titre); font-weight: 400; line-height: 1.12; margin: 0; text-wrap: balance; }
-a { color: var(--turquoise); }
-:focus-visible { outline: 3px solid var(--ocre); outline-offset: 2px; }
-.env { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-.sur-titre { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--turquoise); }
-[dir="rtl"] .sur-titre { letter-spacing: 0; font-size: 15px; }
+body { margin: 0; background: var(--ivoire); color: var(--encre); font: 17px/1.65 var(--texte); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--titre); font-weight: 600; line-height: 1.1; margin: 0; letter-spacing: -0.02em; text-wrap: balance; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { letter-spacing: 0; }
+p { margin: 0; }
+a { color: var(--bleu); }
+img { display: block; max-width: 100%; }
+:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; border-radius: 4px; }
+.env { max-width: 1180px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--fond); }
-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--fond) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--trait); }
-header .env { display: flex; align-items: center; gap: 20px; padding-block: 12px; }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--encre); }
-.carreau { width: 34px; height: 34px; border-radius: 9px; flex: none; background:
-  radial-gradient(circle at 50% 50%, var(--ocre) 0 4px, transparent 5px),
-  conic-gradient(from 45deg, var(--turquoise) 0 25%, var(--bleu) 0 50%, var(--turquoise) 0 75%, var(--bleu) 0); }
-.logo b { font-family: var(--titre); font-weight: 400; font-size: 20px; line-height: 1.1; }
-.logo small { display: block; font-size: 12.5px; color: var(--doux); }
-header nav { margin-inline-start: auto; display: flex; gap: 22px; }
-header nav a { color: var(--doux); text-decoration: none; font-weight: 500; font-size: 15px; }
-.langues { display: flex; border: 1px solid var(--trait); border-radius: 999px; padding: 3px; }
-.langues button { border: 0; background: none; color: var(--doux); font: 700 14px var(--texte); padding: 6px 12px; border-radius: 999px; cursor: pointer; min-width: 44px; }
-.langues button[aria-pressed="true"] { background: var(--encre); color: var(--fond); }
+/* En-tête */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--encre-nuit); }
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--encre-nuit) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--sur-nuit); border-bottom: 1px solid rgba(255,255,255,0.08); }
+header .env { display: flex; align-items: center; gap: 24px; min-height: 68px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.logo svg { width: 38px; height: 38px; flex: none; }
+.logo b { font-family: var(--titre); font-weight: 600; font-size: 18px; line-height: 1.15; display: block; }
+.logo small { display: block; font-size: 13px; color: var(--sur-nuit-doux); }
+header nav { margin-inline-start: auto; display: flex; gap: 26px; }
+header nav a { color: var(--sur-nuit-doux); text-decoration: none; font-weight: 500; font-size: 15px; }
+header nav a:hover { color: #fff; }
+.langues { display: flex; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; padding: 3px; }
+.langues button { border: 0; background: none; color: var(--sur-nuit-doux); font: 700 14px var(--texte); padding: 6px 12px; border-radius: 999px; cursor: pointer; min-width: 44px; min-height: 34px; }
+.langues button[aria-pressed="true"] { background: var(--sur-nuit); color: var(--encre-nuit); }
+.entete-cta { font-weight: 700; font-size: 15px; color: #fff; text-decoration: none; background: var(--bleu); padding: 9px 18px; border-radius: 999px; white-space: nowrap; }
 
-.bouton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 12px; border: 2px solid var(--turquoise); font: 700 16.5px var(--texte); text-decoration: none; cursor: pointer; }
-.bouton.plein { background: var(--turquoise); color: var(--surface); }
-.bouton.vide { background: transparent; color: var(--turquoise); }
+.bouton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 28px; border-radius: 999px; font: 700 17px var(--texte); text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: background .15s, color .15s, border-color .15s; }
+.bouton.plein { background: #2f7fd8; color: #fff; }
+.bouton.plein:hover { background: #2569b5; }
+.bouton.vide { border-color: currentColor; color: inherit; background: transparent; }
 
-/* Promesse */
-.hero { position: relative; overflow: hidden; }
-.hero::after { content: ""; position: absolute; inset-block: 0; inset-inline-end: 0; width: 38%; opacity: 0.09; pointer-events: none; background:
-  radial-gradient(circle at 50% 50%, var(--ocre) 0 6px, transparent 7px) 0 0 / 56px 56px,
-  conic-gradient(from 45deg, var(--turquoise) 0 25%, transparent 0 50%, var(--bleu) 0 75%, transparent 0) 0 0 / 56px 56px; }
-.hero .env { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center; padding-block: 64px 72px; }
-.hero h1 { font-size: clamp(36px, 5vw, 58px); margin-block: 14px 18px; }
-.hero h1 em { font-style: normal; color: var(--turquoise); }
-.hero p { font-size: 19px; color: var(--doux); margin: 0 0 28px; max-width: 32em; }
+/* Accueil sombre, avec le fil de l'aiguille */
+.hero { background: var(--encre-nuit); color: var(--sur-nuit); position: relative; overflow: hidden; }
+.hero .env { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; padding-block: 72px 96px; }
+.hero h1 { font-size: clamp(38px, 4.6vw, 62px); color: #fff; font-weight: 700; }
+.hero .intro { font-size: 19.5px; color: var(--sur-nuit-doux); margin: 24px 0 34px; max-width: 30em; }
 .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.garanties { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 22px; font-size: 15px; color: var(--doux); padding: 0; list-style: none; }
-.garanties li::before { content: "✓"; color: var(--turquoise); font-weight: 700; margin-inline-end: 6px; }
+.hero .bouton.vide { color: var(--sur-nuit); border-color: rgba(255,255,255,0.3); }
+.hero .bouton.vide:hover { border-color: #fff; }
+.garanties { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 26px 0 0; font-size: 15px; color: var(--sur-nuit-doux); padding: 0; list-style: none; }
+.garanties li { display: flex; align-items: center; gap: 8px; }
+.garanties li::before { content: ""; width: 14px; height: 2px; background: var(--fil); border-radius: 2px; }
+.fil-hero { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.fil-hero .fil { fill: none; stroke: var(--fil); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 14 12; opacity: 0.55; }
+.fil-hero .trace { fill: none; stroke: #fff; stroke-width: 40; }
+.anim .fil-hero .trace { stroke-dasharray: 1; stroke-dashoffset: 1; animation: coudre 2.4s .2s cubic-bezier(.45,.1,.25,1) forwards; }
+@keyframes coudre { to { stroke-dashoffset: 0; } }
 
-/* Téléphone : aperçu d'un site de commerce */
-.telephone { justify-self: center; width: min(300px, 100%); border-radius: 38px; padding: 12px; background: var(--encre); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.45); }
-.ecran { border-radius: 28px; overflow: hidden; background: #fbfaf7; color: #1f2a24; font-size: 13px; }
-.ecran .barre { display: flex; justify-content: space-between; padding: 12px 16px 6px; font-size: 11px; font-weight: 700; }
-.ecran .store { height: 16px; background: repeating-linear-gradient(90deg, #2f4a3a 0 20px, #efebe3 20px 40px); }
-.ecran .corps { padding: 16px; display: grid; gap: 10px; }
-.ecran h4 { font-family: Georgia, serif; font-weight: 400; font-size: 21px; color: #2f4a3a; margin: 4px 0 0; line-height: 1.15; }
-.mini-statut { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; }
-.mini-statut i { width: 9px; height: 9px; border-radius: 50%; background: #2f7a4b; box-shadow: 0 0 0 4px rgba(47,122,75,0.2); }
-.mini-bouton { border-radius: 999px; padding: 10px; text-align: center; font-weight: 700; background: #2f4a3a; color: #fff; }
-.mini-bouton.clair { background: #efebe3; color: #2f4a3a; }
-.mini-carte { border: 1px solid #e3ddd2; border-radius: 12px; padding: 10px; display: flex; justify-content: space-between; }
-.mini-carte span:last-child { color: #8a6210; font-weight: 700; }
+/* Composition : ordinateur + téléphone avec de vrais sites */
+.vitrine { position: relative; padding-bottom: 40px; }
+.pc { border-radius: 14px; overflow: hidden; background: #1b2b4f; box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+.pc .barre { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #22345c; }
+.pc .barre i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.22); }
+.pc .barre span { margin-inline-start: 10px; flex: 1; font-size: 12px; color: var(--sur-nuit-doux); background: rgba(0,0,0,0.25); border-radius: 6px; padding: 3px 10px; direction: ltr; text-align: start; }
+.pc img { width: 100%; height: auto; aspect-ratio: 1200 / 750; object-fit: cover; object-position: top; }
+.tel { position: absolute; width: 34%; bottom: 0; inset-inline-end: -4%; border-radius: 30px; padding: 7px; background: #0a1328; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.12); }
+.tel img { border-radius: 24px; width: 100%; height: auto; aspect-ratio: 390 / 760; object-fit: cover; object-position: top; }
+.pastille { position: absolute; display: flex; align-items: center; gap: 8px; background: #fff; color: #15213d; font-size: 13.5px; font-weight: 700; padding: 9px 14px; border-radius: 999px; box-shadow: 0 14px 30px -12px rgba(0,0,0,0.5); white-space: nowrap; }
+.pastille i { width: 9px; height: 9px; border-radius: 50%; background: #1f8a57; box-shadow: 0 0 0 4px rgba(31,138,87,0.18); }
+.pastille svg { width: 16px; height: 16px; }
+.pastille.p1 { top: -50px; inset-inline-start: 8%; }
+.pastille.p2 { bottom: 64px; inset-inline-start: -5%; }
 
-section { padding-block: 76px; }
-section.alt { background: var(--surface); border-block: 1px solid var(--trait); }
-.tete { display: grid; gap: 10px; margin-bottom: 36px; max-width: 42em; }
-.tete h2 { font-size: clamp(30px, 3.6vw, 42px); }
-.tete p { margin: 0; color: var(--doux); }
+/* Repères */
+.reperes { background: var(--papier); border-bottom: 1px solid var(--trait); }
+.reperes ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.reperes li { padding: 26px 24px; display: grid; gap: 2px; border-inline-start: 1px solid var(--trait); }
+.reperes li:first-child { border-inline-start: 0; padding-inline-start: 0; }
+.reperes b { font-family: var(--titre); font-weight: 600; font-size: 30px; color: var(--marine); line-height: 1.2; }
+.reperes span { color: var(--doux); font-size: 15px; }
 
-.inclus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 32px; }
-.inclus div { display: grid; gap: 6px; align-content: start; padding-top: 16px; border-top: 3px solid var(--turquoise); }
+/* Sections */
+section { padding-block: 104px; }
+.tete { display: grid; gap: 14px; margin-bottom: 52px; max-width: 40em; }
+.tete h2 { font-size: clamp(32px, 4vw, 50px); }
+.tete p { color: var(--doux); font-size: 18.5px; }
+
+/* Exemples : de vrais sites, en grand */
+.projets { display: grid; gap: 96px; }
+.projet { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; color: inherit; text-decoration: none; }
+.projet:nth-child(even) .projet-visuel { order: 2; }
+.projet-visuel { position: relative; padding-bottom: 28px; }
+.projet-visuel .pc { box-shadow: 0 30px 60px -30px rgba(14,31,64,0.45), 0 0 0 1px var(--trait); }
+.projet-visuel .pc .barre { background: #e9edf5; }
+.projet-visuel .pc .barre i { background: #c7cfdf; }
+.projet-visuel .pc .barre span { background: #fff; color: #56617a; }
+.projet-visuel .tel { width: 28%; inset-inline-end: -3%; box-shadow: 0 24px 50px -20px rgba(14,31,64,0.6); }
+.projet-texte { display: grid; gap: 14px; justify-items: start; }
+.etiquette { font-size: 14px; font-weight: 700; color: var(--bleu); background: color-mix(in srgb, var(--bleu) 12%, transparent); padding: 4px 12px; border-radius: 999px; }
+.projet-texte h3 { font-size: clamp(28px, 3vw, 38px); }
+.projet-texte .lieu { color: var(--doux); font-size: 16px; margin-top: -6px; }
+.projet-texte p { color: var(--doux); }
+.projet-lien { font-weight: 700; color: var(--marine); border-bottom: 2px dashed var(--bleu); padding-bottom: 2px; margin-top: 6px; }
+.projet:hover .projet-lien { color: var(--bleu); }
+.mention { margin-top: 56px; color: var(--doux); font-size: 15px; }
+
+/* Ce qui est inclus : liste à deux colonnes, pas de cartes */
+.inclus { display: grid; grid-template-columns: 1fr 1fr; column-gap: 72px; }
+.inclus > div { display: grid; grid-template-columns: 44px 1fr; gap: 4px 18px; padding-block: 26px; border-top: 1px solid var(--trait); }
+.inclus svg { grid-row: span 2; width: 34px; height: 34px; color: var(--bleu); stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; margin-top: 2px; }
 .inclus h3 { font-size: 21px; }
-.inclus p { margin: 0; color: var(--doux); font-size: 16px; }
+.inclus p { color: var(--doux); font-size: 16.5px; }
 
+/* Formules */
+#formules { background: var(--papier); border-block: 1px solid var(--trait); }
 .formules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-.formule { background: var(--fond); border: 1px solid var(--trait); border-radius: var(--rayon); padding: 26px; display: grid; gap: 14px; grid-template-rows: auto auto 1fr auto auto; }
-.formule.mise .voir-exemple { color: var(--turquoise); }
-.formule.mise { background: var(--turquoise-fond); border: 2px solid var(--turquoise); }
-.formule .pour { font-size: 15px; color: var(--doux); margin: 0; }
-.formule h3 { font-size: 26px; }
-.formule ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15.5px; align-content: start; }
-.formule li { padding-inline-start: 24px; position: relative; }
-.formule li::before { content: ""; position: absolute; inset-inline-start: 0; top: 0.55em; width: 10px; height: 10px; border-radius: 3px; background: var(--turquoise); transform: rotate(45deg); }
-.badge { justify-self: start; font-size: 12.5px; font-weight: 700; background: var(--turquoise); color: var(--surface); padding: 3px 10px; border-radius: 999px; }
-.tarif { font-size: 15px; color: var(--doux); margin: 22px 0 0; text-align: center; }
+.formule { border: 1px solid var(--trait); border-radius: 22px; padding: 32px 28px; display: grid; gap: 16px; grid-template-rows: auto auto auto 1fr auto auto; background: var(--ivoire); }
+.formule .pour { font-size: 15.5px; color: var(--doux); }
+.formule h3 { font-size: 30px; }
+.formule ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; font-size: 16px; align-content: start; }
+.formule li { padding-inline-start: 26px; position: relative; }
+.formule li::before { content: ""; position: absolute; inset-inline-start: 0; top: 0.8em; width: 14px; border-top: 2px dashed var(--bleu); }
+.formule .bouton { margin-top: 8px; }
+.formule .bouton.vide { color: var(--marine); }
+.formule.mise { background: var(--encre-nuit); color: var(--sur-nuit); border-color: var(--encre-nuit); }
+.formule.mise .pour { color: var(--sur-nuit-doux); }
+.formule.mise h3 { color: #fff; }
+.formule.mise li::before { border-color: var(--fil); }
+.formule.mise .voir-exemple { color: var(--fil); }
+.badge { justify-self: start; font-size: 13.5px; font-weight: 700; background: var(--bleu); color: #fff; padding: 4px 12px; border-radius: 999px; }
+.badge-vide { visibility: hidden; }
+.voir-exemple { justify-self: center; font-weight: 700; font-size: 15.5px; color: var(--marine); }
+.tarif { font-size: 15.5px; color: var(--doux); margin-top: 28px; text-align: center; }
 
-.etapes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; list-style: none; padding: 0; margin: 0; counter-reset: e; }
-.etapes li { display: grid; gap: 6px; align-content: start; }
-.etapes li::before { counter-increment: e; content: counter(e); font-family: var(--titre); font-size: 22px; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; background: var(--turquoise-fond); color: var(--turquoise); }
-.etapes h3 { font-size: 20px; }
-.etapes p { margin: 0; color: var(--doux); font-size: 16px; }
+/* Étapes : une vraie séquence, reliée par le fil */
+.etapes { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: e; position: relative; }
+.etapes::before { content: ""; position: absolute; top: 27px; inset-inline: 28px; border-top: 2.5px dashed color-mix(in srgb, var(--bleu) 55%, transparent); }
+.etapes li { position: relative; display: grid; gap: 8px; align-content: start; }
+.etapes li::before { counter-increment: e; content: counter(e); font-family: var(--titre); font-weight: 600; font-size: 22px; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; background: var(--ivoire); color: var(--marine); border: 2px solid var(--marine); margin-bottom: 10px; }
+.etapes h3 { font-size: 21px; }
+.etapes p { color: var(--doux); font-size: 16.5px; }
 
-.demos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.demo { display: grid; gap: 10px; align-content: start; background: var(--encre); color: var(--fond); border-radius: var(--rayon); padding: 30px; text-decoration: none; transition: transform .15s; }
-.demo:hover { transform: translateY(-2px); }
-.demo h3 { font-size: 30px; }
-.demo p { margin: 0; opacity: 0.8; }
-.demo-type { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
-.demo-lien { font-weight: 700; margin-top: 6px; }
-.demo-formule { justify-self: start; background: var(--turquoise); color: var(--surface); font-size: 13px; font-weight: 700; padding: 3px 12px; border-radius: 999px; }
-.voir-exemple { justify-self: center; font-weight: 700; font-size: 15px; }
-.demo-lien::after { content: " →"; }
-[dir="rtl"] .demo-lien::after { content: " ←"; }
+/* Qui suis-je */
+#apropos { background: var(--papier); border-block: 1px solid var(--trait); }
+.apropos { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: center; }
+.portrait { position: relative; aspect-ratio: 4 / 5; border-radius: 26px; background: var(--encre-nuit); display: grid; place-items: center; overflow: hidden; }
+.portrait::after { content: ""; position: absolute; inset: 16px; border: 2.5px dashed rgba(143,184,242,0.45); border-radius: 18px; pointer-events: none; }
+.portrait svg { width: 62%; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.apropos .texte { display: grid; gap: 18px; max-width: 36em; }
+.apropos h2 { font-size: clamp(32px, 4vw, 50px); }
+.apropos .texte > p { color: var(--doux); font-size: 18.5px; }
+.faits { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.faits li { border: 1px solid var(--trait); border-radius: 999px; padding: 7px 16px; font-size: 15px; font-weight: 500; background: var(--ivoire); }
 
-/* Formulaire */
-.contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: start; }
-.contact .tete { margin-bottom: 16px; }
-.rassurance { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; color: var(--doux); }
-.rassurance li::before { content: "✓"; color: var(--turquoise); font-weight: 700; margin-inline-end: 8px; }
-form { background: var(--surface); border: 1px solid var(--trait); border-radius: var(--rayon); padding: 28px; display: grid; gap: 16px; }
+/* Contact sombre */
+#contact { background: var(--encre-nuit); color: var(--sur-nuit); }
+.contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start; }
+#contact .tete { margin-bottom: 26px; }
+#contact h2 { color: #fff; }
+#contact .tete p { color: var(--sur-nuit-doux); }
+.rassurance { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; color: var(--sur-nuit-doux); }
+.rassurance li { display: flex; gap: 12px; align-items: baseline; }
+.rassurance li::before { content: ""; flex: none; width: 14px; border-top: 2px dashed var(--fil); transform: translateY(-4px); }
+form { background: var(--papier); color: var(--encre); border-radius: 22px; padding: 32px; display: grid; gap: 18px; box-shadow: 0 40px 80px -40px rgba(0,0,0,0.6); }
 .deux { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .champ { display: grid; gap: 6px; }
 .champ label, fieldset legend { font-weight: 500; font-size: 15px; }
 .req { color: var(--erreur); }
-input, select, textarea { font: 16px var(--texte); color: var(--encre); background: var(--fond); border: 1px solid var(--trait); border-radius: 10px; padding: 12px 14px; width: 100%; min-height: 48px; }
-textarea { min-height: 100px; resize: vertical; }
+input, select, textarea { font: 16px var(--texte); color: var(--encre); background: var(--ivoire); border: 1px solid var(--trait); border-radius: 12px; padding: 12px 14px; width: 100%; min-height: 50px; }
+input:focus, select:focus, textarea:focus { border-color: var(--bleu); outline: 2px solid color-mix(in srgb, var(--bleu) 30%, transparent); outline-offset: 0; }
+textarea { min-height: 110px; resize: vertical; }
 fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
 .choix { display: flex; flex-wrap: wrap; gap: 8px; }
-.choix label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--trait); border-radius: 999px; padding: 8px 14px; cursor: pointer; font-size: 15px; }
-.choix label:has(input:checked) { border-color: var(--turquoise); background: var(--turquoise-fond); font-weight: 700; }
-.choix input { width: auto; min-height: 0; accent-color: var(--turquoise); }
+.choix label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--trait); border-radius: 999px; padding: 8px 15px; cursor: pointer; font-size: 15px; min-height: 42px; }
+.choix label:has(input:checked) { border-color: var(--bleu); background: color-mix(in srgb, var(--bleu) 12%, transparent); font-weight: 700; }
+.choix input { width: auto; min-height: 0; accent-color: var(--bleu); }
 .accord { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; color: var(--doux); }
-.accord input { width: 20px; min-height: 20px; margin-top: 3px; accent-color: var(--turquoise); flex: none; }
+.accord input { width: 20px; min-height: 20px; margin-top: 3px; accent-color: var(--bleu); flex: none; }
 .piege { position: absolute; inset-inline-start: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.retour { border-radius: 10px; padding: 14px 16px; font-size: 15.5px; }
+.retour { border-radius: 12px; padding: 14px 16px; font-size: 15.5px; }
 .retour.ok { background: color-mix(in srgb, var(--ok) 14%, transparent); }
 .retour.ko { background: color-mix(in srgb, var(--erreur) 14%, transparent); }
 .erreur-champ input, .erreur-champ select, .erreur-champ textarea { border-color: var(--erreur); }
 
-.faq { display: grid; gap: 12px; max-width: 760px; }
-details { background: var(--surface); border: 1px solid var(--trait); border-radius: 12px; padding: 16px 20px; }
-summary { cursor: pointer; font-weight: 700; }
-details p { margin: 10px 0 0; color: var(--doux); }
+/* Questions */
+.questions { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: start; }
+.questions .tete { margin-bottom: 0; }
+.faq { display: grid; }
+details { border-top: 1px solid var(--trait); padding: 20px 0; }
+details:last-child { border-bottom: 1px solid var(--trait); }
+summary { cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--titre); font-size: 26px; line-height: 1; color: var(--bleu); transition: transform .2s; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { margin-top: 10px; color: var(--doux); max-width: 36em; }
 
-.conseils { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-.conseil { display: grid; gap: 8px; align-content: start; background: var(--surface); border: 1px solid var(--trait); border-radius: 12px; padding: 20px; color: var(--encre); text-decoration: none; }
-.conseil:hover { border-color: var(--turquoise); }
-.conseil b { font-family: var(--titre); font-weight: 400; font-size: 20px; line-height: 1.2; }
-.conseil span { color: var(--doux); font-size: 15.5px; }
-.conseil em { font-style: normal; font-weight: 700; color: var(--turquoise); font-size: 15px; }
+/* Conseils */
+#conseils { padding-top: 0; }
+.conseils { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; }
+.conseil { display: grid; gap: 10px; align-content: start; padding-top: 22px; border-top: 3px solid var(--marine); color: var(--encre); text-decoration: none; }
+.conseil b { font-family: var(--titre); font-weight: 600; font-size: 21px; line-height: 1.25; }
+.conseil span { color: var(--doux); font-size: 16px; }
+.conseil em { font-style: normal; font-weight: 700; color: var(--bleu); font-size: 15.5px; }
+.conseil:hover b { color: var(--bleu); }
 
-footer { border-top: 1px solid var(--trait); }
-footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14.5px; color: var(--doux); }
+footer { background: var(--encre-nuit); color: var(--sur-nuit-doux); }
+footer .env { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; font-size: 15px; }
+footer .logo { color: var(--sur-nuit); }
+footer nav { display: flex; flex-wrap: wrap; gap: 20px; }
+footer nav a { color: var(--sur-nuit-doux); text-decoration: none; }
+footer nav a:hover { color: #fff; }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   header nav { display: none; }
   .langues { margin-inline-start: auto; }
-  .hero .env, .contact { grid-template-columns: 1fr; }
-  .hero .env { padding-block: 40px 56px; }
-  .inclus, .formules { grid-template-columns: 1fr 1fr; }
-  .etapes { grid-template-columns: 1fr 1fr; }
-  .demos { grid-template-columns: 1fr; }
-  section { padding-block: 56px; }
+  .hero .env, .contact, .apropos, .questions { grid-template-columns: 1fr; }
+  .hero .env { padding-block: 48px 72px; gap: 48px; }
+  .vitrine { max-width: 620px; }
+  .projet { grid-template-columns: 1fr; gap: 28px; }
+  .projet:nth-child(even) .projet-visuel { order: 0; }
+  .formules { grid-template-columns: 1fr; max-width: 560px; }
+  .badge-vide { display: none; }
+  .etapes { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .etapes::before { display: none; }
+  .reperes ul { grid-template-columns: 1fr 1fr; }
+  .reperes li:nth-child(3) { border-inline-start: 0; padding-inline-start: 0; }
+  .reperes li:nth-child(n+3) { border-top: 1px solid var(--trait); }
+  .apropos { gap: 40px; }
+  .portrait { max-width: 340px; aspect-ratio: 1; }
+  .conseils { grid-template-columns: 1fr; gap: 28px; }
+  section { padding-block: 72px; }
 }
-@media (max-width: 560px) {
-  .inclus, .formules, .etapes, .deux { grid-template-columns: 1fr; }
-  .hero .actions .bouton { width: 100%; }
-  form { padding: 20px; }
+@media (max-width: 600px) {
+  .entete-cta { display: none; }
   .logo small { display: none; }
+  .inclus, .etapes, .deux { grid-template-columns: 1fr; }
+  .hero .actions .bouton { width: 100%; }
+  .pastille.p2 { display: none; }
+  .pastille.p1 { inset-inline-start: 4%; }
+  .reperes li { padding: 20px 14px; }
+  .reperes b { font-size: 24px; }
+  form { padding: 22px; }
+  .projets { gap: 64px; }
 }
 </style>
 </head>
 <body>
 <header>
   <div class="env">
-    <a class="logo" href="#haut"><span class="carreau" aria-hidden="true"></span><span><b data-t="marque">Moïse Berrebi</b><small data-t="metier">Sites pour commerces · Jérusalem</small></span></a>
+    <a class="logo" href="#haut" aria-label="Moïse Berrebi">
+      <svg viewBox="200 270 624 560" aria-hidden="true"><path d="M390 340 L 230 512 L 390 684 M634 340 L 794 512 L 634 684" fill="none" stroke="#8fb8f2" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><path d="M598 566 C 540 610, 420 590, 330 596 C 230 604, 220 720, 300 760" fill="none" stroke="#8fb8f2" stroke-width="18" stroke-linecap="round" stroke-dasharray="30 26"/><g transform="rotate(32 512 512)"><path d="M512 250 C 532 250, 540 300, 540 330 L 524 780 L 512 812 L 500 780 L 484 330 C 484 300, 492 250, 512 250 Z" fill="#ffffff"/><ellipse cx="512" cy="318" rx="10" ry="34" fill="#0e1f40"/></g><path d="M621 346 C 690 380, 680 500, 598 566" fill="none" stroke="#8fb8f2" stroke-width="18" stroke-linecap="round"/></svg>
+      <span><b data-t="marque">Moïse Berrebi</b><small data-t="metier">Sites sur mesure à Jérusalem</small></span>
+    </a>
     <nav aria-label="Menu">
-      <a href="#inclus" data-t="n1">Ce qui est inclus</a>
+      <a href="#exemples" data-t="n1">Exemples</a>
       <a href="#formules" data-t="n2">Formules</a>
       <a href="#etapes" data-t="n3">Comment ça marche</a>
-      <a href="#contact" data-t="n4">Contact</a>
+      <a href="#apropos" data-t="n4">Qui suis-je</a>
     </nav>
     <div class="langues" role="group" aria-label="Langue">
       <button type="button" id="btn-fr" data-lang="fr" aria-pressed="true">FR</button>
       <button type="button" id="btn-he" data-lang="he" aria-pressed="false" lang="he">עב</button>
     </div>
+    <a class="entete-cta" href="#contact" data-t="n5">Me contacter</a>
   </div>
 </header>
 
 <main id="haut">
   <div class="hero">
+    <svg class="fil-hero" viewBox="0 0 1440 760" preserveAspectRatio="none" aria-hidden="true">
+      <defs><mask id="masque-fil"><path class="trace" pathLength="1" d="M-40 735 C 220 690, 420 770, 640 715 S 920 480, 1090 520 S 1360 300, 1500 110" /></mask></defs>
+      <path class="fil" mask="url(#masque-fil)" vector-effect="non-scaling-stroke" d="M-40 735 C 220 690, 420 770, 640 715 S 920 480, 1090 520 S 1360 300, 1500 110" />
+    </svg>
     <div class="env">
       <div>
-        <div class="sur-titre" data-t="h-sur">Création de sites pour commerces et petites entreprises</div>
-        <h1><span data-t="h1a">Le site de votre commerce,</span> <em data-t="h1b">en français et en hébreu,</em> <span data-t="h1c">en ligne rapidement.</span></h1>
-        <p data-t="h-p">Vos clients vous trouvent sur Google Maps, voient si vous êtes ouvert et vous écrivent sur WhatsApp. Je m'occupe de tout, vous gardez la main sur votre commerce.</p>
+        <h1><span data-t="h1a">Le site de votre commerce,</span> <span data-t="h1b">cousu sur mesure, en français et en hébreu.</span></h1>
+        <p class="intro" data-t="h-p">Vos clients vous trouvent sur Google Maps, voient si vous êtes ouvert et vous écrivent sur WhatsApp. Je m'occupe de tout, vous gardez la main sur votre commerce.</p>
         <div class="actions">
           <a class="bouton plein" href="#contact" data-t="h-cta1">Demander ma maquette gratuite</a>
           <a class="bouton vide" href="#exemples" data-t="h-cta2">Voir des exemples</a>
@@ -250,36 +341,92 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
           <li data-t="g3">On se parle en français</li>
         </ul>
       </div>
-      <div class="telephone" aria-hidden="true">
-        <div class="ecran">
-          <div class="barre"><span>9:41</span><span>5G</span></div>
-          <div class="store"></div>
-          <div class="corps">
-            <h4>Le Comptoir de Rivka</h4>
-            <span class="mini-statut"><i></i><span data-t="t-ouvert">Ouvert · ferme à 20 h</span></span>
-            <div class="mini-bouton" data-t="t-wa">Commander sur WhatsApp</div>
-            <div class="mini-bouton clair" data-t="t-maps">Itinéraire Google Maps</div>
-            <div class="mini-carte"><span data-t="t-p1">Baguette tradition</span><span>9 ₪</span></div>
-            <div class="mini-carte"><span data-t="t-p2">Comté 18 mois</span><span>39 ₪</span></div>
-          </div>
+      <div class="vitrine" aria-hidden="true">
+        <div class="pc">
+          <div class="barre"><i></i><i></i><i></i><span>moiseberrebi.com/boutique</span></div>
+          <img src="/img/boutique-bureau.webp" alt="" width="1200" height="750" fetchpriority="high">
         </div>
+        <div class="tel"><img src="/img/epicerie-mobile.webp" alt="" width="600" height="1298"></div>
+        <span class="pastille p1"><i></i><span data-t="t-ouvert">Ouvert, ferme à 20 h</span></span>
+        <span class="pastille p2"><svg viewBox="0 0 24 24" fill="#25d366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg><span data-t="t-wa">Nouvelle commande sur WhatsApp</span></span>
       </div>
     </div>
   </div>
 
-  <section class="alt" id="inclus">
+  <div class="reperes">
+    <div class="env">
+      <ul>
+        <li><b data-t="k1">15 min</b><span data-t="k1d">pour un premier échange</span></li>
+        <li><b>0 ₪</b><span data-t="k2d">pour votre maquette</span></li>
+        <li><b data-t="k3">FR · עב</b><span data-t="k3d">et l'anglais si besoin</span></li>
+        <li><b data-t="k4">1</b><span data-t="k4d">seul interlocuteur, du début à la fin</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="exemples">
     <div class="env">
       <div class="tete">
-        <div class="sur-titre" data-t="i-sur">Ce qui est inclus</div>
+        <h2 data-t="d-titre">Voyez par vous-même</h2>
+        <p data-t="d-p">Trois sites de démonstration, un pour chaque formule. Ouvrez-les sur votre téléphone : c'est là que vos clients les verront.</p>
+      </div>
+      <div class="projets">
+        <a class="projet" href="https://moiseberrebi.com/epicerie/">
+          <div class="projet-visuel">
+            <div class="pc"><div class="barre"><i></i><i></i><i></i><span>moiseberrebi.com/epicerie</span></div><img src="/img/epicerie-bureau.webp" alt="" width="1200" height="750" loading="lazy"></div>
+            <div class="tel"><img src="/img/epicerie-mobile.webp" alt="" width="600" height="1298" loading="lazy"></div>
+          </div>
+          <div class="projet-texte">
+            <span class="etiquette" data-t="f1">Vitrine</span>
+            <h3 data-t="d1">Le Comptoir de Rivka</h3>
+            <span class="lieu" data-t="d1-type">Épicerie fine à Jérusalem</span>
+            <p data-t="d1-p">Horaires ouverts ou fermés en direct, commande du vendredi sur WhatsApp, livraison par quartier.</p>
+            <span class="projet-lien" data-t="d-cta">Ouvrir l'exemple</span>
+          </div>
+        </a>
+        <a class="projet" href="https://moiseberrebi.com/coiffure/">
+          <div class="projet-visuel">
+            <div class="pc"><div class="barre"><i></i><i></i><i></i><span>moiseberrebi.com/coiffure</span></div><img src="/img/coiffure-bureau.webp" alt="" width="1200" height="750" loading="lazy"></div>
+            <div class="tel"><img src="/img/coiffure-mobile.webp" alt="" width="600" height="1298" loading="lazy"></div>
+          </div>
+          <div class="projet-texte">
+            <span class="etiquette" data-t="f2">Vitrine +</span>
+            <h3 data-t="d2">Atelier Shira</h3>
+            <span class="lieu" data-t="d2-type">Salon de coiffure à Netanya</span>
+            <p data-t="d2-p">Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.</p>
+            <span class="projet-lien" data-t="d-cta">Ouvrir l'exemple</span>
+          </div>
+        </a>
+        <a class="projet" href="https://moiseberrebi.com/boutique/">
+          <div class="projet-visuel">
+            <div class="pc"><div class="barre"><i></i><i></i><i></i><span>moiseberrebi.com/boutique</span></div><img src="/img/boutique-bureau.webp" alt="" width="1200" height="750" loading="lazy"></div>
+            <div class="tel"><img src="/img/boutique-mobile.webp" alt="" width="600" height="1298" loading="lazy"></div>
+          </div>
+          <div class="projet-texte">
+            <span class="etiquette" data-t="f3">Boutique</span>
+            <h3 data-t="d3">Atelier Or</h3>
+            <span class="lieu" data-t="d3-type">Artisan judaïca à Jérusalem, vente en ligne</span>
+            <p data-t="d3-p">Catalogue filtrable, panier, livraison en Israël ou en France, commande en deux étapes.</p>
+            <span class="projet-lien" data-t="d-cta">Ouvrir l'exemple</span>
+          </div>
+        </a>
+      </div>
+      <p class="mention" data-t="d-mention">Ces commerces sont fictifs : ils montrent ce que je peux réaliser pour le vôtre.</p>
+    </div>
+  </section>
+
+  <section id="inclus">
+    <div class="env">
+      <div class="tete">
         <h2 data-t="i-titre">Tout ce dont un commerce a besoin, rien de superflu</h2>
       </div>
       <div class="inclus">
-        <div><h3 data-t="i1">Visible sur Google</h3><p data-t="i1d">Votre fiche Google Maps créée ou corrigée : horaires, photos, itinéraire, avis.</p></div>
-        <div><h3 data-t="i2">Pensé pour le téléphone</h3><p data-t="i2d">La plupart de vos clients arrivent depuis leur téléphone : tout y est lisible et rapide.</p></div>
-        <div><h3 data-t="i3">Français et hébreu</h3><p data-t="i3d">Deux langues, et l'anglais si vous le souhaitez. L'hébreu se lit de droite à gauche, comme il se doit.</p></div>
-        <div><h3 data-t="i4">Contact en un geste</h3><p data-t="i4d">Bouton WhatsApp, appel, Waze et Google Maps, formulaire de contact.</p></div>
-        <div><h3 data-t="i5">Horaires toujours justes</h3><p data-t="i5d">Ouvert ou fermé en direct, vendredi, Chabbat et veilles de fêtes compris.</p></div>
-        <div><h3 data-t="i6">Je m'occupe du reste</h3><p data-t="i6d">Hébergement, sécurité, petites modifications : vous m'envoyez un message, c'est fait.</p></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><h3 data-t="i1">Visible sur Google</h3><p data-t="i1d">Votre fiche Google Maps créée ou corrigée : horaires, photos, itinéraire, avis.</p></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg><h3 data-t="i2">Pensé pour le téléphone</h3><p data-t="i2d">La plupart de vos clients arrivent depuis leur téléphone : tout y est lisible et rapide.</p></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h9M7.5 3v2M5 5c.6 3 2.6 5.4 5.5 6.6M10 5c-.7 3.6-3 6.3-6.5 7.5M13 21l4-9 4 9M14.4 18h5.2"/></svg><h3 data-t="i3">Français et hébreu</h3><p data-t="i3d">Deux langues, et l'anglais si vous le souhaitez. L'hébreu se lit de droite à gauche, comme il se doit.</p></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4A8 8 0 1 1 20 12Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg><h3 data-t="i4">Contact en un geste</h3><p data-t="i4d">Bouton WhatsApp, appel, Waze et Google Maps, formulaire de contact.</p></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 data-t="i5">Horaires toujours justes</h3><p data-t="i5d">Ouvert ou fermé en direct, vendredi, Chabbat et veilles de fêtes compris.</p></div>
+        <div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.4 3.1 8.2 7.5 9.5 4.4-1.3 7.5-5.1 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg><h3 data-t="i6">Je m'occupe du reste</h3><p data-t="i6d">Hébergement, sécurité, petites modifications : vous m'envoyez un message, c'est fait.</p></div>
       </div>
     </div>
   </section>
@@ -287,11 +434,11 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
   <section id="formules">
     <div class="env">
       <div class="tete">
-        <div class="sur-titre" data-t="f-sur">Formules</div>
         <h2 data-t="f-titre">Trois formules selon votre activité</h2>
       </div>
       <div class="formules">
         <article class="formule">
+          <span class="badge badge-vide" aria-hidden="true">.</span>
           <p class="pour" data-t="f1-pour">Pour être trouvé et contacté</p>
           <h3 data-t="f1">Vitrine</h3>
           <ul>
@@ -317,6 +464,7 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
           <a class="voir-exemple" href="https://moiseberrebi.com/coiffure/" data-t="f-exemple">Voir l'exemple</a>
         </article>
         <article class="formule">
+          <span class="badge badge-vide" aria-hidden="true">.</span>
           <p class="pour" data-t="f3-pour">Pour vendre en ligne</p>
           <h3 data-t="f3">Boutique</h3>
           <ul>
@@ -333,11 +481,10 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
     </div>
   </section>
 
-  <section class="alt" id="etapes">
+  <section id="etapes">
     <div class="env">
       <div class="tete">
-        <div class="sur-titre" data-t="e-sur">Comment ça marche</div>
-        <h2 data-t="e-titre">De notre premier appel à votre site en ligne</h2>
+        <h2 data-t="e-titre">De notre premier échange à votre site en ligne</h2>
       </div>
       <ol class="etapes">
         <li><h3 data-t="e1">On se parle 15 minutes</h3><p data-t="e1d">Vous m'expliquez votre commerce et vos clients.</p></li>
@@ -348,40 +495,29 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
     </div>
   </section>
 
-  <section id="exemples">
-    <div class="env">
-      <div class="tete"><div class="sur-titre" data-t="d-sur">Exemples</div><h2 data-t="d-titre">Voyez par vous-même</h2></div>
-      <div class="demos">
-        <a class="demo" href="https://moiseberrebi.com/epicerie/">
-          <span class="demo-formule" data-t="f1">Vitrine</span>
-          <span class="demo-type" data-t="d1-type">Commerce de bouche · Jérusalem</span>
-          <h3 data-t="d1">Le Comptoir de Rivka</h3>
-          <p data-t="d1-p">Épicerie fine : horaires ouverts ou fermés en direct, commande du vendredi, livraison par quartier.</p>
-          <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
-        </a>
-        <a class="demo" href="https://moiseberrebi.com/coiffure/">
-          <span class="demo-formule" data-t="f2">Vitrine +</span>
-          <span class="demo-type" data-t="d2-type">Salon de coiffure · Netanya</span>
-          <h3 data-t="d2">Atelier Shira</h3>
-          <p data-t="d2-p">Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.</p>
-          <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
-        </a>
-        <a class="demo" href="https://moiseberrebi.com/boutique/">
-          <span class="demo-formule" data-t="f3">Boutique</span>
-          <span class="demo-type" data-t="d3-type">Artisan et vente en ligne · Jérusalem</span>
-          <h3 data-t="d3">Atelier Or</h3>
-          <p data-t="d3-p">Catalogue filtrable, panier, livraison en Israël ou en France, commande en deux étapes.</p>
-          <span class="demo-lien" data-t="d-cta">Ouvrir l'exemple</span>
-        </a>
+  <section id="apropos">
+    <div class="env apropos">
+      <div class="portrait" aria-hidden="true">
+        <svg viewBox="200 270 624 560"><path d="M390 340 L 230 512 L 390 684 M634 340 L 794 512 L 634 684" fill="none" stroke="#8fb8f2" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><path d="M598 566 C 540 610, 420 590, 330 596 C 230 604, 220 720, 300 760" fill="none" stroke="#8fb8f2" stroke-width="15" stroke-linecap="round" stroke-dasharray="30 26"/><g transform="rotate(32 512 512)"><path d="M512 250 C 532 250, 540 300, 540 330 L 524 780 L 512 812 L 500 780 L 484 330 C 484 300, 492 250, 512 250 Z" fill="#ffffff"/><ellipse cx="512" cy="318" rx="10" ry="34" fill="#0e1f40"/></g><path d="M621 346 C 690 380, 680 500, 598 566" fill="none" stroke="#8fb8f2" stroke-width="15" stroke-linecap="round"/></svg>
+      </div>
+      <div class="texte">
+        <h2 data-t="a-titre">Un artisan du web, à Jérusalem</h2>
+        <p data-t="a-p1">Je m'appelle Moïse Berrebi. Je suis développeur : j'ai conçu des logiciels de gestion pour des entreprises, et je crée aujourd'hui des sites et des applications pour les commerces et les petites entreprises.</p>
+        <p data-t="a-p2">Chaque site est fait sur mesure, comme un costume chez le tailleur : pas de modèle tout prêt, mais un site pensé pour votre commerce et vos clients. Vous avez un seul interlocuteur, qui vous répond en français ou en hébreu.</p>
+        <ul class="faits">
+          <li data-t="a-f1">Installé à Jérusalem</li>
+          <li data-t="a-f2">Français et hébreu</li>
+          <li data-t="a-f3">Sites et applications iPhone</li>
+          <li data-t="a-f4">Israël et France</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="alt" id="contact">
+  <section id="contact">
     <div class="env contact">
       <div>
         <div class="tete">
-          <div class="sur-titre" data-t="c-sur">Contact</div>
           <h2 data-t="c-titre">Parlons de votre commerce</h2>
           <p data-t="c-p">Laissez vos coordonnées : je vous réponds rapidement, par email ou sur WhatsApp.</p>
         </div>
@@ -439,8 +575,8 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
   </section>
 
   <section id="questions">
-    <div class="env">
-      <div class="tete"><div class="sur-titre" data-t="q-sur">Questions fréquentes</div><h2 data-t="q-titre">Vous vous demandez peut-être</h2></div>
+    <div class="env questions">
+      <div class="tete"><h2 data-t="q-titre">Vous vous demandez peut-être</h2></div>
       <div class="faq">
         <details><summary data-t="q1">J'ai déjà un site, pouvez-vous le refaire ?</summary><p data-t="q1r">Oui. Je reprends vos textes et vos photos, et je garde votre adresse internet si vous en avez une.</p></details>
         <details><summary data-t="q2">Est-ce que je pourrai modifier mon site moi-même ?</summary><p data-t="q2r">Avec la formule Boutique, oui. Pour les autres, un message WhatsApp suffit : les petites modifications sont comprises dans l'abonnement.</p></details>
@@ -449,9 +585,10 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       </div>
     </div>
   </section>
+
   <section id="conseils">
     <div class="env">
-      <div class="tete"><div class="sur-titre" data-t="cs-sur">Conseils</div><h2 data-t="cs-titre">Bien démarrer sur internet</h2></div>
+      <div class="tete"><h2 data-t="cs-titre">Bien démarrer sur internet</h2></div>
       <div class="conseils">
         <a class="conseil" data-lien="prix-site-internet-commerce-israel" href="/conseils/prix-site-internet-commerce-israel/"><b data-t="c1">Combien coûte un site internet pour un commerce en Israël ?</b><span data-t="c1d">Prix d'un site vitrine, d'un site avec rendez-vous ou d'une boutique en ligne en Israël : ce qui fait varier le coût, les frais annuels et les pièges à éviter.</span><em data-t="c-lire">Lire l'article</em></a>
         <a class="conseil" data-lien="apparaitre-google-maps-commerce-jerusalem" href="/conseils/apparaitre-google-maps-commerce-jerusalem/"><b data-t="c2">Comment apparaître sur Google Maps quand on a un commerce à Jérusalem</b><span data-t="c2d">Créer et optimiser la fiche Google de votre commerce à Jérusalem : catégorie, horaires, photos, avis clients et site internet, étape par étape.</span><em data-t="c-lire">Lire l'article</em></a>
@@ -463,49 +600,62 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
 
 <footer>
   <div class="env">
-    <span data-t="pied1">Moïse Berrebi · Création de sites pour commerces · Jérusalem</span>
-    <span data-t="pied2">Français · עברית</span>
+    <a class="logo" href="#haut"><span><b data-t="marque">Moïse Berrebi</b><small data-t="pied1">Création de sites pour commerces, à Jérusalem</small></span></a>
+    <nav aria-label="Pied de page">
+      <a href="#exemples" data-t="n1">Exemples</a>
+      <a href="#formules" data-t="n2">Formules</a>
+      <a href="#apropos" data-t="n4">Qui suis-je</a>
+      <a href="#contact" data-t="n5">Me contacter</a>
+    </nav>
   </div>
 </footer>
 
 <script>
 (function () {
-  // Adresse qui reçoit les demandes (service FormSubmit). À remplacer avant la mise en ligne.
+  // Adresse qui reçoit les demandes (service FormSubmit).
   const EMAIL_RECEPTION = "moscheberrebi@gmail.com";
+
+  // Le fil de l'accueil se coud une fois au chargement (sauf si l'utilisateur préfère moins d'animations).
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("anim");
 
   const T = {
     fr: {
-      marque: "Moïse Berrebi", metier: "Sites pour commerces · Jérusalem",
-      n1: "Ce qui est inclus", n2: "Formules", n3: "Comment ça marche", n4: "Contact",
-      "h-sur": "Création de sites pour commerces et petites entreprises",
-      h1a: "Le site de votre commerce,", h1b: "en français et en hébreu,", h1c: "en ligne rapidement.",
+      marque: "Moïse Berrebi", metier: "Sites sur mesure à Jérusalem",
+      n1: "Exemples", n2: "Formules", n3: "Comment ça marche", n4: "Qui suis-je", n5: "Me contacter",
+      h1a: "Le site de votre commerce,", h1b: "cousu sur mesure, en français et en hébreu.",
       "h-p": "Vos clients vous trouvent sur Google Maps, voient si vous êtes ouvert et vous écrivent sur WhatsApp. Je m'occupe de tout, vous gardez la main sur votre commerce.",
       "h-cta1": "Demander ma maquette gratuite", "h-cta2": "Voir des exemples",
       g1: "Maquette à votre nom offerte", g2: "Sans engagement", g3: "On se parle en français",
-      "t-ouvert": "Ouvert · ferme à 20 h", "t-wa": "Commander sur WhatsApp", "t-maps": "Itinéraire Google Maps", "t-p1": "Baguette tradition", "t-p2": "Comté 18 mois",
-      "i-sur": "Ce qui est inclus", "i-titre": "Tout ce dont un commerce a besoin, rien de superflu",
+      "t-ouvert": "Ouvert, ferme à 20 h", "t-wa": "Nouvelle commande sur WhatsApp",
+      k1: "15 min", k1d: "pour un premier échange", k2d: "pour votre maquette", k3: "FR · עב", k3d: "et l'anglais si besoin", k4: "1", k4d: "seul interlocuteur, du début à la fin",
+      "d-titre": "Voyez par vous-même", "d-p": "Trois sites de démonstration, un pour chaque formule. Ouvrez-les sur votre téléphone : c'est là que vos clients les verront.", "d-cta": "Ouvrir l'exemple",
+      "d1-type": "Épicerie fine à Jérusalem", d1: "Le Comptoir de Rivka", "d1-p": "Horaires ouverts ou fermés en direct, commande du vendredi sur WhatsApp, livraison par quartier.",
+      "d2-type": "Salon de coiffure à Netanya", d2: "Atelier Shira", "d2-p": "Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.",
+      "d3-type": "Artisan judaïca à Jérusalem, vente en ligne", d3: "Atelier Or", "d3-p": "Catalogue filtrable, panier, livraison en Israël ou en France, commande en deux étapes.",
+      "d-mention": "Ces commerces sont fictifs : ils montrent ce que je peux réaliser pour le vôtre.",
+      "i-titre": "Tout ce dont un commerce a besoin, rien de superflu",
       i1: "Visible sur Google", i1d: "Votre fiche Google Maps créée ou corrigée : horaires, photos, itinéraire, avis.",
       i2: "Pensé pour le téléphone", i2d: "La plupart de vos clients arrivent depuis leur téléphone : tout y est lisible et rapide.",
       i3: "Français et hébreu", i3d: "Deux langues, et l'anglais si vous le souhaitez. L'hébreu se lit de droite à gauche, comme il se doit.",
       i4: "Contact en un geste", i4d: "Bouton WhatsApp, appel, Waze et Google Maps, formulaire de contact.",
       i5: "Horaires toujours justes", i5d: "Ouvert ou fermé en direct, vendredi, Chabbat et veilles de fêtes compris.",
       i6: "Je m'occupe du reste", i6d: "Hébergement, sécurité, petites modifications : vous m'envoyez un message, c'est fait.",
-      "f-sur": "Formules", "f-titre": "Trois formules selon votre activité",
+      "f-titre": "Trois formules selon votre activité",
       "f1-pour": "Pour être trouvé et contacté", f1: "Vitrine", f1a: "Une page complète : activité, horaires, plan, contact", f1b: "Fiche Google Maps optimisée", f1c: "Bouton WhatsApp et formulaire", f1d: "Français et hébreu",
       "f2-badge": "La plus demandée", "f2-pour": "Pour présenter vos produits ou vos services", f2: "Vitrine +", f2a: "Tout ce qui est dans Vitrine", f2b: "Jusqu'à 5 pages : produits, services, équipe, galerie", f2c: "Prise de rendez-vous ou commande sur WhatsApp", f2d: "Mises à jour illimitées des horaires et des prix",
       "f3-pour": "Pour vendre en ligne", f3: "Boutique", f3a: "Catalogue de produits avec photos", f3b: "Paiement en ligne et livraison", f3c: "Vous gérez vos produits vous-même", f3d: "Formation et accompagnement",
       "f-choisir": "Je suis intéressé", "f-exemple": "Voir l'exemple",
-      "d3-type": "Artisan et vente en ligne · Jérusalem", d3: "Atelier Or", "d3-p": "Catalogue filtrable, panier, livraison en Israël ou en France, commande en deux étapes.",
       tarif: "Tarif sur devis : un prix de création, puis un abonnement mensuel tout compris (hébergement, sécurité, modifications).",
-      "e-sur": "Comment ça marche", "e-titre": "De notre premier appel à votre site en ligne",
+      "e-titre": "De notre premier échange à votre site en ligne",
       e1: "On se parle 15 minutes", e1d: "Vous m'expliquez votre commerce et vos clients.",
       e2: "Une maquette à votre nom", e2d: "Je vous montre votre futur site, gratuitement et sans engagement.",
       e3: "Mise en ligne rapide", e3d: "Vous validez, j'ajuste, le site est publié.",
       e4: "Je reste là", e4d: "Un horaire change, une promotion arrive : un message suffit.",
-      "d-sur": "Exemples", "d-titre": "Voyez par vous-même", "d-cta": "Ouvrir l'exemple",
-      "d1-type": "Commerce de bouche · Jérusalem", d1: "Le Comptoir de Rivka", "d1-p": "Épicerie fine : horaires ouverts ou fermés en direct, commande du vendredi, livraison par quartier.",
-      "d2-type": "Salon de coiffure · Netanya", d2: "Atelier Shira", "d2-p": "Prise de rendez-vous en trois choix envoyée sur WhatsApp, carte des prestations, nuancier de couleurs.",
-      "c-sur": "Contact", "c-titre": "Parlons de votre commerce", "c-p": "Laissez vos coordonnées : je vous réponds rapidement, par email ou sur WhatsApp.",
+      "a-titre": "Un artisan du web, à Jérusalem",
+      "a-p1": "Je m'appelle Moïse Berrebi. Je suis développeur : j'ai conçu des logiciels de gestion pour des entreprises, et je crée aujourd'hui des sites et des applications pour les commerces et les petites entreprises.",
+      "a-p2": "Chaque site est fait sur mesure, comme un costume chez le tailleur : pas de modèle tout prêt, mais un site pensé pour votre commerce et vos clients. Vous avez un seul interlocuteur, qui vous répond en français ou en hébreu.",
+      "a-f1": "Installé à Jérusalem", "a-f2": "Français et hébreu", "a-f3": "Sites et applications iPhone", "a-f4": "Israël et France",
+      "c-titre": "Parlons de votre commerce", "c-p": "Laissez vos coordonnées : je vous réponds rapidement, par email ou sur WhatsApp.",
       r1: "Premier échange gratuit et sans engagement", r2: "Vos coordonnées ne servent qu'à vous répondre", r3: "Réponse en français ou en hébreu",
       "l-nom": "Votre nom", "l-commerce": "Nom du commerce", "l-activite": "Activité", "l-ville": "Ville", "l-tel": "WhatsApp (facultatif)", "l-email": "Email",
       a1: "Boutique", a2: "Alimentation, restaurant", a3: "Santé, pharmacie, paramédical", a4: "Beauté, coiffure", a5: "Services, artisan", a6: "Autre",
@@ -518,47 +668,52 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       echec: "L'envoi n'a pas fonctionné. Réessayez dans un instant ; si le problème continue, écrivez-moi directement.",
       apercu: "Aperçu : le formulaire est complet. Sur le site en ligne, cette demande arrivera directement dans votre boîte mail.",
       config: "Le formulaire n'est pas encore relié à une adresse email. Écrivez-moi directement en attendant.",
-      "q-sur": "Questions fréquentes", "q-titre": "Vous vous demandez peut-être",
+      "q-titre": "Vous vous demandez peut-être",
       q1: "J'ai déjà un site, pouvez-vous le refaire ?", q1r: "Oui. Je reprends vos textes et vos photos, et je garde votre adresse internet si vous en avez une.",
       q2: "Est-ce que je pourrai modifier mon site moi-même ?", q2r: "Avec la formule Boutique, oui. Pour les autres, un message WhatsApp suffit : les petites modifications sont comprises dans l'abonnement.",
       q3: "Que faut-il préparer ?", q3r: "Quelques photos de votre commerce et de vos produits, vos horaires, et c'est tout. Je vous aide pour les textes.",
       q4: "Travaillez-vous aussi avec la France ?", q4r: "Oui, tout se fait très bien à distance, par visio et par WhatsApp.",
-      "cs-sur": "Conseils", "cs-titre": "Bien démarrer sur internet", "c-lire": "Lire l'article",
+      "cs-titre": "Bien démarrer sur internet", "c-lire": "Lire l'article",
       c1: "Combien coûte un site internet pour un commerce en Israël ?", c1d: "Prix d'un site vitrine, d'un site avec rendez-vous ou d'une boutique en ligne en Israël : ce qui fait varier le coût, les frais annuels et les pièges à éviter.", c2: "Comment apparaître sur Google Maps quand on a un commerce à Jérusalem", c2d: "Créer et optimiser la fiche Google de votre commerce à Jérusalem : catégorie, horaires, photos, avis clients et site internet, étape par étape.", c3: "Site internet en français et en hébreu : pourquoi et comment le faire", c3d: "Pourquoi un commerce en Israël gagne à avoir un site bilingue français-hébreu, et comment bien le construire : traduction, sens de lecture, Google et WhatsApp.",
-      pied1: "Moïse Berrebi · Création de sites pour commerces · Jérusalem", pied2: "Français · עברית"
+      pied1: "Création de sites pour commerces, à Jérusalem"
     },
     he: {
-      marque: "משה מאיז ברבי", metier: "אתרים לעסקים · ירושלים",
-      n1: "מה כלול", n2: "חבילות", n3: "איך זה עובד", n4: "יצירת קשר",
-      "h-sur": "בניית אתרים לחנויות ולעסקים קטנים",
-      h1a: "האתר של העסק שלכם,", h1b: "בעברית ובצרפתית,", h1c: "באוויר במהירות.",
+      marque: "משה מאיז ברבי", metier: "אתרים בהתאמה אישית בירושלים",
+      n1: "דוגמאות", n2: "חבילות", n3: "איך זה עובד", n4: "קצת עליי", n5: "צרו קשר",
+      h1a: "האתר של העסק שלכם,", h1b: "תפור לפי מידה, בעברית ובצרפתית.",
       "h-p": "הלקוחות מוצאים אתכם בגוגל מפות, רואים אם אתם פתוחים וכותבים לכם בוואטסאפ. אני דואג להכול, ואתם מתרכזים בעסק.",
       "h-cta1": "לקבלת סקיצה בחינם", "h-cta2": "לאתרים לדוגמה",
       g1: "סקיצה בשם העסק שלכם במתנה", g2: "ללא התחייבות", g3: "מדברים עברית וצרפתית",
-      "t-ouvert": "פתוח · נסגר ב-20:00", "t-wa": "להזמנה בוואטסאפ", "t-maps": "ניווט בגוגל מפות", "t-p1": "באגט טרדיסיון", "t-p2": "קונטה 18 חודשים",
-      "i-sur": "מה כלול", "i-titre": "כל מה שעסק צריך, בלי מה שמיותר",
+      "t-ouvert": "פתוח, נסגר ב-20:00", "t-wa": "הזמנה חדשה בוואטסאפ",
+      k1: "15 דק׳", k1d: "לשיחה ראשונה", k2d: "על הסקיצה", k3: "עב · FR", k3d: "ואנגלית לפי הצורך", k4: "1", k4d: "איש קשר אחד, מההתחלה ועד הסוף",
+      "d-titre": "תראו בעצמכם", "d-p": "שלושה אתרי הדגמה, אחד לכל חבילה. פתחו אותם בטלפון: שם הלקוחות שלכם יראו אותם.", "d-cta": "לאתר לדוגמה",
+      "d1-type": "מעדנייה בירושלים", d1: "הקומפטואר של רבקה", "d1-p": "פתוח או סגור בזמן אמת, הזמנה ליום שישי בוואטסאפ, משלוחים לפי שכונה.",
+      "d2-type": "מספרה בנתניה", d2: "האטלייה של שירה", "d2-p": "קביעת תור בשלוש בחירות עם שליחה בוואטסאפ, מחירון, פלטת צבעים.",
+      "d3-type": "אומן יודאיקה בירושלים, מכירה אונליין", d3: "אטלייה אור", "d3-p": "קטלוג עם סינון, סל קניות, משלוח לישראל או לצרפת, הזמנה בשני שלבים.",
+      "d-mention": "העסקים האלה בדויים: הם מראים מה אני יכול לבנות עבור העסק שלכם.",
+      "i-titre": "כל מה שעסק צריך, בלי מה שמיותר",
       i1: "נראים בגוגל", i1d: "יצירה או תיקון של כרטיס העסק בגוגל מפות: שעות, תמונות, ניווט, ביקורות.",
       i2: "מותאם לטלפון", i2d: "רוב הלקוחות מגיעים מהטלפון: הכול קריא ומהיר.",
       i3: "עברית וצרפתית", i3d: "שתי שפות, ואנגלית אם תרצו. העברית מימין לשמאל, כמו שצריך.",
       i4: "יצירת קשר בלחיצה", i4d: "כפתור וואטסאפ, חיוג, וייז וגוגל מפות, טופס יצירת קשר.",
       i5: "שעות פתיחה תמיד מעודכנות", i5d: "פתוח או סגור בזמן אמת, כולל שישי, שבת וערבי חג.",
       i6: "אני דואג לכל השאר", i6d: "אחסון, אבטחה ושינויים קטנים: שולחים הודעה, וזה מטופל.",
-      "f-sur": "חבילות", "f-titre": "שלוש חבילות לפי סוג העסק",
+      "f-titre": "שלוש חבילות לפי סוג העסק",
       "f1-pour": "כדי שימצאו אתכם ויפנו אליכם", f1: "תדמית", f1a: "עמוד מלא: פעילות, שעות, מפה, יצירת קשר", f1b: "כרטיס גוגל מפות משופר", f1c: "כפתור וואטסאפ וטופס", f1d: "עברית וצרפתית",
       "f2-badge": "הכי מבוקשת", "f2-pour": "להצגת מוצרים או שירותים", f2: "תדמית +", f2a: "כל מה שכלול בתדמית", f2b: "עד 5 עמודים: מוצרים, שירותים, צוות, גלריה", f2c: "קביעת תורים או הזמנה בוואטסאפ", f2d: "עדכוני שעות ומחירים ללא הגבלה",
       "f3-pour": "למכירה אונליין", f3: "חנות", f3a: "קטלוג מוצרים עם תמונות", f3b: "תשלום אונליין ומשלוחים", f3c: "אתם מנהלים את המוצרים בעצמכם", f3d: "הדרכה וליווי",
       "f-choisir": "אני מעוניין", "f-exemple": "לאתר לדוגמה",
-      "d3-type": "אומן ומכירה אונליין · ירושלים", d3: "אטלייה אור", "d3-p": "קטלוג עם סינון, סל קניות, משלוח לישראל או לצרפת, הזמנה בשני שלבים.",
       tarif: "המחיר לפי הצעה: עלות הקמה, ואחריה מנוי חודשי שכולל הכול (אחסון, אבטחה, שינויים).",
-      "e-sur": "איך זה עובד", "e-titre": "מהשיחה הראשונה ועד שהאתר באוויר",
+      "e-titre": "מהשיחה הראשונה ועד שהאתר באוויר",
       e1: "שיחה של 15 דקות", e1d: "מספרים לי על העסק ועל הלקוחות.",
       e2: "סקיצה בשם העסק", e2d: "אני מציג לכם את האתר העתידי, בחינם וללא התחייבות.",
       e3: "עלייה מהירה לאוויר", e3d: "אתם מאשרים, אני מתאים, והאתר עולה.",
       e4: "אני ממשיך ללוות", e4d: "שעות משתנות או מבצע חדש: הודעה אחת מספיקה.",
-      "d-sur": "דוגמאות", "d-titre": "תראו בעצמכם", "d-cta": "לאתר לדוגמה",
-      "d1-type": "מזון · ירושלים", d1: "הקומפטואר של רבקה", "d1-p": "מעדנייה: פתוח או סגור בזמן אמת, הזמנה ליום שישי, משלוחים לפי שכונה.",
-      "d2-type": "מספרה · נתניה", d2: "האטלייה של שירה", "d2-p": "קביעת תור בשלוש בחירות עם שליחה בוואטסאפ, מחירון, פלטת צבעים.",
-      "c-sur": "יצירת קשר", "c-titre": "בואו נדבר על העסק שלכם", "c-p": "השאירו פרטים ואענה לכם בהקדם, במייל או בוואטסאפ.",
+      "a-titre": "אומן של אתרים, בירושלים",
+      "a-p1": "שמי משה מאיז ברבי. אני מפתח תוכנה: פיתחתי מערכות ניהול לחברות, והיום אני בונה אתרים ואפליקציות לחנויות ולעסקים קטנים.",
+      "a-p2": "כל אתר נתפר לפי מידה, כמו חליפה אצל חייט: לא תבנית מוכנה, אלא אתר שמתאים לעסק וללקוחות שלכם. יש לכם איש קשר אחד, שעונה בעברית או בצרפתית.",
+      "a-f1": "גר בירושלים", "a-f2": "עברית וצרפתית", "a-f3": "אתרים ואפליקציות לאייפון", "a-f4": "ישראל וצרפת",
+      "c-titre": "בואו נדבר על העסק שלכם", "c-p": "השאירו פרטים ואענה לכם בהקדם, במייל או בוואטסאפ.",
       r1: "שיחה ראשונה בחינם וללא התחייבות", r2: "הפרטים משמשים רק כדי לענות לכם", r3: "מענה בעברית או בצרפתית",
       "l-nom": "שם", "l-commerce": "שם העסק", "l-activite": "תחום", "l-ville": "עיר", "l-tel": "וואטסאפ (לא חובה)", "l-email": "אימייל",
       a1: "חנות", a2: "מזון, מסעדה", a3: "בריאות, בית מרקחת, פרא-רפואי", a4: "יופי, מספרה", a5: "שירותים, בעל מקצוע", a6: "אחר",
@@ -571,14 +726,14 @@ footer .env { padding-block: 28px; display: flex; flex-wrap: wrap; justify-conte
       echec: "השליחה לא הצליחה. נסו שוב בעוד רגע; אם הבעיה חוזרת, כתבו לי ישירות.",
       apercu: "תצוגה מקדימה: הטופס מלא. באתר החי, הפנייה תגיע ישירות לתיבת המייל.",
       config: "הטופס עדיין לא מחובר לכתובת מייל. בינתיים כתבו לי ישירות.",
-      "q-sur": "שאלות נפוצות", "q-titre": "אולי אתם שואלים את עצמכם",
+      "q-titre": "אולי אתם שואלים את עצמכם",
       q1: "כבר יש לי אתר, אפשר לבנות אותו מחדש?", q1r: "כן. אני משתמש בטקסטים ובתמונות שלכם, ושומר על כתובת האתר אם יש לכם.",
       q2: "אוכל לשנות את האתר בעצמי?", q2r: "בחבילת חנות, כן. בשאר החבילות מספיקה הודעת וואטסאפ: שינויים קטנים כלולים במנוי.",
       q3: "מה צריך להכין?", q3r: "כמה תמונות של העסק והמוצרים ושעות הפתיחה, וזהו. בטקסטים אני עוזר.",
       q4: "אתה עובד גם עם צרפת?", q4r: "כן, הכול עובד מצוין מרחוק, בווידאו ובוואטסאפ.",
-      "cs-sur": "טיפים", "cs-titre": "להתחיל נכון באינטרנט", "c-lire": "לקריאת המאמר",
+      "cs-titre": "להתחיל נכון באינטרנט", "c-lire": "לקריאת המאמר",
       c1: "כמה עולה אתר לעסק קטן בישראל?", c1d: "מחיר של אתר תדמית, אתר עם קביעת תורים או חנות אונליין בישראל: מה משפיע על העלות, מה ההוצאות השנתיות וממה להיזהר.", c2: "איך להופיע בגוגל מפות עם עסק בירושלים", c2d: "פתיחה ושיפור של כרטיס העסק בגוגל לעסק בירושלים: קטגוריה, שעות פתיחה, תמונות, ביקורות ואתר, שלב אחר שלב.", c3: "אתר בעברית ובצרפתית: למה ואיך", c3d: "למה עסק בישראל מרוויח מאתר דו־לשוני בעברית ובצרפתית, ואיך לבנות אותו נכון: תרגום, כיוון קריאה, גוגל ווואטסאפ.",
-      pied1: "משה מאיז ברבי · בניית אתרים לעסקים · ירושלים", pied2: "Français · עברית"
+      pied1: "בניית אתרים לעסקים בירושלים"
     }
   };
   let langue = "fr";

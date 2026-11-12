@@ -77,6 +77,7 @@ def corps_et_style(src):
 def page_site(lang):
     liens, style, corps = corps_et_style(f"{SRC}/mon-site/site.html")
     d = "rtl" if lang == "he" else "ltr"
+    corps = corps.replace('src="img/', 'src="/img/')  # images communes aux deux langues
     return f'<!doctype html>\n<html lang="{lang}" dir="{d}">\n<head>\n{tete(lang)}\n{liens}\n{style}\n</head>\n<body>\n{corps}\n</body>\n</html>\n'
 
 def page_demo(src, desc):
@@ -93,7 +94,7 @@ def main():
     with sync_playwright() as p:
         b = p.chromium.launch(); pg = b.new_page()
         pg.goto("file://" + brut); pg.wait_for_timeout(300)
-        html = pg.evaluate("document.documentElement.outerHTML")
+        html = pg.evaluate("document.documentElement.classList.remove('anim'), document.documentElement.outerHTML")
         b.close()
     open(brut, "w").write("<!doctype html>\n" + html + "\n")
     open(f"{DEST}/coiffure/index.html", "w").write(page_demo(f"{SRC}/coiffure/coiffure.html", "Atelier Shira, salon de coiffure à Netanya : exemple de site Vitrine + avec prise de rendez-vous, réalisé par Moïse Berrebi."))
