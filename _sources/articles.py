@@ -5,10 +5,10 @@ ARTICLES = [
 {
  "slug": "commander-un-site-internet",
  "fr": {
-  "titre": "Acheter ou commander un site internet pour son commerce : comment ça se passe",
-  "desc": "Commander ou acheter un site internet pour votre commerce : ce que vous achetez vraiment, les étapes de la commande, ce qu'il faut préparer et les questions à poser avant de signer.",
+  "titre": "Commander ou acheter un site internet à Jérusalem et en Israël : comment ça se passe",
+  "desc": "Commander ou acheter un site internet pour votre commerce à Jérusalem ou ailleurs en Israël, en français et en hébreu : ce que vous achetez vraiment, les étapes de la commande, ce qu'il faut préparer et les questions à poser avant de signer.",
   "corps": """
-<p class="chapo">Acheter un site internet, ce n'est pas acheter un objet tout fait : c'est commander un outil qui doit faire venir des clients dans votre commerce. Voici comment se passe une commande, de la première prise de contact à la mise en ligne, et ce qu'il faut vérifier avant de vous engager.</p>
+<p class="chapo">Que votre commerce soit à Jérusalem, à Tel-Aviv ou ailleurs en Israël, acheter un site internet, ce n'est pas acheter un objet tout fait : c'est commander un outil qui doit faire venir des clients dans votre commerce. Voici comment se passe une commande, de la première prise de contact à la mise en ligne, et ce qu'il faut vérifier avant de vous engager.</p>
 
 <h2>Ce que vous achetez vraiment</h2>
 <p>Quand vous commandez un site internet, vous payez en réalité plusieurs choses :</p>
@@ -53,10 +53,10 @@ ARTICLES = [
 </ul>
 
 <h2>En résumé</h2>
-<p>Commander un site internet se fait en quelques échanges : vous expliquez votre activité, vous validez une maquette, vous fournissez vos photos, et votre site est en ligne. Le bon prestataire vous dit clairement ce que vous achetez, vous laisse propriétaire de votre adresse et reste joignable après la mise en ligne.</p>
+<p>À Jérusalem comme partout en Israël, commander un site internet en français et en hébreu se fait en quelques échanges : vous expliquez votre activité, vous validez une maquette, vous fournissez vos photos, et votre site est en ligne. Le bon prestataire vous dit clairement ce que vous achetez, vous laisse propriétaire de votre adresse et reste joignable après la mise en ligne.</p>
 """},
  "he": {
-  "titre": "איך מזמינים אתר אינטרנט לעסק: כל השלבים",
+  "titre": "איך מזמינים אתר אינטרנט לעסק בירושלים ובישראל: כל השלבים",
   "desc": "הזמנה או קנייה של אתר אינטרנט לעסק: על מה בעצם משלמים, שלבי ההזמנה, מה צריך להכין ואילו שאלות לשאול לפני שמתחילים.",
   "corps": """
 <p class="chapo">לקנות אתר אינטרנט זה לא לקנות מוצר מוכן מהמדף: זה להזמין כלי שצריך להביא לקוחות לעסק. הנה איך נראית הזמנה של אתר, מהשיחה הראשונה ועד שהאתר באוויר, ומה כדאי לבדוק לפני שמתחייבים.</p>
