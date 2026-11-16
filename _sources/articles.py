@@ -3,6 +3,109 @@
 
 ARTICLES = [
 {
+ "slug": "commander-un-site-internet",
+ "fr": {
+  "titre": "Acheter ou commander un site internet pour son commerce : comment ça se passe",
+  "desc": "Commander ou acheter un site internet pour votre commerce : ce que vous achetez vraiment, les étapes de la commande, ce qu'il faut préparer et les questions à poser avant de signer.",
+  "corps": """
+<p class="chapo">Acheter un site internet, ce n'est pas acheter un objet tout fait : c'est commander un outil qui doit faire venir des clients dans votre commerce. Voici comment se passe une commande, de la première prise de contact à la mise en ligne, et ce qu'il faut vérifier avant de vous engager.</p>
+
+<h2>Ce que vous achetez vraiment</h2>
+<p>Quand vous commandez un site internet, vous payez en réalité plusieurs choses :</p>
+<ul>
+<li><strong>la conception</strong> : la structure des pages, le design, la version pour téléphone ;</li>
+<li><strong>les textes et les photos</strong>, ou l'aide pour les préparer ;</li>
+<li><strong>le nom de domaine</strong>, votre adresse sur internet (par exemple votre-commerce.co.il) ;</li>
+<li><strong>l'hébergement</strong>, le serveur qui affiche le site jour et nuit ;</li>
+<li><strong>le suivi</strong> : les petites modifications, les mises à jour, l'aide quand quelque chose ne va pas.</li>
+</ul>
+<p>Un prix qui paraît bas cache souvent l'absence d'une de ces briques. Demandez toujours ce qui est compris.</p>
+
+<h2>Acheter un site tout fait ou le commander sur mesure ?</h2>
+<p>Vous pouvez acheter un modèle de site sur une plateforme comme Wix et le remplir vous-même : c'est rapide à démarrer, mais il faut du temps pour écrire les textes, choisir les photos, gérer la version en hébreu et se faire trouver sur Google. Commander un site sur mesure coûte davantage au départ, mais vous obtenez un site pensé pour votre activité, prêt à recevoir vos clients, sans y passer vos soirées.</p>
+
+<h2>Les étapes d'une commande</h2>
+<ol>
+<li><strong>Le premier échange</strong> : vous décrivez votre commerce, vos clients et ce que le site doit faire (se présenter, prendre des rendez-vous, vendre en ligne).</li>
+<li><strong>La proposition</strong> : vous recevez une formule claire, avec ce qui est compris et le délai.</li>
+<li><strong>La maquette</strong> : un premier aperçu de votre site, que vous pouvez montrer autour de vous et faire modifier.</li>
+<li><strong>Les contenus</strong> : vos photos, vos horaires, vos produits ou services ; les textes sont rédigés avec vous, en français et en hébreu.</li>
+<li><strong>La mise en ligne</strong> : le site est publié à votre adresse, relié à WhatsApp et à votre fiche Google Maps.</li>
+<li><strong>Le suivi</strong> : un horaire qui change, une nouvelle photo, une promotion : un message suffit.</li>
+</ol>
+
+<h2>Ce qu'il faut préparer</h2>
+<ul>
+<li>quelques photos de votre commerce, de vos produits ou de vos réalisations ;</li>
+<li>vos horaires, votre adresse et votre numéro WhatsApp ;</li>
+<li>deux ou trois sites que vous aimez, pour donner une idée du style ;</li>
+<li>la liste de ce que vos clients vous demandent le plus souvent.</li>
+</ul>
+
+<h2>Les questions à poser avant de commander</h2>
+<ul>
+<li><strong>Le nom de domaine sera-t-il à mon nom ?</strong> Il doit l'être : c'est votre adresse, elle doit vous appartenir.</li>
+<li><strong>Le site fonctionnera-t-il bien sur téléphone ?</strong> La plupart de vos clients le verront sur leur portable.</li>
+<li><strong>Est-il prévu en hébreu et en français ?</strong> En Israël, un commerce gagne à parler aux deux publics.</li>
+<li><strong>Serai-je visible sur Google et Google Maps ?</strong> Un beau site que personne ne trouve ne sert à rien.</li>
+<li><strong>Combien coûtent les modifications et les frais annuels ?</strong></li>
+<li><strong>Quel est le délai de mise en ligne ?</strong></li>
+</ul>
+
+<h2>En résumé</h2>
+<p>Commander un site internet se fait en quelques échanges : vous expliquez votre activité, vous validez une maquette, vous fournissez vos photos, et votre site est en ligne. Le bon prestataire vous dit clairement ce que vous achetez, vous laisse propriétaire de votre adresse et reste joignable après la mise en ligne.</p>
+"""},
+ "he": {
+  "titre": "איך מזמינים אתר אינטרנט לעסק: כל השלבים",
+  "desc": "הזמנה או קנייה של אתר אינטרנט לעסק: על מה בעצם משלמים, שלבי ההזמנה, מה צריך להכין ואילו שאלות לשאול לפני שמתחילים.",
+  "corps": """
+<p class="chapo">לקנות אתר אינטרנט זה לא לקנות מוצר מוכן מהמדף: זה להזמין כלי שצריך להביא לקוחות לעסק. הנה איך נראית הזמנה של אתר, מהשיחה הראשונה ועד שהאתר באוויר, ומה כדאי לבדוק לפני שמתחייבים.</p>
+
+<h2>על מה בעצם משלמים</h2>
+<ul>
+<li><strong>עיצוב ובנייה</strong>: מבנה הדפים, העיצוב והגרסה לנייד;</li>
+<li><strong>טקסטים ותמונות</strong>, או עזרה בהכנתם;</li>
+<li><strong>שם דומיין</strong>: הכתובת שלכם באינטרנט;</li>
+<li><strong>אחסון</strong>: השרת שמציג את האתר מסביב לשעון;</li>
+<li><strong>ליווי</strong>: שינויים קטנים, עדכונים ועזרה כשמשהו לא עובד.</li>
+</ul>
+<p>מחיר שנראה נמוך מדי חסר בדרך כלל אחד מהרכיבים האלה. תמיד שאלו מה כלול.</p>
+
+<h2>אתר מוכן או אתר בהזמנה אישית?</h2>
+<p>אפשר לקנות תבנית בפלטפורמה כמו Wix ולמלא אותה לבד: מהיר להתחלה, אבל דורש זמן לכתיבה, לבחירת תמונות, לגרסה בצרפתית ולקידום בגוגל. אתר בהזמנה אישית עולה יותר בהתחלה, אבל מקבלים אתר שמותאם לעסק ומוכן לקבל לקוחות.</p>
+
+<h2>שלבי ההזמנה</h2>
+<ol>
+<li><strong>שיחה ראשונה</strong>: מתארים את העסק, את הלקוחות ומה האתר צריך לעשות.</li>
+<li><strong>הצעה</strong>: חבילה ברורה, מה כלול ותוך כמה זמן.</li>
+<li><strong>סקיצה</strong>: הצצה ראשונה לאתר, שאפשר להראות ולבקש בה שינויים.</li>
+<li><strong>תכנים</strong>: תמונות, שעות פתיחה, מוצרים או שירותים; את הטקסטים כותבים יחד, בעברית ובצרפתית.</li>
+<li><strong>עלייה לאוויר</strong>: האתר מתפרסם בכתובת שלכם, מחובר לוואטסאפ ולגוגל מפות.</li>
+<li><strong>ליווי</strong>: שעה שהשתנתה, תמונה חדשה, מבצע: מספיקה הודעה.</li>
+</ol>
+
+<h2>מה להכין</h2>
+<ul>
+<li>כמה תמונות של העסק, המוצרים או העבודות;</li>
+<li>שעות פתיחה, כתובת ומספר וואטסאפ;</li>
+<li>שניים־שלושה אתרים שאתם אוהבים, כדי לתת כיוון לסגנון.</li>
+</ul>
+
+<h2>שאלות לשאול לפני שמזמינים</h2>
+<ul>
+<li><strong>הדומיין יהיה רשום על שמי?</strong> הוא חייב להיות שלכם.</li>
+<li><strong>האתר יעבוד טוב בנייד?</strong> רוב הלקוחות יראו אותו בטלפון.</li>
+<li><strong>יש גרסה בעברית ובצרפתית?</strong></li>
+<li><strong>אופיע בגוגל ובגוגל מפות?</strong></li>
+<li><strong>כמה עולים שינויים והוצאות שנתיות?</strong></li>
+<li><strong>תוך כמה זמן האתר עולה?</strong></li>
+</ul>
+
+<h2>לסיכום</h2>
+<p>הזמנת אתר נעשית בכמה שיחות: מספרים על העסק, מאשרים סקיצה, שולחים תמונות, והאתר באוויר. ספק טוב אומר בבירור על מה משלמים, משאיר את הכתובת על שמכם ונשאר זמין גם אחרי העלייה לאוויר.</p>
+"""},
+},
+{
  "slug": "prix-site-internet-commerce-israel",
  "fr": {
   "titre": "Combien coûte un site internet pour un commerce en Israël ?",

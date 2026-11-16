@@ -226,7 +226,7 @@ details p { margin-top: 10px; color: var(--doux); max-width: 36em; }
 
 /* Conseils */
 #conseils { padding-top: 0; }
-.conseils { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; }
+.conseils { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 48px; }
 .conseil { display: grid; gap: 10px; align-content: start; padding-top: 22px; border-top: 3px solid var(--marine); color: var(--encre); text-decoration: none; }
 .conseil b { font-family: var(--titre); font-weight: 600; font-size: 21px; line-height: 1.25; }
 .conseil span { color: var(--doux); font-size: 16px; }
@@ -551,6 +551,7 @@ footer nav a:hover { color: #fff; }
     <div class="env questions">
       <div class="tete"><h2 data-t="q-titre">Vous vous demandez peut-être</h2></div>
       <div class="faq">
+        <details><summary data-t="q5">Comment commander un site internet chez vous ?</summary><p data-t="q5r">Écrivez-nous par le formulaire ou sur WhatsApp en quelques mots sur votre commerce. Nous vous préparons une maquette gratuite ; une fois validée, nous mettons votre site en ligne. Tout est expliqué dans notre article « Acheter ou commander un site internet ».</p></details>
         <details><summary data-t="q1">J'ai déjà un site, pouvez-vous le refaire ?</summary><p data-t="q1r">Oui. Nous reprenons vos textes et vos photos, et nous gardons votre adresse internet si vous en avez une.</p></details>
         <details><summary data-t="q2">Est-ce que je pourrai modifier mon site moi-même ?</summary><p data-t="q2r">Avec la formule Boutique, oui. Pour les autres, un message WhatsApp suffit : les petites modifications sont comprises dans l'abonnement.</p></details>
         <details><summary data-t="q3">Que faut-il préparer ?</summary><p data-t="q3r">Quelques photos de votre commerce et de vos produits, vos horaires, et c'est tout. Nous vous aidons pour les textes.</p></details>
@@ -563,6 +564,7 @@ footer nav a:hover { color: #fff; }
     <div class="env">
       <div class="tete"><h2 data-t="cs-titre">Bien démarrer sur internet</h2></div>
       <div class="conseils">
+        <a class="conseil" data-lien="commander-un-site-internet" href="/conseils/commander-un-site-internet/"><b data-t="c4">Acheter ou commander un site internet pour son commerce : comment ça se passe</b><span data-t="c4d">Ce que vous achetez vraiment, les étapes de la commande, ce qu'il faut préparer et les questions à poser avant de signer.</span><em data-t="c-lire">Lire l'article</em></a>
         <a class="conseil" data-lien="prix-site-internet-commerce-israel" href="/conseils/prix-site-internet-commerce-israel/"><b data-t="c1">Combien coûte un site internet pour un commerce en Israël ?</b><span data-t="c1d">Prix d'un site vitrine, d'un site avec rendez-vous ou d'une boutique en ligne en Israël : ce qui fait varier le coût, les frais annuels et les pièges à éviter.</span><em data-t="c-lire">Lire l'article</em></a>
         <a class="conseil" data-lien="apparaitre-google-maps-commerce-jerusalem" href="/conseils/apparaitre-google-maps-commerce-jerusalem/"><b data-t="c2">Comment apparaître sur Google Maps quand on a un commerce à Jérusalem</b><span data-t="c2d">Créer et optimiser la fiche Google de votre commerce à Jérusalem : catégorie, horaires, photos, avis clients et site internet, étape par étape.</span><em data-t="c-lire">Lire l'article</em></a>
         <a class="conseil" data-lien="site-internet-francais-hebreu" href="/conseils/site-internet-francais-hebreu/"><b data-t="c3">Site internet en français et en hébreu : pourquoi et comment le faire</b><span data-t="c3d">Pourquoi un commerce en Israël gagne à avoir un site bilingue français-hébreu, et comment bien le construire : traduction, sens de lecture, Google et WhatsApp.</span><em data-t="c-lire">Lire l'article</em></a>
@@ -642,11 +644,13 @@ footer nav a:hover { color: #fff; }
       apercu: "Aperçu : le formulaire est complet. Sur le site en ligne, cette demande arrivera directement dans votre boîte mail.",
       config: "Le formulaire n'est pas encore relié à une adresse email. Écrivez-nous directement en attendant.",
       "q-titre": "Vous vous demandez peut-être",
+      q5: "Comment commander un site internet chez vous ?", q5r: "Écrivez-nous par le formulaire ou sur WhatsApp en quelques mots sur votre commerce. Nous vous préparons une maquette gratuite ; une fois validée, nous mettons votre site en ligne. Tout est expliqué dans notre article « Acheter ou commander un site internet ».",
       q1: "J'ai déjà un site, pouvez-vous le refaire ?", q1r: "Oui. Nous reprenons vos textes et vos photos, et nous gardons votre adresse internet si vous en avez une.",
       q2: "Est-ce que je pourrai modifier mon site moi-même ?", q2r: "Avec la formule Boutique, oui. Pour les autres, un message WhatsApp suffit : les petites modifications sont comprises dans l'abonnement.",
       q3: "Que faut-il préparer ?", q3r: "Quelques photos de votre commerce et de vos produits, vos horaires, et c'est tout. Nous vous aidons pour les textes.",
       q4: "Travaillez-vous aussi avec la France ?", q4r: "Oui, tout se fait très bien à distance, par visio et par WhatsApp.",
       "cs-titre": "Bien démarrer sur internet", "c-lire": "Lire l'article",
+      c4: "Acheter ou commander un site internet pour son commerce : comment ça se passe", c4d: "Ce que vous achetez vraiment, les étapes de la commande, ce qu'il faut préparer et les questions à poser avant de signer.",
       c1: "Combien coûte un site internet pour un commerce en Israël ?", c1d: "Prix d'un site vitrine, d'un site avec rendez-vous ou d'une boutique en ligne en Israël : ce qui fait varier le coût, les frais annuels et les pièges à éviter.", c2: "Comment apparaître sur Google Maps quand on a un commerce à Jérusalem", c2d: "Créer et optimiser la fiche Google de votre commerce à Jérusalem : catégorie, horaires, photos, avis clients et site internet, étape par étape.", c3: "Site internet en français et en hébreu : pourquoi et comment le faire", c3d: "Pourquoi un commerce en Israël gagne à avoir un site bilingue français-hébreu, et comment bien le construire : traduction, sens de lecture, Google et WhatsApp.",
       pied1: "Création de sites pour commerces, à Jérusalem"
     },
@@ -700,20 +704,22 @@ footer nav a:hover { color: #fff; }
       apercu: "תצוגה מקדימה: הטופס מלא. באתר החי, הפנייה תגיע ישירות לתיבת המייל.",
       config: "הטופס עדיין לא מחובר לכתובת מייל. בינתיים כתבו לנו ישירות.",
       "q-titre": "אולי אתם שואלים את עצמכם",
+      q5: "איך מזמינים אצלכם אתר אינטרנט?", q5r: "כתבו לנו בטופס או בוואטסאפ כמה מילים על העסק. נכין לכם סקיצה בחינם, ואחרי שתאשרו אותה נעלה את האתר לאוויר. הכול מוסבר במאמר «איך מזמינים אתר אינטרנט לעסק».",
       q1: "כבר יש לי אתר, אפשר לבנות אותו מחדש?", q1r: "כן. אנחנו משתמשים בטקסטים ובתמונות שלכם, ושומרים על כתובת האתר אם יש לכם.",
       q2: "אוכל לשנות את האתר בעצמי?", q2r: "בחבילת חנות, כן. בשאר החבילות מספיקה הודעת וואטסאפ: שינויים קטנים כלולים במנוי.",
       q3: "מה צריך להכין?", q3r: "כמה תמונות של העסק והמוצרים ושעות הפתיחה, וזהו. בטקסטים אנחנו עוזרים.",
       q4: "אתם עובדים גם עם צרפת?", q4r: "כן, הכול עובד מצוין מרחוק, בווידאו ובוואטסאפ.",
       "cs-titre": "להתחיל נכון באינטרנט", "c-lire": "לקריאת המאמר",
+      c4: "איך מזמינים אתר אינטרנט לעסק: כל השלבים", c4d: "על מה בעצם משלמים, שלבי ההזמנה, מה צריך להכין ואילו שאלות לשאול לפני שמתחילים.",
       c1: "כמה עולה אתר לעסק קטן בישראל?", c1d: "מחיר של אתר תדמית, אתר עם קביעת תורים או חנות אונליין בישראל: מה משפיע על העלות, מה ההוצאות השנתיות וממה להיזהר.", c2: "איך להופיע בגוגל מפות עם עסק בירושלים", c2d: "פתיחה ושיפור של כרטיס העסק בגוגל לעסק בירושלים: קטגוריה, שעות פתיחה, תמונות, ביקורות ואתר, שלב אחר שלב.", c3: "אתר בעברית ובצרפתית: למה ואיך", c3d: "למה עסק בישראל מרוויח מאתר דו־לשוני בעברית ובצרפתית, ואיך לבנות אותו נכון: תרגום, כיוון קריאה, גוגל ווואטסאפ.",
       pied1: "בניית אתרים לעסקים בירושלים"
     }
   };
   let langue = "fr";
   const META = {
-    fr: { titre: "Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi",
-          desc: "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne rapidement. Jérusalem, Israël et France." },
-    he: { titre: "בניית אתרים לעסקים בירושלים, בעברית ובצרפתית | משה מאיז ברבי",
+    fr: { titre: "Créer, acheter ou commander un site internet pour votre commerce | Jérusalem, Israël",
+          desc: "Commandez le site internet de votre commerce, en français et en hébreu : visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Maquette gratuite, vitrine ou boutique en ligne. Jérusalem, Israël et France." },
+    he: { titre: "בניית אתרים והזמנת אתר אינטרנט לעסק בירושלים, בעברית ובצרפתית",
           desc: "האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, עלייה מהירה לאוויר. ירושלים, ישראל וצרפת." }
   };
   // Sur le site publié, chaque langue a sa propre adresse (meilleur référencement).

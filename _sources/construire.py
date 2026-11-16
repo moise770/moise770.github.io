@@ -10,10 +10,10 @@ STATS = """<!-- Cloudflare Web Analytics --><script type='module' src='https://s
 BASE = "https://moiseberrebi.com"
 
 META = {
-    "fr": ("Création de sites pour commerces à Jérusalem, en français et en hébreu | Moïse Berrebi",
-           "Le site de votre commerce en français et en hébreu, visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Vitrine, Vitrine + ou boutique en ligne, en ligne rapidement. Jérusalem, Israël et France.",
+    "fr": ("Créer, acheter ou commander un site internet pour votre commerce | Jérusalem, Israël",
+           "Commandez le site internet de votre commerce, en français et en hébreu : visible sur Google Maps, avec WhatsApp et prise de rendez-vous. Maquette gratuite, vitrine ou boutique en ligne. Jérusalem, Israël et France.",
            "fr_FR", "/"),
-    "he": ("בניית אתרים לעסקים בירושלים, בעברית ובצרפתית | משה מאיז ברבי",
+    "he": ("בניית אתרים והזמנת אתר אינטרנט לעסק בירושלים, בעברית ובצרפתית",
            "האתר של העסק שלכם בעברית ובצרפתית, מופיע בגוגל מפות, עם וואטסאפ וקביעת תורים. אתר תדמית או חנות אונליין, עלייה מהירה לאוויר. ירושלים, ישראל וצרפת.",
            "he_IL", "/he/"),
 }
@@ -27,7 +27,7 @@ def jsonld(lang):
         "address": {"@type": "PostalAddress", "addressLocality": "Jérusalem" if lang == "fr" else "ירושלים", "addressCountry": "IL"},
         "areaServed": [{"@type": "City", "name": "Jerusalem"}, {"@type": "Country", "name": "Israel"}, {"@type": "Country", "name": "France"}],
         "availableLanguage": ["fr", "he"],
-        "serviceType": ["Création de sites internet", "Boutique en ligne", "Référencement local Google Maps"],
+        "serviceType": ["Création de sites internet", "Commande de site internet sur mesure", "Boutique en ligne", "Référencement local Google Maps"],
     }
     site = {
         "@context": "https://schema.org", "@type": "WebSite",
