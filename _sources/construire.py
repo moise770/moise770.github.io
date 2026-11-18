@@ -2,7 +2,7 @@
 import json, os, re
 from playwright.sync_api import sync_playwright
 from articles import ARTICLES
-import pages_articles
+import pages_articles, pages_ivrit
 
 SRC = "/home/claude/sites_demo"
 DEST = "/home/claude/moise770.github.io"
@@ -108,6 +108,11 @@ def main():
             os.makedirs(DEST + ch, exist_ok=True)
             open(DEST + ch + "index.html", "w").write(pages_articles.page(a, lang))
             urls.append(ch)
+    for cle in pages_ivrit.PAGES:
+        ch = pages_ivrit.chemin(cle)
+        os.makedirs(DEST + ch, exist_ok=True)
+        open(DEST + ch + "index.html", "w").write(pages_ivrit.page(cle))
+        urls.append(ch)
     open(f"{DEST}/sitemap.xml", "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         "".join(f"  <url><loc>{BASE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
     open(f"{DEST}/CNAME", "w").write("moiseberrebi.com\n")  # adresse personnalisée GitHub Pages

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ivrit — conditions d&#x27;utilisation</title>
+<meta name="description" content="Conditions d&#x27;utilisation et d&#x27;abonnement de l&#x27;application Ivrit.">
+<link rel="canonical" href="https://moiseberrebi.com/ivrit/conditions/">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Heebo:wght@400;500;700&display=swap">
+<style>
+:root {
+  --encre-nuit: #0e1f40;   /* fonds sombres : accueil, formule mise en avant, contact */
+  --marine: #1f3a6e;
+  --bleu: #2f7fd8;
+  --fil: #8fb8f2;          /* le fil sur fond sombre */
+  --ivoire: #f6f4ef;
+  --papier: #ffffff;
+  --encre: #15213d;
+  --doux: #56617a;
+  --trait: #e2dfd7;
+  --sur-nuit: #e8eefb;
+  --sur-nuit-doux: #a9b6d3;
+  --ok: #1f8a57;
+  --erreur: #c0392b;
+  --titre: "Rubik", "Heebo", system-ui, sans-serif;
+  --texte: "Heebo", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ivoire: #0b1730; --papier: #12213f; --encre: #e8eefb; --doux: #a9b6d3; --trait: #24365c;
+    --marine: #9cc0f5; --bleu: #6aa7f0; --encre-nuit: #071027; --ok: #5fd39a; --erreur: #f08a7c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ivoire: #0b1730; --papier: #12213f; --encre: #e8eefb; --doux: #a9b6d3; --trait: #24365c;
+  --marine: #9cc0f5; --bleu: #6aa7f0; --encre-nuit: #071027; --ok: #5fd39a; --erreur: #f08a7c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ivoire); color: var(--encre); font: 18px/1.7 var(--texte); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--titre); font-weight: 600; line-height: 1.15; margin: 0; letter-spacing: -0.015em; text-wrap: balance; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { letter-spacing: 0; }
+a { color: var(--bleu); }
+:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; border-radius: 4px; }
+.env { max-width: 760px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header { background: var(--encre-nuit); color: var(--sur-nuit); }
+header .env { max-width: 1180px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.logo { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; line-height: 1.2; }
+.logo svg { width: 36px; height: 36px; flex: none; }
+.logo b { font-family: var(--titre); font-weight: 600; }
+.logo small { display: block; color: var(--sur-nuit-doux); font-size: 13px; }
+.langue { font-weight: 700; text-decoration: none; color: var(--sur-nuit); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+.fil { font-size: 14.5px; color: var(--doux); margin: 32px 0 14px; }
+.fil a { color: var(--doux); }
+article h1 { font-size: clamp(32px, 5vw, 46px); }
+.date { color: var(--doux); font-size: 14.5px; margin: 12px 0 28px; }
+.chapo { font-size: 20px; }
+article h2 { font-size: 28px; margin: 44px 0 10px; color: var(--marine); }
+article h3 { font-size: 21px; margin: 24px 0 6px; }
+article li { margin-bottom: 8px; }
+.appel { margin: 56px 0; background: var(--encre-nuit); color: var(--sur-nuit); border-radius: 22px; padding: 30px; display: grid; gap: 12px; }
+.appel h2 { font-size: 26px; color: #fff; }
+.appel p { margin: 0; color: var(--sur-nuit-doux); }
+.bouton { justify-self: start; background: var(--bleu); color: #fff; text-decoration: none; font-weight: 700; border-radius: 999px; padding: 13px 24px; margin-top: 6px; }
+.lire { font-size: 24px; margin-bottom: 8px; }
+.autres { display: grid; padding: 0; margin: 0; list-style: none; }
+.autres a { display: block; border-top: 1px solid var(--trait); padding: 16px 0; text-decoration: none; color: var(--encre); font-weight: 700; }
+.autres a:hover { color: var(--bleu); }
+footer { background: var(--encre-nuit); margin-top: 64px; }
+footer .env { max-width: 1180px; padding-block: 32px; font-size: 14.5px; color: var(--sur-nuit-doux); }
+</style>
+<style>
+.carte { border: 1px solid var(--trait); border-radius: 16px; padding: 18px 22px; margin: 18px 0; }
+.carte p { margin: 6px 0; }
+.liens { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; list-style: none; margin: 28px 0 0; }
+dt { font-weight: 700; margin-top: 18px; }
+dd { margin: 4px 0 0; }
+</style>
+</head>
+<body>
+<header><div class="env">
+  <a class="logo" href="/ivrit/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#8fb8f2"/><text x="32" y="44" text-anchor="middle" font-size="34" font-weight="700" fill="#0e1f40" font-family="Heebo, sans-serif">א</text></svg><span><b>Ivrit</b><small>Apprendre l'hébreu en lisant</small></span></a>
+</div></header>
+<main class="env">
+  <nav class="fil" aria-label="Fil d'Ariane"><a href="/ivrit/">Ivrit</a> › Conditions d&#x27;utilisation</nav>
+  <article>
+    <h1>Conditions d&#x27;utilisation</h1>
+    <p class="date">Mis à jour le 18 novembre 2026</p>
+<p class="chapo">Ces conditions s'appliquent à l'application Ivrit pour iPhone, éditée par Moïse Berrebi, entrepreneur individuel à Jérusalem (Israël). En utilisant Ivrit, tu les acceptes, ainsi que le <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">contrat de licence standard d'Apple pour les applications (EULA)</a>, qui s'applique en complément.</p>
+
+<h2>1. Le service</h2>
+<p>Ivrit aide à apprendre l'hébreu avec des textes, des explications corrigées, des révisions espacées et des discussions. Une partie des contenus (textes écrits pour toi, corrections, discussions) est produite par une intelligence artificielle : elle peut se tromper, notamment sur la vocalisation ou une traduction. Ivrit est un outil d'apprentissage et ne remplace pas un enseignant.</p>
+
+<h2>2. Abonnements</h2>
+<ul>
+  <li>Deux formules sont proposées, Essentiel et Intensif, chacune au mois ou à l'année. Le prix exact, dans ta monnaie, est affiché dans l'application avant tout achat.</li>
+  <li>Le paiement est débité sur ton compte Apple à la confirmation de l'achat, ou à la fin de l'essai gratuit s'il y en a un.</li>
+  <li>L'abonnement se renouvelle automatiquement pour la même durée, sauf si tu l'annules au moins 24 heures avant la fin de la période en cours. Le renouvellement est débité dans les 24 heures qui précèdent cette fin.</li>
+  <li>Tu peux gérer ou annuler ton abonnement dans les réglages de ton compte Apple (Réglages › ton nom › Abonnements). L'annulation prend effet à la fin de la période déjà payée.</li>
+  <li>Essai gratuit : 7 jours, une seule fois par compte Apple. Si tu t'abonnes pendant l'essai, la partie non utilisée de l'essai est perdue.</li>
+  <li>Les remboursements sont gérés par Apple, selon ses règles.</li>
+</ul>
+
+<h2>3. Limites d'usage</h2>
+<p>Chaque formule comprend un nombre de textes écrits par l'intelligence artificielle et de discussions par jour, indiqué dans l'application. Pour garder le service disponible pour tous, un plafond technique par appareil et par jour s'applique aussi. Les limites se remettent à zéro chaque jour.</p>
+
+<h2>4. Bon usage</h2>
+<p>Tu t'engages à ne pas détourner Ivrit de son but : pas de tentative de contourner les limites, de copier l'application ou ses contenus pour les revendre, ni de faire produire à l'intelligence artificielle des contenus illégaux ou blessants.</p>
+
+<h2>5. Contenus</h2>
+<p>L'application, ses textes prêts, sa liste de mots et son design appartiennent à l'éditeur. Les textes que tu écris dans Ivrit t'appartiennent.</p>
+
+<h2>6. Responsabilité</h2>
+<p>Ivrit est fourni tel quel. Je fais de mon mieux pour qu'il fonctionne et que ses contenus soient justes, sans pouvoir garantir l'absence d'erreur ou d'interruption. Rien dans ces conditions ne limite les droits que la loi te reconnaît en tant que consommateur.</p>
+
+<h2>7. Changements</h2>
+<p>Ces conditions peuvent évoluer. En cas de changement important, tu en seras informé dans l'application. La date de mise à jour figure en haut de cette page.</p>
+
+<h2>8. Contact</h2>
+<p>Moïse Berrebi, Jérusalem, Israël — <a href="mailto:moscheberrebi@gmail.com?subject=Ivrit">moscheberrebi@gmail.com</a></p>
+  </article>
+</main>
+<footer><div class="env">Ivrit · Moïse Berrebi · Jérusalem · <a href="/ivrit/" style="color:inherit">Aide</a> · <a href="/ivrit/conditions/" style="color:inherit">Conditions</a> · <a href="/ivrit/confidentialite/" style="color:inherit">Confidentialité</a></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c37bb9093bd64924b32423af388350af"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

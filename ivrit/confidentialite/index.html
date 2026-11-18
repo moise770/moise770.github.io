@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ivrit — politique de confidentialité</title>
+<meta name="description" content="Ce que l&#x27;application Ivrit collecte, pourquoi, et ce qu&#x27;elle ne fait pas.">
+<link rel="canonical" href="https://moiseberrebi.com/ivrit/confidentialite/">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Heebo:wght@400;500;700&display=swap">
+<style>
+:root {
+  --encre-nuit: #0e1f40;   /* fonds sombres : accueil, formule mise en avant, contact */
+  --marine: #1f3a6e;
+  --bleu: #2f7fd8;
+  --fil: #8fb8f2;          /* le fil sur fond sombre */
+  --ivoire: #f6f4ef;
+  --papier: #ffffff;
+  --encre: #15213d;
+  --doux: #56617a;
+  --trait: #e2dfd7;
+  --sur-nuit: #e8eefb;
+  --sur-nuit-doux: #a9b6d3;
+  --ok: #1f8a57;
+  --erreur: #c0392b;
+  --titre: "Rubik", "Heebo", system-ui, sans-serif;
+  --texte: "Heebo", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ivoire: #0b1730; --papier: #12213f; --encre: #e8eefb; --doux: #a9b6d3; --trait: #24365c;
+    --marine: #9cc0f5; --bleu: #6aa7f0; --encre-nuit: #071027; --ok: #5fd39a; --erreur: #f08a7c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ivoire: #0b1730; --papier: #12213f; --encre: #e8eefb; --doux: #a9b6d3; --trait: #24365c;
+  --marine: #9cc0f5; --bleu: #6aa7f0; --encre-nuit: #071027; --ok: #5fd39a; --erreur: #f08a7c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ivoire); color: var(--encre); font: 18px/1.7 var(--texte); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--titre); font-weight: 600; line-height: 1.15; margin: 0; letter-spacing: -0.015em; text-wrap: balance; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { letter-spacing: 0; }
+a { color: var(--bleu); }
+:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; border-radius: 4px; }
+.env { max-width: 760px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+header { background: var(--encre-nuit); color: var(--sur-nuit); }
+header .env { max-width: 1180px; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.logo { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; line-height: 1.2; }
+.logo svg { width: 36px; height: 36px; flex: none; }
+.logo b { font-family: var(--titre); font-weight: 600; }
+.logo small { display: block; color: var(--sur-nuit-doux); font-size: 13px; }
+.langue { font-weight: 700; text-decoration: none; color: var(--sur-nuit); border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 14px; white-space: nowrap; }
+.fil { font-size: 14.5px; color: var(--doux); margin: 32px 0 14px; }
+.fil a { color: var(--doux); }
+article h1 { font-size: clamp(32px, 5vw, 46px); }
+.date { color: var(--doux); font-size: 14.5px; margin: 12px 0 28px; }
+.chapo { font-size: 20px; }
+article h2 { font-size: 28px; margin: 44px 0 10px; color: var(--marine); }
+article h3 { font-size: 21px; margin: 24px 0 6px; }
+article li { margin-bottom: 8px; }
+.appel { margin: 56px 0; background: var(--encre-nuit); color: var(--sur-nuit); border-radius: 22px; padding: 30px; display: grid; gap: 12px; }
+.appel h2 { font-size: 26px; color: #fff; }
+.appel p { margin: 0; color: var(--sur-nuit-doux); }
+.bouton { justify-self: start; background: var(--bleu); color: #fff; text-decoration: none; font-weight: 700; border-radius: 999px; padding: 13px 24px; margin-top: 6px; }
+.lire { font-size: 24px; margin-bottom: 8px; }
+.autres { display: grid; padding: 0; margin: 0; list-style: none; }
+.autres a { display: block; border-top: 1px solid var(--trait); padding: 16px 0; text-decoration: none; color: var(--encre); font-weight: 700; }
+.autres a:hover { color: var(--bleu); }
+footer { background: var(--encre-nuit); margin-top: 64px; }
+footer .env { max-width: 1180px; padding-block: 32px; font-size: 14.5px; color: var(--sur-nuit-doux); }
+</style>
+<style>
+.carte { border: 1px solid var(--trait); border-radius: 16px; padding: 18px 22px; margin: 18px 0; }
+.carte p { margin: 6px 0; }
+.liens { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 0; list-style: none; margin: 28px 0 0; }
+dt { font-weight: 700; margin-top: 18px; }
+dd { margin: 4px 0 0; }
+</style>
+</head>
+<body>
+<header><div class="env">
+  <a class="logo" href="/ivrit/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#8fb8f2"/><text x="32" y="44" text-anchor="middle" font-size="34" font-weight="700" fill="#0e1f40" font-family="Heebo, sans-serif">א</text></svg><span><b>Ivrit</b><small>Apprendre l'hébreu en lisant</small></span></a>
+</div></header>
+<main class="env">
+  <nav class="fil" aria-label="Fil d'Ariane"><a href="/ivrit/">Ivrit</a> › Politique de confidentialité</nav>
+  <article>
+    <h1>Politique de confidentialité</h1>
+    <p class="date">Mis à jour le 18 novembre 2026</p>
+<p class="chapo">En bref : pas de compte, pas de publicité, pas de pistage. Tes progrès restent sur ton iPhone. Seuls les textes que tu demandes à l'intelligence artificielle de traiter quittent l'appareil, et seulement si tu l'as activée.</p>
+
+<h2>Qui est responsable</h2>
+<p>Moïse Berrebi, entrepreneur individuel, Jérusalem (Israël). Contact : <a href="mailto:moscheberrebi@gmail.com?subject=Ivrit%20confidentialit%C3%A9">moscheberrebi@gmail.com</a>.</p>
+
+<h2>Ce qui reste sur ton iPhone</h2>
+<p>Ton niveau, les mots que tu connais, tes révisions, tes textes et ta courbe de progression sont enregistrés uniquement sur ton appareil. Je n'y ai pas accès. Ils sont effacés si tu supprimes l'application.</p>
+<p>La dictée utilise la reconnaissance vocale d'Apple, directement sur l'iPhone quand il le permet. L'accès au micro n'est demandé que lorsque tu touches le bouton de dictée.</p>
+
+<h2>Ce qui est envoyé quand l'intelligence artificielle est activée</h2>
+<p>L'intelligence artificielle est désactivée tant que tu ne l'as pas acceptée, et tu peux la couper à tout moment dans Réglages. Quand elle est active, et seulement au moment où tu l'utilises, Ivrit envoie :</p>
+<ul>
+  <li>le contenu nécessaire à la demande : ton niveau, le thème choisi, l'explication que tu as écrite ou dictée, les messages de la discussion, ou le texte à vocaliser ;</li>
+  <li>un identifiant d'appareil aléatoire, créé par Ivrit et sans lien avec ton identité, ton compte Apple ou l'identifiant publicitaire. Il sert uniquement à compter tes demandes du jour.</li>
+</ul>
+<p>Ces données passent par un relais que j'exploite chez Cloudflare, puis sont traitées par l'API d'<a href="https://www.anthropic.com/legal/privacy">Anthropic</a> (modèles Claude), qui produit la réponse. Le relais n'enregistre pas le contenu de tes demandes ; il garde seulement un compteur par identifiant d'appareil et par jour, effacé automatiquement au bout de 2 jours. Anthropic n'utilise pas les données envoyées par son API pour entraîner ses modèles, et peut les conserver une durée limitée pour la sécurité du service, selon sa propre politique.</p>
+<p>N'écris pas d'informations personnelles sensibles dans tes explications ou tes discussions : ce n'est jamais nécessaire pour apprendre.</p>
+
+<h2>Achats</h2>
+<p>Les abonnements sont gérés par Apple. Je ne reçois ni ton nom, ni ton adresse e-mail, ni tes coordonnées bancaires ; l'application sait seulement si un abonnement est actif.</p>
+
+<h2>Ce qu'Ivrit ne fait pas</h2>
+<ul>
+  <li>Pas de compte à créer, pas de publicité, pas d'outil de mesure d'audience ni de pistage dans l'application.</li>
+  <li>Aucune donnée vendue ni partagée à des fins commerciales.</li>
+</ul>
+
+<h2>Tes droits</h2>
+<p>Comme je ne détiens pas de données permettant de t'identifier, il n'y a en principe rien à consulter ni à effacer de mon côté. Pour toute question ou demande, écris-moi : je réponds sous 30 jours. Tu peux aussi saisir l'autorité de protection des données de ton pays (en France, la CNIL ; en Israël, l'Autorité de protection de la vie privée).</p>
+
+<h2>Enfants</h2>
+<p>Ivrit ne s'adresse pas spécialement aux enfants de moins de 13 ans et ne collecte sciemment aucune donnée les concernant.</p>
+
+<h2>Changements</h2>
+<p>Si cette politique change de façon importante, tu en seras informé dans l'application. La date de mise à jour figure en haut de cette page.</p>
+  </article>
+</main>
+<footer><div class="env">Ivrit · Moïse Berrebi · Jérusalem · <a href="/ivrit/" style="color:inherit">Aide</a> · <a href="/ivrit/conditions/" style="color:inherit">Conditions</a> · <a href="/ivrit/confidentialite/" style="color:inherit">Confidentialité</a></div></footer>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c37bb9093bd64924b32423af388350af"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
